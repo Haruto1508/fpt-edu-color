@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'Dela Gothic One';
+  src: url('./assets/fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./assets/fonts/Be_Vietnam_Pro/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./assets/fonts/Be_Vietnam_Pro/Be_Vietnam_Pro/BeVietnamPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./assets/fonts/Be_Vietnam_Pro/Be_Vietnam_Pro/BeVietnamPro-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./assets/fonts/Be_Vietnam_Pro/Be_Vietnam_Pro/BeVietnamPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./assets/fonts/Be_Vietnam_Pro/Be_Vietnam_Pro/BeVietnamPro-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./assets/fonts/Be_Vietnam_Pro/Be_Vietnam_Pro/BeVietnamPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --blue: #001ed3;
+  --yellow: #ffd147;
+  --red: #ff5a5f;
+  --green: #00d26a;
+  --black: #111111;
+  --white: #FAF7F2;
+  --light-gray: #f9f9f9;
+  --border-color: #111111;
+  --border-width: 2.5px;
+  --shadow-offset: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.neo-border {
+  border: var(--border-width) solid var(--border-color);
+}
+
+.neo-shadow {
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--border-color);
+}
+
+.neo-shadow-hover {
+  transition: all 0.2s ease;
+}
+
+.neo-shadow-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0px var(--border-color);
+}
+
+.neo-shadow-active:active {
+  transform: translate(var(--shadow-offset), var(--shadow-offset));
+  box-shadow: 0px 0px 0px var(--border-color);
+}
+
+.hero-title, .sticky-note-text, .trending-title, .card-title, .quote-text, .explore-title, .graphic-text-3d, .word-title, .meaning-main, .examples-title, .example-box, .story-title, .mission-title, .process-title, .team-title, .logo {
+  font-family: 'Dela Gothic One', cursive;
+  font-weight: 400; /* Dela Gothic One usually only has weight 400 */
+}

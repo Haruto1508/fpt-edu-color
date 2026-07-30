@@ -1,0 +1,595 @@
+[
+  {
+    "slug": "cha-ba", "color": "red", "tag": "Đời sống", "hashtag": "#chaba", "title": "CHÀ BÁ", "subtitle": "To, bự, lớn, khổng lồ",
+    "desc": "To, bự, lớn, khổng lồ.<br/><br/>VD: Ổ bánh mì chà bá", "meaningMain": "rất to, rất lớn, khổng lồ.",
+    "meaningDesc": "\"Chà bá\" là cách nói cường điệu để nhấn mạnh kích thước. Người miền Tây dùng từ này rất thường xuyên.",
+    "examples": ["\"Ổ bánh mì chà bá.\"", "\"Cái núi chà bá lửa\""],
+    "storyLines": ["Người miền Tây thích cách nói giàu hình ảnh.", "Đó là nét hài hước rất đặc trưng."]
+  },
+  {
+    "slug": "ran-ran", "color": "green", "tag": "Đời sống", "hashtag": "#ranran", "title": "RẦN RẦN", "subtitle": "Đông đúc, ồn ào, náo nhiệt",
+    "desc": "Đông đúc, ồn ào, náo nhiệt.<br/><br/>VD: Đám cưới rần rần", "meaningMain": "nhộn nhịp, đông vui.",
+    "meaningDesc": "Mô tả không khí sôi động, đông người tụ tập.",
+    "examples": ["\"Bà con kéo tới rần rần.\"", "\"Đang hot rần rần trên mạng.\""],
+    "storyLines": ["Thích sự đông vui náo nhiệt.", "Chuyện gì vui là bà con gom lại."]
+  },
+  {
+    "slug": "ta-la", "color": "blue", "tag": "Đời sống", "hashtag": "#tala", "title": "TÁ LẢ", "subtitle": "Nhiều quá, lộn xộn, đủ thứ",
+    "desc": "Nhiều quá, lộn xộn, đủ thứ.<br/><br/>VD: Đồ đạc tá lả", "meaningMain": "rất nhiều, đa dạng.",
+    "meaningDesc": "Chỉ sự phong phú hoặc đôi khi là bừa bộn.",
+    "examples": ["\"Bán tá lả âm binh.\"", "\"Mua đồ tá lả.\""],
+    "storyLines": ["Miền Tây sông nước trù phú nên cái gì cũng nhiều.", "Nói tá lả cho lẹ."]
+  },
+  {
+    "slug": "het-say", "color": "yellow", "tag": "Đời sống", "hashtag": "#hetsay", "title": "HẾT SẨY", "subtitle": "Rất tuyệt, hoàn hảo",
+    "desc": "Rất tuyệt, hoàn hảo.<br/><br/>VD: Tuyệt vời hết sẩy", "meaningMain": "tuyệt đỉnh, không chê vào đâu được.",
+    "meaningDesc": "Dùng để khen ngợi mọi thứ từ đồ ăn tới cảnh đẹp.",
+    "examples": ["\"Cảnh đẹp hết sẩy.\"", "\"Mát mẻ hết sẩy con bà bảy.\""],
+    "storyLines": ["Khen là phải khen tới bến.", "Tính cách sảng khoái của người Nam."]
+  },
+  {
+    "slug": "xi-xon", "color": "red", "tag": "Con người", "hashtag": "#xixon", "title": "XÍ XỌN", "subtitle": "Trang điểm, mặc đẹp, điệu đà",
+    "desc": "Trang điểm, mặc đẹp, điệu đà.<br/><br/>VD: Nhỏ đó xí xọn ghê.", "meaningMain": "làm dáng, hay chưng diện.",
+    "meaningDesc": "Ám chỉ sự điệu đà, thích trang điểm.",
+    "examples": ["\"Bữa nay xí xọn quá hen!\"", "\"Thích xí xọn từ bé.\""],
+    "storyLines": ["Mộc mạc nhưng cũng rất thích cái đẹp.", "Từ này mang sắc thái vui vẻ."]
+  },
+  {
+    "slug": "banh-ton", "color": "yellow", "tag": "Con người", "hashtag": "#banhton", "title": "BẢNH TỎN", "subtitle": "Đẹp, lịch sự, phong độ",
+    "desc": "Đẹp, lịch sự, phong độ.<br/><br/>VD: Nay bảnh tỏn dữ hen!", "meaningMain": "chải chuốt, ăn mặc sang trọng.",
+    "meaningDesc": "Dùng khen người đàn ông ăn mặc đẹp đẽ hơn ngày thường.",
+    "examples": ["\"Nay bảnh tỏn dữ!\"", "\"Chú rể hôm nay bảnh tỏn quá.\""],
+    "storyLines": ["Lúc cần cũng rất tươm tất.", "Lời khen mang lại niềm vui nho nhỏ."]
+  },
+  {
+    "slug": "tanh-tanh", "color": "blue", "tag": "Con người", "hashtag": "#tanhtanh", "title": "TÀNH TÀNH", "subtitle": "Thong thả, không vội, từ từ",
+    "desc": "Thong thả, không vội, từ từ.<br/><br/>VD: Đi tành tành thôi.", "meaningMain": "thong thả, nhẩn nha.",
+    "meaningDesc": "Làm việc gì đó chậm rãi, không gấp gáp.",
+    "examples": ["\"Cứ chạy tành tành ra chợ.\"", "\"Làm tành tành cũng xong.\""],
+    "storyLines": ["Nhịp sống bình dị.", "Không chen lấn, vội vã."]
+  },
+  {
+    "slug": "cuc-suc", "color": "green", "tag": "Con người", "hashtag": "#cucsuc", "title": "CỤC SÚC", "subtitle": "Nóng tính, thô lỗ, dễ quạo",
+    "desc": "Nóng tính, thô lỗ, dễ quạo.<br/><br/>VD: Đừng có cục súc.", "meaningMain": "thái độ thô lỗ, cáu bẳn.",
+    "meaningDesc": "Người hay nóng giận vô cớ.",
+    "examples": ["\"Nói chuyện cục súc ghê.\"", "\"Ổng đang cục súc đó.\""],
+    "storyLines": ["Người miền Tây có sao nói vậy.", "Nhưng đôi khi cũng thẳng thắn quá mức."]
+  },
+  {
+    "slug": "mung-hum", "color": "blue", "tag": "Cảm xúc", "hashtag": "#munghum", "title": "MỪNG HÚM", "subtitle": "Vui mừng, yêu thích bất ngờ",
+    "desc": "Vui mừng, yêu thích bất ngờ.<br/><br/>VD: Mừng húm chạy ra.", "meaningMain": "vui vẻ, phấn khích bất ngờ.",
+    "meaningDesc": "Diễn tả cảm xúc mừng rỡ không giấu được ra mặt.",
+    "examples": ["\"Nghe tin đậu đại học, mừng húm.\"", "\"Được cho tiền, mừng húm.\""],
+    "storyLines": ["Cảm xúc chân thật, có sao nói vậy.", "Niềm vui hiện rõ trên nụ cười."]
+  },
+  {
+    "slug": "queo", "color": "red", "tag": "Cảm xúc", "hashtag": "#queo", "title": "QUÉO", "subtitle": "Sợ hãi, co rúm, bất ngờ",
+    "desc": "Sợ hãi, co rúm, bất ngờ.<br/><br/>VD: Sợ teo quéo.", "meaningMain": "sợ điếng người, hoảng hốt.",
+    "meaningDesc": "Sợ đến mức không nói nên lời.",
+    "examples": ["\"Chó sủa cái quéo luôn.\"", "\"Sợ quéo râu.\""],
+    "storyLines": ["Cách nói hình tượng hài hước.", "Làm giảm nhẹ đi sự sợ hãi."]
+  },
+  {
+    "slug": "que-xe", "color": "yellow", "tag": "Cảm xúc", "hashtag": "#quexe", "title": "QUÊ XỆ", "subtitle": "Xấu hổ, ngượng ngùng, bẽ mặt",
+    "desc": "Xấu hổ, ngượng ngùng, bẽ mặt.<br/><br/>VD: Làm rớt đồ quê xệ.", "meaningMain": "rất xấu hổ.",
+    "meaningDesc": "Cảm giác bị hớ trước đám đông.",
+    "examples": ["\"Chào lộn người, quê xệ.\"", "\"Quê xệ mặt luôn.\""],
+    "storyLines": ["Chọc ghẹo nhau là niềm vui.", "Quê thì chịu thôi."]
+  },
+  {
+    "slug": "suong-ron", "color": "green", "tag": "Cảm xúc", "hashtag": "#suongron", "title": "SƯỚNG RƠN", "subtitle": "Vui sướng tột độ, đã đời",
+    "desc": "Vui sướng tột độ, đã đời.<br/><br/>VD: Được ăn sướng rơn.", "meaningMain": "vui sướng tột đỉnh.",
+    "meaningDesc": "Niềm vui lớn được thỏa mãn.",
+    "examples": ["\"Cầm cục tiền sướng rơn.\"", "\"Sướng rơn trong bụng.\""],
+    "storyLines": ["Cảm giác mãn nguyện.", "Nụ cười thả ga của dân miền Tây."]
+  },
+  {
+    "slug": "man", "color": "green", "tag": "Sinh hoạt", "hashtag": "#man", "title": "MẦN", "subtitle": "Làm việc, lao động",
+    "desc": "Làm việc, lao động.<br/><br/>VD: Đi mần ăn.", "meaningMain": "làm.",
+    "meaningDesc": "Từ \"làm\" được phát âm thành \"mần\" rất mộc mạc.",
+    "examples": ["\"Nay tui đi mần.\"", "\"Mần lụng vất vả.\""],
+    "storyLines": ["Gắn liền với hình ảnh người nông dân.", "Chăm chỉ chịu thương chịu khó."]
+  },
+  {
+    "slug": "lum", "color": "blue", "tag": "Sinh hoạt", "hashtag": "#lum", "title": "LỤM", "subtitle": "Nhặt, lấy, hoàn thành",
+    "desc": "Nhặt, lấy, hoàn thành.<br/><br/>VD: Lụm nó luôn.", "meaningMain": "nhặt lên, thu phục.",
+    "meaningDesc": "Nghĩa gốc là nhặt, nay dùng như lấy hoặc chốt đơn.",
+    "examples": ["\"Rớt kìa, lụm lên.\"", "\"Lụm ngay 5 củ.\""],
+    "storyLines": ["Sự dứt khoát nhanh nhẹn.", "Đã nhắm là phải lụm."]
+  },
+  {
+    "slug": "nhau", "color": "red", "tag": "Sinh hoạt", "hashtag": "#nhau", "title": "NHẬU", "subtitle": "Uống rượu bia, tụ tập",
+    "desc": "Uống rượu bia, tụ tập.<br/><br/>VD: Tối nay nhậu không?", "meaningMain": "tụ tập ăn uống có cồn.",
+    "meaningDesc": "Văn hóa quen thuộc sau giờ làm.",
+    "examples": ["\"Rảnh không đi nhậu.\"", "\"Nhậu nhẹt hoài.\""],
+    "storyLines": ["Không phải để say.", "Mà để gắn kết anh em."]
+  },
+  {
+    "slug": "quay", "color": "yellow", "tag": "Sinh hoạt", "hashtag": "#quay", "title": "QUẬY", "subtitle": "Phá phách, đùa giỡn, chơi vui",
+    "desc": "Phá phách, đùa giỡn, chơi vui.<br/><br/>VD: Quậy banh nóc.", "meaningMain": "chơi đùa thỏa thích.",
+    "meaningDesc": "Làm náo động không khí.",
+    "examples": ["\"Mấy đứa nhỏ quậy quá.\"", "\"Tối nay quậy xả láng.\""],
+    "storyLines": ["Tinh thần vui chơi hết mình.", "Sống trọn vẹn từng khoảnh khắc."]
+  },
+  {
+    "slug": "ba-chay", "color": "yellow", "tag": "Ăn uống", "hashtag": "#bachay", "title": "BÁ CHÁY", "subtitle": "Rất hay, rất chất, rất ngon",
+    "desc": "Rất hay, rất chất, rất ngon.<br/><br/>VD: Món này ngon bá cháy.", "meaningMain": "ngon tuyệt đỉnh.",
+    "meaningDesc": "Khen ngợi đồ ăn xuất sắc.",
+    "examples": ["\"Tô phở ngon bá cháy bọ chét.\"", "\"Chấm nước mắm bá cháy.\""],
+    "storyLines": ["Ẩm thực miền Tây đậm đà.", "Khen là phải bá cháy."]
+  },
+  {
+    "slug": "da-cai-net", "color": "blue", "tag": "Ăn uống", "hashtag": "#dacainet", "title": "ĐÃ CÁI NẾT", "subtitle": "Thỏa mãn cơn thèm",
+    "desc": "Thỏa mãn cơn thèm.<br/><br/>VD: Ăn đã cái nết.", "meaningMain": "rất vừa ý, thỏa mãn.",
+    "meaningDesc": "Ăn được món đúng gu.",
+    "examples": ["\"Ly trà sữa đã cái nết.\"", "\"Ăn no nê đã cái nết.\""],
+    "storyLines": ["Ăn không chỉ để no.", "Ăn còn để sướng."]
+  },
+  {
+    "slug": "hup", "color": "red", "tag": "Ăn uống", "hashtag": "#hup", "title": "HÚP", "subtitle": "Uống nước súp sùm sụp",
+    "desc": "Uống nước súp sùm sụp.<br/><br/>VD: Húp hết nước.", "meaningMain": "uống cạn nhanh chóng.",
+    "meaningDesc": "Thường dùng với các món nước.",
+    "examples": ["\"Húp sùm sụp.\"", "\"Ngon quá húp cạn tô.\""],
+    "storyLines": ["Không cần giữ kẽ.", "Ăn là phải tự nhiên."]
+  },
+  {
+    "slug": "ghien", "color": "green", "tag": "Ăn uống", "hashtag": "#ghien", "title": "GHIỀN", "subtitle": "Nghiện, thèm, thích mê",
+    "desc": "Nghiện, thèm, thích mê.<br/><br/>VD: Nhìn là ghiền.", "meaningMain": "cực kỳ thích.",
+    "meaningDesc": "Thích đến mức muốn ăn mãi.",
+    "examples": ["\"Ăn 1 lần là ghiền.\"", "\"Bị ghiền chè thái.\""],
+    "storyLines": ["Sự hấp dẫn của món ngon.", "Khó cưỡng lại được."]
+  },
+  {
+    "slug": "troi-dat-oi", "color": "green", "tag": "Giao tiếp", "hashtag": "#troidatoi", "title": "TRỜI ĐẤT ƠI", "subtitle": "Cảm thán, bất ngờ",
+    "desc": "Cảm thán, bất ngờ.<br/><br/>VD: Trời đất ơi, sao vậy.", "meaningMain": "biểu hiện sự ngạc nhiên.",
+    "meaningDesc": "Câu cửa miệng phổ biến nhất.",
+    "examples": ["\"Trời đất ơi, tin được hông?\"", "\"Chu choa trời đất ơi.\""],
+    "storyLines": ["Câu thốt ra tự nhiên.", "Thể hiện tính cách bộc trực."]
+  },
+  {
+    "slug": "che", "color": "red", "tag": "Giao tiếp", "hashtag": "#che", "title": "CHẾ", "subtitle": "Chị gái, cách gọi thân thương",
+    "desc": "Chị gái, cách gọi thân thương.<br/><br/>VD: Chế đi đâu đó.", "meaningMain": "cách gọi người chị.",
+    "meaningDesc": "Biến âm từ chữ \"chị\", gốc Hoa.",
+    "examples": ["\"Chế hai mới về.\"", "\"Dạ thưa chế.\""],
+    "storyLines": ["Giao thoa văn hóa.", "Cách xưng hô gần gũi."]
+  },
+  {
+    "slug": "thay-mo", "color": "blue", "tag": "Giao tiếp", "hashtag": "#thaymo", "title": "THẤY MỒ", "subtitle": "Khủng khiếp, quá sức",
+    "desc": "Khủng khiếp, quá sức.<br/><br/>VD: Mệt thấy mồ.", "meaningMain": "cực kỳ, quá chừng.",
+    "meaningDesc": "Từ dùng để nhấn mạnh mức độ cao.",
+    "examples": ["\"Đói thấy mồ nội.\"", "\"Làm mệt thấy mồ.\""],
+    "storyLines": ["Cách nhấn mạnh dân dã.", "Thường đi kèm lời than vãn."]
+  },
+  {
+    "slug": "ne", "color": "yellow", "tag": "Giao tiếp", "hashtag": "#ne", "title": "NÈ", "subtitle": "Từ đệm cuối câu",
+    "desc": "Từ đệm cuối câu, tạo sự thân thiện.<br/><br/>VD: Tới đây nè.", "meaningMain": "này, đây.",
+    "meaningDesc": "Tạo cảm giác nhẹ nhàng, dễ thương cho câu nói.",
+    "examples": ["\"Em ở đây nè.\"", "\"Ăn cơm nè.\""],
+    "storyLines": ["Giọng điệu mềm mỏng.", "Đặc trưng giao tiếp Nam Bộ."]
+  },
+  {
+    "slug": "bu-chang", "color": "red", "tag": "Đời sống", "hashtag": "#buchang", "title": "BỰ CHẢNG", "subtitle": "Rất to, khổng lồ",
+    "desc": "Rất to, khổng lồ.<br/><br/>VD: Con cá bự chảng.", "meaningMain": "có kích thước rất lớn.",
+    "meaningDesc": "Một cách diễn đạt khác của sự to lớn, thường đi kèm vẻ ngạc nhiên.",
+    "examples": ["\"Trái dưa hấu bự chảng.\"", "\"Xây cái nhà bự chảng.\""],
+    "storyLines": ["Người miền Nam chuộng sự to lớn, trù phú.", "Nói bự chảng nghe rất đã tai."]
+  },
+  {
+    "slug": "qua-xa", "color": "green", "tag": "Đời sống", "hashtag": "#quaxa", "title": "QUÁ XÁ", "subtitle": "Rất nhiều, vô cùng",
+    "desc": "Rất nhiều, vô cùng.<br/><br/>VD: Đẹp quá xá.", "meaningMain": "vượt mức bình thường.",
+    "meaningDesc": "Dùng để nhấn mạnh mức độ của một tính từ.",
+    "examples": ["\"Đông người quá xá.\"", "\"Đồ ăn ngon quá xá cỡ.\""],
+    "storyLines": ["Nhấn mạnh sự dư dả.", "Ngôn ngữ bộc lộ sự hào sảng."]
+  },
+  {
+    "slug": "trung-manh", "color": "blue", "tag": "Đời sống", "hashtag": "#trungmanh", "title": "TRÚNG MÁNH", "subtitle": "Gặp may mắn lớn",
+    "desc": "Gặp may mắn lớn.<br/><br/>VD: Chuyến này trúng mánh rồi.", "meaningMain": "có được lợi lộc bất ngờ.",
+    "meaningDesc": "Thường dùng trong làm ăn, trúng mùa hoặc trúng số.",
+    "examples": ["\"Bán đắt vầy là trúng mánh.\"", "\"Lượm được tiền trúng mánh.\""],
+    "storyLines": ["Ai cũng mong cuộc sống no ấm.", "May mắn luôn được chào đón nồng nhiệt."]
+  },
+  {
+    "slug": "roi-nui", "color": "yellow", "tag": "Đời sống", "hashtag": "#roinui", "title": "RỐI NÙI", "subtitle": "Rắc rối, lộn xộn",
+    "desc": "Rắc rối, lộn xộn.<br/><br/>VD: Công việc đang rối nùi.", "meaningMain": "rất phức tạp, khó gỡ.",
+    "meaningDesc": "Ví sự việc rối như một nùi chỉ.",
+    "examples": ["\"Tóc tai rối nùi.\"", "\"Chuyện này rối nùi rồi.\""],
+    "storyLines": ["Cách ví von sinh động từ đời sống.", "Nhìn thấy là biết mệt mỏi."]
+  },
+  {
+    "slug": "bay-hay", "color": "red", "tag": "Đời sống", "hashtag": "#bayhay", "title": "BẦY HẦY", "subtitle": "Bừa bộn, dơ dáy",
+    "desc": "Bừa bộn, dơ dáy.<br/><br/>VD: Ở dơ bầy hầy.", "meaningMain": "không gọn gàng, luộm thuộm.",
+    "meaningDesc": "Chê trách sự thiếu ngăn nắp hoặc dơ bẩn.",
+    "examples": ["\"Cái phòng nhìn bầy hầy.\"", "\"Làm ăn bầy hầy quá.\""],
+    "storyLines": ["Người xưa hay nhắc nhở con cái gọn gàng.", "Bầy hầy là từ bị rầy la nhiều nhất."]
+  },
+  {
+    "slug": "bap-benh", "color": "green", "tag": "Đời sống", "hashtag": "#bapbenh", "title": "BẤP BÊNH", "subtitle": "Không ổn định",
+    "desc": "Không ổn định.<br/><br/>VD: Công việc bấp bênh.", "meaningMain": "lúc lên lúc xuống, không chắc chắn.",
+    "meaningDesc": "Mô tả trạng thái thiếu vững chắc trong cuộc sống.",
+    "examples": ["\"Thu nhập bấp bênh.\"", "\"Cái cầu bấp bênh.\""],
+    "storyLines": ["Cảm nhận từ những chiếc cầu khỉ.", "Hoặc xuồng ghe tròng trành trên sóng."]
+  },
+  {
+    "slug": "lang-o", "color": "blue", "tag": "Đời sống", "hashtag": "#lango", "title": "LÁNG O", "subtitle": "Sạch sẽ, trơn tru",
+    "desc": "Sạch sẽ, trơn tru.<br/><br/>VD: Chùi láng o.", "meaningMain": "rất sạch, không tì vết.",
+    "meaningDesc": "Khen sự dọn dẹp gọn gàng hoặc một bề mặt rất nhẵn.",
+    "examples": ["\"Quét nhà láng o.\"", "\"Cái bàn lau láng o.\""],
+    "storyLines": ["Thích sự tươm tất sạch sẽ.", "Thấy láng o là ưng cái bụng."]
+  },
+  {
+    "slug": "tem-lem", "color": "yellow", "tag": "Đời sống", "hashtag": "#temlem", "title": "TÈM LEM", "subtitle": "Lem luốc, dơ",
+    "desc": "Lem luốc, dơ.<br/><br/>VD: Ăn dính tèm lem.", "meaningMain": "bị vấy bẩn nhiều chỗ.",
+    "meaningDesc": "Thường dùng để chọc mấy đứa con nít ăn uống không cẩn thận.",
+    "examples": ["\"Mặt mũi tèm lem bùn đất.\"", "\"Bôi son tèm lem.\""],
+    "storyLines": ["Tuổi thơ dữ dội của lứa trẻ miền sông nước.", "Tèm lem mới là con nít."]
+  },
+  {
+    "slug": "toi-thui", "color": "red", "tag": "Đời sống", "hashtag": "#toithui", "title": "TỐI THUI", "subtitle": "Rất tối",
+    "desc": "Rất tối.<br/><br/>VD: Cúp điện tối thui.", "meaningMain": "tối đen như mực.",
+    "meaningDesc": "Từ ghép tăng mức độ của sự vật.",
+    "examples": ["\"Đường đi tối thui.\"", "\"Tối thui tối mịt.\""],
+    "storyLines": ["Vùng quê xưa chưa có đèn đường.", "Tối thui là đặc sản màn đêm."]
+  },
+  {
+    "slug": "ngon-o", "color": "green", "tag": "Đời sống", "hashtag": "#ngono", "title": "NGON Ơ", "subtitle": "Rất dễ dàng",
+    "desc": "Rất dễ dàng.<br/><br/>VD: Làm ngon ơ.", "meaningMain": "trơn tru, không gặp khó khăn.",
+    "meaningDesc": "Hoàn thành một việc gì đó vượt ngoài mong đợi.",
+    "examples": ["\"Giải bài toán ngon ơ.\"", "\"Sửa cái máy ngon ơ.\""],
+    "storyLines": ["Sự tháo vát, thông minh của người lao động.", "Việc gì vào tay cũng ngon ơ."]
+  },
+
+  {
+    "slug": "lanh-chanh", "color": "blue", "tag": "Con người", "hashtag": "#lanhchanh", "title": "LANH CHANH", "subtitle": "Nhanh nhảu đoảng",
+    "desc": "Nhanh nhảu đoảng.<br/><br/>VD: Tính hay lanh chanh.", "meaningMain": "vội vàng, hấp tấp dẫn đến hư việc.",
+    "meaningDesc": "Dùng để chê nhẹ những người cầm đèn chạy trước ô tô.",
+    "examples": ["\"Lanh chanh lanh chói.\"", "\"Chưa bảo đã làm, lanh chanh.\""],
+    "storyLines": ["Người lớn hay răn dạy con nít phải điềm đạm.", "Tránh lanh chanh mà hư bột hư đường."]
+  },
+  {
+    "slug": "mat-troi", "color": "yellow", "tag": "Con người", "hashtag": "#mattroi", "title": "MÁT TRỜI ÔNG ĐỊA", "subtitle": "Tưng tửng, khùng khùng",
+    "desc": "Tưng tửng, khùng khùng.<br/><br/>VD: Con nhỏ mát trời ông địa.", "meaningMain": "tính khí thất thường, hơi điên rồ.",
+    "meaningDesc": "Không bình thường, nhưng thường dùng với ý trêu đùa chứ không ác ý.",
+    "examples": ["\"Tính ổng mát trời ông địa.\"", "\"Nói chuyện mát mát.\""],
+    "storyLines": ["Người dân quê tính tình dễ thương.", "Dù có hơi khùng cũng không ai ghét bỏ."]
+  },
+  {
+    "slug": "tung-tung", "color": "red", "tag": "Con người", "hashtag": "#tungtung", "title": "TƯNG TỬNG", "subtitle": "Không bình thường",
+    "desc": "Không bình thường.<br/><br/>VD: Nói chuyện tưng tửng.", "meaningMain": "cư xử kỳ quặc, vô tư thái quá.",
+    "meaningDesc": "Người không quan tâm chuyện thế sự, sống trên mây.",
+    "examples": ["\"Tính tình tưng tửng.\"", "\"Lúc nào cũng tưng tửng.\""],
+    "storyLines": ["Nhân vật tưng tửng thường mang lại tiếng cười.", "Một dạng năng lượng tích cực lạ lùng."]
+  },
+  {
+    "slug": "nhieu-chuyen", "color": "green", "tag": "Con người", "hashtag": "#nhieuchuyen", "title": "NHIỀU CHUYỆN", "subtitle": "Hay bàn tán",
+    "desc": "Hay bàn tán.<br/><br/>VD: Bà thím nhiều chuyện.", "meaningMain": "thích hóng hớt, tò mò chuyện người khác.",
+    "meaningDesc": "Kẻ thích buôn dưa lê, xen vào chuyện bao đồng.",
+    "examples": ["\"Đừng có nhiều chuyện.\"", "\"Hội nhiều chuyện xóm tui.\""],
+    "storyLines": ["Văn hóa xóm giềng có mặt trái là hay tò mò.", "Nhưng có chuyện gì cũng giúp đỡ nhau nhiệt tình."]
+  },
+  {
+    "slug": "ca-chon", "color": "blue", "tag": "Con người", "hashtag": "#cachon", "title": "CÀ CHỚN", "subtitle": "Đùa giỡn vô duyên",
+    "desc": "Đùa giỡn vô duyên.<br/><br/>VD: Thằng này cà chớn.", "meaningMain": "lấc cấc, thiếu nghiêm túc.",
+    "meaningDesc": "Người có thái độ cợt nhả, không đáng tin cậy.",
+    "examples": ["\"Cà chớn cà cháo.\"", "\"Nói chuyện cà chớn thấy ớn.\""],
+    "storyLines": ["Không ai thích làm ăn với người cà chớn.", "Nhưng trên bàn nhậu thì lại khá vui."]
+  },
+  {
+    "slug": "hac-am", "color": "yellow", "tag": "Con người", "hashtag": "#hacam", "title": "HẮC ÁM", "subtitle": "Khó tính, hung dữ",
+    "desc": "Khó tính, hung dữ.<br/><br/>VD: Ông sếp hắc ám.", "meaningMain": "khó chịu, luôn gây áp lực cho người khác.",
+    "meaningDesc": "Người có khuôn mặt không bao giờ có nụ cười.",
+    "examples": ["\"Bà cô hắc ám.\"", "\"Khuôn mặt hắc ám.\""],
+    "storyLines": ["Cách gọi dí dỏm về những người khắt khe.", "Ngầm hiểu là khó gần."]
+  },
+  {
+    "slug": "dieu-da", "color": "red", "tag": "Con người", "hashtag": "#dieuda", "title": "ĐIỆU ĐÀ", "subtitle": "Thích làm dáng",
+    "desc": "Thích làm dáng.<br/><br/>VD: Ăn mặc điệu đà.", "meaningMain": "thích trau chuốt, nhẹ nhàng yểu điệu.",
+    "meaningDesc": "Chỉ phái nữ thích chưng diện bề ngoài.",
+    "examples": ["\"Điệu đà quá mức.\"", "\"Cô gái điệu đà.\""],
+    "storyLines": ["Cái đẹp luôn được tôn vinh.", "Dù làm lụng vất vả nhưng vẫn thích điệu."]
+  },
+  {
+    "slug": "thao-vat", "color": "green", "tag": "Con người", "hashtag": "#thaovat", "title": "THÁO VÁT", "subtitle": "Nhanh nhẹn, giỏi giang",
+    "desc": "Nhanh nhẹn, giỏi giang.<br/><br/>VD: Phụ nữ tháo vát.", "meaningMain": "biết sắp xếp công việc, lanh lẹ.",
+    "meaningDesc": "Người đảm đang, chuyện gì cũng làm được.",
+    "examples": ["\"Anh chồng tháo vát.\"", "\"Làm việc tháo vát ghê.\""],
+    "storyLines": ["Đức tính quý báu nhất của người lao động.", "Ai cũng quý người tháo vát."]
+  },
+  {
+    "slug": "tot-tuong", "color": "blue", "tag": "Con người", "hashtag": "#tottuong", "title": "TỐT TƯỚNG", "subtitle": "Khỏe mạnh, to con",
+    "desc": "Khỏe mạnh, to con.<br/><br/>VD: Đẻ đứa con tốt tướng.", "meaningMain": "ngoại hình cao lớn, vạm vỡ.",
+    "meaningDesc": "Lời khen mang ý nghĩa chúc phúc, mong khỏe mạnh.",
+    "examples": ["\"Thằng bé nhìn tốt tướng.\"", "\"Tốt tướng dễ nuôi.\""],
+    "storyLines": ["Dân gian quan niệm to con là khỏe mạnh.", "Là nền tảng để chống chọi với thiên nhiên."]
+  },
+  {
+    "slug": "gay-nhom", "color": "yellow", "tag": "Con người", "hashtag": "#gaynhom", "title": "GẦY NHOM", "subtitle": "Rất ốm",
+    "desc": "Rất ốm.<br/><br/>VD: Thằng bé gầy nhom.", "meaningMain": "ốm yếu, chỉ toàn xương.",
+    "meaningDesc": "Miêu tả thân hình quá ốm, mỏng manh.",
+    "examples": ["\"Ốm nhom ốm nhách.\"", "\"Gầy nhom thấy thương.\""],
+    "storyLines": ["Sự quan tâm của ông bà dành cho con cháu.", "Lúc nào cũng ép ăn cho bớt gầy."]
+  },
+
+  {
+    "slug": "het-hon", "color": "red", "tag": "Cảm xúc", "hashtag": "#hethon", "title": "HẾT HỒN", "subtitle": "Rất sợ, bất ngờ",
+    "desc": "Rất sợ, bất ngờ.<br/><br/>VD: Làm tao hết hồn.", "meaningMain": "kinh ngạc tột độ.",
+    "meaningDesc": "Tình huống giật mình không đoán trước được.",
+    "examples": ["\"Hú hồn hú vía.\"", "\"Hết hồn con chồn.\""],
+    "storyLines": ["Cảm xúc bộc phát thường thấy.", "Thêm các con vật vào cho vần điệu."]
+  },
+  {
+    "slug": "ta-hoa", "color": "green", "tag": "Cảm xúc", "hashtag": "#tahoa", "title": "TÁ HỎA", "subtitle": "Hoảng hốt, rối bời",
+    "desc": "Hoảng hốt, rối bời.<br/><br/>VD: Tá hỏa tam tinh.", "meaningMain": "mất bình tĩnh do gặp chuyện bất ngờ.",
+    "meaningDesc": "Sự sợ hãi kết hợp với cuống cuồng tìm cách giải quyết.",
+    "examples": ["\"Tá hỏa đi kiếm đồ.\"", "\"Nghe tin xong tá hỏa luôn.\""],
+    "storyLines": ["Mượn từ Hán Việt cho sang miệng.", "Tá hỏa tam tinh là mức độ cao nhất."]
+  },
+  {
+    "slug": "tuc-canh-hong", "color": "blue", "tag": "Cảm xúc", "hashtag": "#tuccanhhong", "title": "TỨC CÀNH HÔNG", "subtitle": "Rất tức giận",
+    "desc": "Rất tức giận.<br/><br/>VD: Nghĩ lại thấy tức cành hông.", "meaningMain": "tức giận đến mức đau cả hông.",
+    "meaningDesc": "Ví von sự tức giận vật lý hóa thành nỗi đau.",
+    "examples": ["\"Chọc tao tức cành hông.\"", "\"Tức lộn ruột.\""],
+    "storyLines": ["Sự phóng đại quen thuộc.", "Giận lắm mới nói vậy."]
+  },
+  {
+    "slug": "sau-tham", "color": "yellow", "tag": "Cảm xúc", "hashtag": "#sautham", "title": "SẦU THẢM", "subtitle": "Rất buồn, bi đát",
+    "desc": "Rất buồn, bi đát.<br/><br/>VD: Khuôn mặt sầu thảm.", "meaningMain": "buồn bã vô cùng.",
+    "meaningDesc": "Cảm xúc tiêu cực, ủ dột kéo dài.",
+    "examples": ["\"Sầu thảm như thất tình.\"", "\"Cảnh tượng sầu thảm.\""],
+    "storyLines": ["Câu chữ cải lương ngấm vào máu.", "Buồn cũng phải buồn một cách nghệ thuật."]
+  },
+  {
+    "slug": "mac-co", "color": "red", "tag": "Cảm xúc", "hashtag": "#macco", "title": "MẮC CỠ", "subtitle": "Ngại ngùng, xấu hổ",
+    "desc": "Ngại ngùng, xấu hổ.<br/><br/>VD: Che mặt mắc cỡ.", "meaningMain": "xấu hổ trước đám đông.",
+    "meaningDesc": "Thường dùng để chọc mấy đứa nhỏ hay thẹn thùng.",
+    "examples": ["\"Ai khen là mắc cỡ.\"", "\"Mắc cỡ đỏ mặt.\""],
+    "storyLines": ["Sự bẽn lẽn đáng yêu.", "Nét duyên ngầm của con gái."]
+  },
+  {
+    "slug": "vui-het-biet", "color": "green", "tag": "Cảm xúc", "hashtag": "#vuihetbiet", "title": "VUI HẾT BIẾT", "subtitle": "Rất vui",
+    "desc": "Rất vui.<br/><br/>VD: Bữa tiệc vui hết biết.", "meaningMain": "vui vô cùng, không gì tả nổi.",
+    "meaningDesc": "Niềm vui đạt đến đỉnh điểm.",
+    "examples": ["\"Hôm nay vui hết biết.\"", "\"Chơi vui hết biết luôn.\""],
+    "storyLines": ["Không biết dùng từ gì để tả nữa.", "Nên gọi là hết biết."]
+  },
+  {
+    "slug": "nhuc-dau", "color": "blue", "tag": "Cảm xúc", "hashtag": "#nhucdau", "title": "NHỨC ĐẦU", "subtitle": "Mệt mỏi, phiền phức",
+    "desc": "Mệt mỏi, phiền phức.<br/><br/>VD: Giải quyết nhức đầu quá.", "meaningMain": "căng thẳng thần kinh.",
+    "meaningDesc": "Vừa là triệu chứng bệnh, vừa là cảm xúc mệt mỏi.",
+    "examples": ["\"Nghe cãi nhau nhức đầu ghê.\"", "\"Nhức đầu chóng mặt.\""],
+    "storyLines": ["Cuộc sống bôn ba nhiều lo toan.", "Hay than nhức đầu để xả stress."]
+  },
+  {
+    "slug": "buc-minh", "color": "yellow", "tag": "Cảm xúc", "hashtag": "#bucminh", "title": "BỰC MÌNH", "subtitle": "Khó chịu",
+    "desc": "Khó chịu.<br/><br/>VD: Chuyện làm bực mình.", "meaningMain": "cáu gắt, không vừa ý.",
+    "meaningDesc": "Cảm xúc bức bối bên trong.",
+    "examples": ["\"Làm dở dang thấy bực mình.\"", "\"Bực mình dễ sợ.\""],
+    "storyLines": ["Tính tình thẳng thắn.", "Bực là nói ra ngay."]
+  },
+  {
+    "slug": "chan-pheo", "color": "red", "tag": "Cảm xúc", "hashtag": "#chanpheo", "title": "CHÁN PHÈO", "subtitle": "Rất chán, tẻ nhạt",
+    "desc": "Rất chán, tẻ nhạt.<br/><br/>VD: Trò này chán phèo.", "meaningMain": "nhạt nhẽo, không có gì thú vị.",
+    "meaningDesc": "Nhấn mạnh sự nhàm chán bằng từ đệm \"phèo\".",
+    "examples": ["\"Phim chán phèo.\"", "\"Nói chuyện chán phèo.\""],
+    "storyLines": ["Từ vần vè vui tai.", "Miền Tây cái gì cũng thích thêm vần."]
+  },
+  {
+    "slug": "so-ma", "color": "green", "tag": "Cảm xúc", "hashtag": "#soma", "title": "SỢ MA", "subtitle": "Nhát gan",
+    "desc": "Nhát gan.<br/><br/>VD: Tối không dám ra đường vì sợ ma.", "meaningMain": "chứng sợ bóng tối, sợ điều bí ẩn.",
+    "meaningDesc": "Dùng để chọc những người yếu bóng vía.",
+    "examples": ["\"Thằng đó lớn rồi còn sợ ma.\"", "\"Nhát như thỏ, chúa sợ ma.\""],
+    "storyLines": ["Vùng quê nhiều cây cối vắng vẻ.", "Nên mấy câu chuyện ma cỏ rất thịnh hành."]
+  },
+
+  {
+    "slug": "ca-phe-ca-phao", "color": "blue", "tag": "Sinh hoạt", "hashtag": "#caphecaphao", "title": "CÀ PHÊ CÀ PHÁO", "subtitle": "Đi uống cà phê tán gẫu",
+    "desc": "Đi uống cà phê tán gẫu.<br/><br/>VD: Sáng ra quán cà phê cà pháo.", "meaningMain": "thư giãn buổi sáng.",
+    "meaningDesc": "Không chỉ là uống nước mà còn là giao lưu.",
+    "examples": ["\"Rảnh đi cà phê cà pháo không?\"", "\"Cuối tuần cà phê cà pháo.\""],
+    "storyLines": ["Nếp sống chậm rãi buổi sáng.", "Thói quen không thể bỏ của người Việt."]
+  },
+  {
+    "slug": "cha-let", "color": "yellow", "tag": "Sinh hoạt", "hashtag": "#chalet", "title": "CHÀ LẾT", "subtitle": "Đi chơi khắp nơi",
+    "desc": "Đi chơi khắp nơi.<br/><br/>VD: Đi chà lết từ sáng tới chiều.", "meaningMain": "la cà không chịu về.",
+    "meaningDesc": "Từ gợi hình, diễn tả sự lê la lười nhác.",
+    "examples": ["\"Chà lết quán xá.\"", "\"Con nít đi chà lết.\""],
+    "storyLines": ["La rầy con cái hay đi chơi.", "Đi riết mòn gót dép."]
+  },
+  {
+    "slug": "xap-vo", "color": "red", "tag": "Sinh hoạt", "hashtag": "#xapvo", "title": "XÁP VÔ", "subtitle": "Tụ tập lại, hùa theo",
+    "desc": "Tụ tập lại, hùa theo.<br/><br/>VD: Có chuyện gì xáp vô liền.", "meaningMain": "tiến lại gần, xúm lại đông đúc.",
+    "meaningDesc": "Chỉ hành động đám đông tò mò bu lại.",
+    "examples": ["\"Thấy đánh lộn xáp vô coi.\"", "\"Xáp vô phụ một tay.\""],
+    "storyLines": ["Tính hiếu kỳ và hay giúp đỡ.", "Chuyện gì cũng xáp vô."]
+  },
+  {
+    "slug": "loi-bo", "color": "green", "tag": "Sinh hoạt", "hashtag": "#loibo", "title": "LỘI BỘ", "subtitle": "Đi bộ đường xa",
+    "desc": "Đi bộ đường xa.<br/><br/>VD: Lội bộ mỏi chân.", "meaningMain": "đi bộ vất vả.",
+    "meaningDesc": "Do đường quê xưa hay ngập nước nên đi bộ gọi là lội.",
+    "examples": ["\"Hư xe phải lội bộ.\"", "\"Lội bộ qua mấy cây cầu.\""],
+    "storyLines": ["Ký ức những con đường đất sét mùa mưa.", "Đi bộ sình bùn dính đầy chân."]
+  },
+  {
+    "slug": "tam-song", "color": "blue", "tag": "Sinh hoạt", "hashtag": "#tamsong", "title": "TẮM SÔNG", "subtitle": "Bơi lội ngoài sông",
+    "desc": "Bơi lội ngoài sông.<br/><br/>VD: Chiều chiều rủ nhau tắm sông.", "meaningMain": "hoạt động vui chơi giải nhiệt.",
+    "meaningDesc": "Trò chơi không thể thiếu của tuổi thơ miền sông nước.",
+    "examples": ["\"Nhảy ùm xuống tắm sông.\"", "\"Tắm sông lặn ngụp.\""],
+    "storyLines": ["Con sông là người bạn.", "Mát mẻ và tự do."]
+  },
+  {
+    "slug": "cheo-ghe", "color": "yellow", "tag": "Sinh hoạt", "hashtag": "#cheoghe", "title": "CHÈO GHE", "subtitle": "Chèo thuyền nhỏ",
+    "desc": "Chèo thuyền nhỏ.<br/><br/>VD: Chèo ghe đi chợ nổi.", "meaningMain": "di chuyển bằng phương tiện thô sơ.",
+    "meaningDesc": "Kỹ năng sinh tồn cơ bản của người dân miền Tây.",
+    "examples": ["\"Chèo ghe dạo mát.\"", "\"Mẹ chèo ghe bán trái cây.\""],
+    "storyLines": ["Mạng lưới kênh rạch chằng chịt.", "Ghe xuồng là đôi chân."]
+  },
+  {
+    "slug": "ngu-nuong", "color": "red", "tag": "Sinh hoạt", "hashtag": "#ngunuong", "title": "NGỦ NƯỚNG", "subtitle": "Ngủ dậy trễ",
+    "desc": "Ngủ dậy trễ.<br/><br/>VD: Chủ nhật ở nhà ngủ nướng.", "meaningMain": "nằm nướng trên giường không chịu dậy.",
+    "meaningDesc": "Sự lười biếng dễ thương vào cuối tuần.",
+    "examples": ["\"Ngủ nướng khét lẹt.\"", "\"Sáng nay lỡ ngủ nướng.\""],
+    "storyLines": ["Sau những ngày làm lụng cực nhọc.", "Một giấc ngủ dài là món quà vô giá."]
+  },
+  {
+    "slug": "tre-nai", "color": "green", "tag": "Sinh hoạt", "hashtag": "#trenai", "title": "TRỄ NẢI", "subtitle": "Chậm trễ, lề mề",
+    "desc": "Chậm trễ, lề mề.<br/><br/>VD: Làm ăn trễ nải.", "meaningMain": "thiếu đúng giờ, không giữ lời hứa về thời gian.",
+    "meaningDesc": "Sự bê trễ trong công việc.",
+    "examples": ["\"Giờ giấc trễ nải.\"", "\"Đừng trễ nải công việc.\""],
+    "storyLines": ["Nhịp sống chậm cũng có mặt trái.", "Dễ dẫn tới thói quen cao su giờ giấc."]
+  },
+  {
+    "slug": "cay-cuoc", "color": "blue", "tag": "Sinh hoạt", "hashtag": "#caycuoc", "title": "CÀY CUỐC", "subtitle": "Làm việc cực nhọc",
+    "desc": "Làm việc cực nhọc.<br/><br/>VD: Đi cày cuốc kiếm tiền.", "meaningMain": "lao động vất vả ngày đêm.",
+    "meaningDesc": "Ví von sự cực khổ như đi cày ruộng.",
+    "examples": ["\"Cày cuốc trả nợ.\"", "\"Cày ngày cày đêm.\""],
+    "storyLines": ["Sự lam lũ của người nông dân.", "Bán mặt cho đất bán lưng cho trời."]
+  },
+  {
+    "slug": "khe-nhau", "color": "yellow", "tag": "Sinh hoạt", "hashtag": "#khenhau", "title": "KHÈ NHAU", "subtitle": "Khoe khoang, dọa dẫm",
+    "desc": "Khoe khoang, dọa dẫm.<br/><br/>VD: Thấy người ta nghèo rồi khè.", "meaningMain": "nói phóng đại để ra oai.",
+    "meaningDesc": "Từ tượng thanh giống tiếng khè của con rắn.",
+    "examples": ["\"Mới có tí tiền đã đi khè.\"", "\"Đừng có lấy cái đó ra khè tao.\""],
+    "storyLines": ["Người miền Tây ghét sự khoe mẽ giả tạo.", "Khè là bị chê cười."]
+  },
+
+  {
+    "slug": "ngot-lim", "color": "red", "tag": "Ăn uống", "hashtag": "#ngotlim", "title": "NGỌT LỊM", "subtitle": "Rất ngọt",
+    "desc": "Rất ngọt.<br/><br/>VD: Chè này ngọt lịm.", "meaningMain": "vị ngọt tan trong miệng.",
+    "meaningDesc": "Khen trái cây hoặc món chè nấu đúng chuẩn.",
+    "examples": ["\"Dưa hấu ngọt lịm.\"", "\"Giọng hát ngọt lịm.\""],
+    "storyLines": ["Miền Tây thích đồ ngọt.", "Món gì cũng nêm thêm đường."]
+  },
+  {
+    "slug": "chua-le", "color": "green", "tag": "Ăn uống", "hashtag": "#chuale", "title": "CHUA LÈ", "subtitle": "Rất chua",
+    "desc": "Rất chua.<br/><br/>VD: Trái xoài chua lè.", "meaningMain": "chua đến mức nhăn mặt.",
+    "meaningDesc": "Tính từ ghép tăng cường độ của vị chua.",
+    "examples": ["\"Canh chua nấu chua lè.\"", "\"Mặt mày chua lè.\""],
+    "storyLines": ["Ăn chua lè mới đã thèm.", "Đặc biệt là xoài cóc chấm muối ớt."]
+  },
+  {
+    "slug": "man-chat", "color": "blue", "tag": "Ăn uống", "hashtag": "#manchat", "title": "MẶN CHÁT", "subtitle": "Rất mặn",
+    "desc": "Rất mặn.<br/><br/>VD: Nước cá kho mặn chát.", "meaningMain": "mặn đến đắng nghét.",
+    "meaningDesc": "Chê món ăn nêm quá tay muối mắm.",
+    "examples": ["\"Lỡ tay nêm muối mặn chát.\"", "\"Mồ hôi mặn chát.\""],
+    "storyLines": ["Nấu ăn lỡ tay.", "Nhưng mặn thì ăn đỡ hao cơm."]
+  },
+  {
+    "slug": "cay-xe", "color": "yellow", "tag": "Ăn uống", "hashtag": "#cayxe", "title": "CAY XÉ LƯỠI", "subtitle": "Rất cay",
+    "desc": "Rất cay.<br/><br/>VD: Bát bún cay xé lưỡi.", "meaningMain": "vị cay nồng xộc lên mũi.",
+    "meaningDesc": "Thử thách ẩm thực cho người không biết ăn cay.",
+    "examples": ["\"Cắn trái ớt cay xé lưỡi.\"", "\"Món này cay xé.\""],
+    "storyLines": ["Ẩm thực miền Tây thường có ớt hiểm.", "Ăn cay để đổ mồ hôi giải nhiệt."]
+  },
+  {
+    "slug": "thom-lung", "color": "red", "tag": "Ăn uống", "hashtag": "#thomlung", "title": "THƠM LỪNG", "subtitle": "Mùi thơm hấp dẫn",
+    "desc": "Mùi thơm hấp dẫn.<br/><br/>VD: Nồi xôi thơm lừng.", "meaningMain": "mùi hương lan tỏa xa.",
+    "meaningDesc": "Kích thích vị giác mạnh mẽ.",
+    "examples": ["\"Khói bếp thơm lừng.\"", "\"Sầu riêng thơm lừng.\""],
+    "storyLines": ["Mùi vị của quê hương.", "Ngửi thôi đã thấy thèm."]
+  },
+  {
+    "slug": "nhai-rom-rop", "color": "green", "tag": "Ăn uống", "hashtag": "#nhairomrop", "title": "NHAI RÔM RỐP", "subtitle": "Tiếng nhai giòn",
+    "desc": "Tiếng nhai giòn.<br/><br/>VD: Ăn bánh tráng nhai rôm rốp.", "meaningMain": "âm thanh giòn giã khi ăn.",
+    "meaningDesc": "Miêu tả món ăn có độ giòn cao, nghe rất sướng tai.",
+    "examples": ["\"Nhai da heo rôm rốp.\"", "\"Bánh phồng tôm nhai rôm rốp.\""],
+    "storyLines": ["Thưởng thức bằng cả thính giác.", "Cảm giác ăn ngon miệng hơn."]
+  },
+  {
+    "slug": "an-vung", "color": "blue", "tag": "Ăn uống", "hashtag": "#anvung", "title": "ĂN VỤNG", "subtitle": "Ăn lén",
+    "desc": "Ăn lén.<br/><br/>VD: Con mèo ăn vụng thịt.", "meaningMain": "lén lút ăn khi người khác không để ý.",
+    "meaningDesc": "Thường nói về con nít hoặc chó mèo.",
+    "examples": ["\"Bị đánh đòn vì ăn vụng.\"", "\"Ăn vụng phải biết chùi mép.\""],
+    "storyLines": ["Ký ức đói kém tuổi thơ.", "Món ăn vụng lúc nào cũng ngon nhất."]
+  },
+  {
+    "slug": "chen-chu-chen-anh", "color": "yellow", "tag": "Ăn uống", "hashtag": "#chenchuchenanh", "title": "CHÉN CHÚ CHÉN ANH", "subtitle": "Nhậu nhẹt say sưa",
+    "desc": "Nhậu nhẹt say sưa.<br/><br/>VD: Cả xóm chén chú chén anh.", "meaningMain": "nâng ly liên tục, không ai nhường ai.",
+    "meaningDesc": "Mô tả một buổi nhậu tưng bừng.",
+    "examples": ["\"Mỗi cuối tuần đều chén chú chén anh.\"", "\"Chén chú chén anh quên đường về.\""],
+    "storyLines": ["Tính hiếu khách của người Nam.", "Có rượu ngon là gọi anh em."]
+  },
+  {
+    "slug": "doi-meo", "color": "red", "tag": "Ăn uống", "hashtag": "#doimeo", "title": "ĐÓI MEO", "subtitle": "Rất đói",
+    "desc": "Rất đói.<br/><br/>VD: Làm cả ngày đói meo râu.", "meaningMain": "bụng trống rỗng, không có gì ăn.",
+    "meaningDesc": "Cảm giác đói cồn cào.",
+    "examples": ["\"Bụng kêu đói meo.\"", "\"Đói meo râu.\""],
+    "storyLines": ["Từ tượng thanh vui nhộn.", "Dù đói cũng phải nói cho vui tai."]
+  },
+  {
+    "slug": "no-noc", "color": "green", "tag": "Ăn uống", "hashtag": "#nonoc", "title": "NO NÓC", "subtitle": "Rất no",
+    "desc": "Rất no.<br/><br/>VD: Ăn no nóc nhà.", "meaningMain": "no căng bụng, không thể ăn thêm.",
+    "meaningDesc": "Kết thúc mỹ mãn cho một bữa tiệc.",
+    "examples": ["\"Ăn no nóc, thở không nổi.\"", "\"Đi ăn buffet no nóc.\""],
+    "storyLines": ["Sự sung túc.", "Ăn là phải ăn cho đáng."]
+  },
+
+  {
+    "slug": "da-thua", "color": "blue", "tag": "Giao tiếp", "hashtag": "#dathua", "title": "DẠ THƯA", "subtitle": "Lễ phép",
+    "desc": "Lễ phép.<br/><br/>VD: Con nít phải biết dạ thưa.", "meaningMain": "cách mở đầu câu nói với người lớn.",
+    "meaningDesc": "Thể hiện sự tôn trọng, giáo dục tốt.",
+    "examples": ["\"Đi thưa về trình.\"", "\"Tiếng dạ thưa ngoan ngoãn.\""],
+    "storyLines": ["Bài học vỡ lòng của trẻ em.", "Truyền thống kính trên nhường dưới."]
+  },
+  {
+    "slug": "thiet-tinh", "color": "yellow", "tag": "Giao tiếp", "hashtag": "#thiettinh", "title": "THIỆT TÌNH", "subtitle": "Cảm thán sự chán nản",
+    "desc": "Cảm thán sự chán nản hoặc chân thật.<br/><br/>VD: Thiệt tình, nói hoài không nghe.", "meaningMain": "thật sự là vậy.",
+    "meaningDesc": "Dùng để than thở nhẹ nhàng.",
+    "examples": ["\"Thiệt tình là hổng biết.\"", "\"Con nhỏ này thiệt tình.\""],
+    "storyLines": ["Lời than vãn không mang ác ý.", "Chỉ là chút bực bội thoáng qua."]
+  },
+  {
+    "slug": "mo-phat", "color": "red", "tag": "Giao tiếp", "hashtag": "#mophat", "title": "MÔ PHẬT", "subtitle": "Từ cảm thán",
+    "desc": "Từ cảm thán.<br/><br/>VD: Mô phật, may quá.", "meaningMain": "Niệm hồng danh phật để tạ ơn hoặc khi gặp tai ương.",
+    "meaningDesc": "Từ cửa miệng của những người bà, người mẹ.",
+    "examples": ["\"Mô phật phù hộ.\"", "\"Nghe xong niệm mô phật.\""],
+    "storyLines": ["Tín ngưỡng gắn liền với đời sống.", "Sự lương thiện trong tâm hồn."]
+  },
+  {
+    "slug": "hong-dam-dau", "color": "green", "tag": "Giao tiếp", "hashtag": "#hongdamdau", "title": "HỔNG DÁM ĐÂU", "subtitle": "Từ chối khéo",
+    "desc": "Từ chối khéo.<br/><br/>VD: Khen tui đẹp, hổng dám đâu.", "meaningMain": "sự khiêm tốn hoặc từ chối đùa bỡn.",
+    "meaningDesc": "Thể hiện sự e dè hoặc không nhận lời.",
+    "examples": ["\"Cho tiền hả, hổng dám đâu.\"", "\"Tui hổng dám đâu nha.\""],
+    "storyLines": ["Sự bẽn lẽn dí dỏm.", "Được đưa vào nhiều bài hát tuổi thơ."]
+  },
+  {
+    "slug": "cha-noi", "color": "blue", "tag": "Giao tiếp", "hashtag": "#chanoi", "title": "CHA NỘI", "subtitle": "Cách gọi người đàn ông",
+    "desc": "Cách gọi người đàn ông.<br/><br/>VD: Cái ông cha nội này.", "meaningMain": "cách gọi trách móc hoặc thân mật.",
+    "meaningDesc": "Gọi một người đàn ông có hành động kỳ quặc.",
+    "examples": ["\"Cha nội đó bị khùng.\"", "\"Đừng giỡn nữa cha nội.\""],
+    "storyLines": ["Cách gọi bình dân xuề xòa.", "Không trịnh trọng nhưng rất thân quen."]
+  },
+  {
+    "slug": "ma-oi", "color": "yellow", "tag": "Giao tiếp", "hashtag": "#maoi", "title": "MÁ ƠI", "subtitle": "Cảm thán ngạc nhiên",
+    "desc": "Cảm thán ngạc nhiên.<br/><br/>VD: Má ơi, đẹp quá.", "meaningMain": "kêu lên vì quá bất ngờ.",
+    "meaningDesc": "Theo bản năng khi gặp chuyện động trời.",
+    "examples": ["\"Má ơi cứu con.\"", "\"Đẹp xuất sắc má ơi.\""],
+    "storyLines": ["Lúc nào mẹ cũng là nơi nương tựa.", "Giật mình là gọi má đầu tiên."]
+  },
+  {
+    "slug": "tia-ma", "color": "red", "tag": "Giao tiếp", "hashtag": "#tiama", "title": "TÍA MÁ", "subtitle": "Ba mẹ",
+    "desc": "Ba mẹ.<br/><br/>VD: Tía má ở nhà.", "meaningMain": "cha mẹ.",
+    "meaningDesc": "Cách gọi phụ huynh đặc sệt Nam Bộ.",
+    "examples": ["\"Thương tía má.\"", "\"Tía má la bây giờ.\""],
+    "storyLines": ["Gốc gác tiếng địa phương.", "Thân thương và mộc mạc vô cùng."]
+  },
+  {
+    "slug": "vay-do-ha", "color": "green", "tag": "Giao tiếp", "hashtag": "#vaydoha", "title": "VẬY ĐÓ HẢ", "subtitle": "Câu hỏi tu từ",
+    "desc": "Câu hỏi tu từ.<br/><br/>VD: Chuyện là vậy đó hả.", "meaningMain": "biểu hiện sự lắng nghe hoặc mỉa mai nhẹ.",
+    "meaningDesc": "Tùy ngữ điệu mà mang nghĩa ngạc nhiên hay nghi ngờ.",
+    "examples": ["\"Thì ra là vậy đó hả.\"", "\"Ủa vậy đó hả?\""],
+    "storyLines": ["Cách duy trì cuộc hội thoại.", "Nghe chuyện nhà hàng xóm."]
+  },
+  {
+    "slug": "xao-su", "color": "blue", "tag": "Giao tiếp", "hashtag": "#xaosu", "title": "XẠO SỰ", "subtitle": "Nói dối, không thật",
+    "desc": "Nói dối, không thật.<br/><br/>VD: Đừng có xạo sự.", "meaningMain": "ba hoa, khoác lác.",
+    "meaningDesc": "Chỉ người không thành thật.",
+    "examples": ["\"Thằng đó toàn xạo sự.\"", "\"Nói láo xạo sự.\""],
+    "storyLines": ["Sự chê trách thẳng thắn.", "Người Nam ghét sự dối trá."]
+  },
+  {
+    "slug": "ca-khia", "color": "yellow", "tag": "Giao tiếp", "hashtag": "#cakhia", "title": "CÀ KHỊA", "subtitle": "Châm chọc",
+    "desc": "Châm chọc.<br/><br/>VD: Thích đi cà khịa người ta.", "meaningMain": "trêu chọc, gây chuyện.",
+    "meaningDesc": "Tạo ra mâu thuẫn nhỏ bằng lời nói châm biếm.",
+    "examples": ["\"Đam mê cà khịa.\"", "\"Đừng cà khịa tao nha.\""],
+    "storyLines": ["Từ lóng cổ được giới trẻ tái sinh.", "Thể hiện sự hài hước cay độc."]
+  }
+]

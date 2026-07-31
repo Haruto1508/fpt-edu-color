@@ -4,6 +4,20 @@ import ScrollReveal from '../components/ScrollReveal';
 import WordCard from '../components/WordCard';
 import wordsData from '../data/words.json';
 
+import imgChaBa from '../assets/Chà bá.png';
+import imgXiXon from '../assets/Xí xọn new.png';
+import imgBanhTon from '../assets/Bảnh tỏn.png';
+import imgMungHum from '../assets/Mừng Húm.png';
+import imgBaChay from '../assets/Bá cháy.png';
+
+const wordImages = {
+  "cha-ba": imgChaBa,
+  "xi-xon": imgXiXon,
+  "banh-ton": imgBanhTon,
+  "mung-hum": imgMungHum,
+  "ba-chay": imgBaChay
+};
+
 export default function WordDetail() {
   const { word } = useParams();
   const wordData = wordsData.find(w => w.slug === word);
@@ -31,8 +45,8 @@ export default function WordDetail() {
     return (
       <div className="page-content" style={{ padding: '10rem 4rem', textAlign: 'center' }}>
         <h1 className="word-title">KHÔNG TÌM THẤY TỪ NÀY</h1>
-        <Link to="/tu-dien" className="btn btn-primary neo-border neo-shadow-hover neo-shadow-active" style={{ marginTop: '2rem' }}>
-          Về từ điển
+        <Link to="/kham-pha" className="btn btn-primary neo-border neo-shadow-hover neo-shadow-active" style={{ marginTop: '2rem' }}>
+          Quay lại trang khám phá
         </Link>
       </div>
     );
@@ -41,6 +55,16 @@ export default function WordDetail() {
   // Pre-defined colors for example boxes
   const boxColors = ["box-blue", "box-yellow", "box-red", "box-green"];
 
+  // Tải danh sách giọng đọc ngay khi component mount để tránh lỗi delay
+  useEffect(() => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.getVoices();
+      window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+      };
+    }
+  }, []);
+
   const handlePlayAudio = () => {
     if (isPlaying) {
       window.speechSynthesis.cancel();
@@ -48,12 +72,11 @@ export default function WordDetail() {
       return;
     }
 
-    // Nếu đang có giọng đọc cũ bị kẹt, hủy nó đi
-    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
-      window.speechSynthesis.cancel();
-    }
+    // Luôn luôn hủy các luồng đọc đang chờ
+    window.speechSynthesis.cancel();
 
-    const playSpeech = () => {
+    // Dùng setTimeout để đảm bảo cancel() đã hoàn tất trước khi speak()
+    setTimeout(() => {
       const voices = window.speechSynthesis.getVoices();
       
       const viVoice = voices.find(v => 
@@ -61,7 +84,7 @@ export default function WordDetail() {
         v.name.toLowerCase().includes('vietnamese')
       );
 
-      // Nếu đã tải danh sách giọng đọc nhưng không có tiếng Việt
+      // Nếu đã có danh sách giọng mà không có tiếng Việt
       if (!viVoice && voices.length > 0) {
         alert("⚠️ Máy tính của bạn chưa cài đặt Giọng Đọc Tiếng Việt.\n\nCách khắc phục (Windows):\n1. Mở Settings -> Time & Language -> Speech.\n2. Chọn 'Add voices' và tải 'Vietnamese'.\n3. Khởi động lại trình duyệt để nghe âm thanh!");
         return;
@@ -77,7 +100,7 @@ export default function WordDetail() {
         utterance.voice = viVoice;
       }
 
-      // Giữ tham chiếu global
+      // Giữ tham chiếu global để chống garbage collection ở Chrome
       window.speechSynthesisUtterance = utterance;
 
       utterance.onstart = () => setIsPlaying(true);
@@ -89,22 +112,8 @@ export default function WordDetail() {
         setIsPlaying(false);
       };
 
-      // setTimeout nhỏ giúp Chrome xả hàng đợi cancel() trước khi gọi speak() mới
-      setTimeout(() => {
-        window.speechSynthesis.speak(utterance);
-      }, 50);
-    };
-
-    // Chrome/Edge load giọng đọc bất đồng bộ, nếu danh sách rỗng thì chờ load xong
-    if (window.speechSynthesis.getVoices().length === 0) {
-      window.speechSynthesis.onvoiceschanged = () => {
-        playSpeech();
-      };
-      // Kích hoạt thử để trình duyệt nạp danh sách
-      window.speechSynthesis.getVoices();
-    } else {
-      playSpeech();
-    }
+      window.speechSynthesis.speak(utterance);
+    }, 150); // Tăng delay một chút để trình duyệt xả hàng đợi ổn định
   };
 
   return (
@@ -112,15 +121,19 @@ export default function WordDetail() {
       {/* Word Header Section */}
       <section className="word-hero">
         <div className="word-hero-nav">
-          <Link to="/tu-dien" className="back-btn neo-border neo-shadow">
-            <span>←</span> Về từ điển
+          <Link to="/kham-pha" className="back-btn neo-border neo-shadow">
+            <span>←</span> Quay lại trang khám phá
           </Link>
           <div className="word-tag neo-border neo-shadow">{wordData.tag}</div>
         </div>
 
         <ScrollReveal className="word-hero-center" delay={0.2}>
           <div className="graphic-placeholder">
-            <div className="graphic-text-3d" dangerouslySetInnerHTML={{ __html: wordData.title.replace(' ', '<br/>') }}></div>
+            {wordImages[wordData.slug] ? (
+              <img src={wordImages[wordData.slug]} alt={wordData.title} style={{ maxHeight: '300px', objectFit: 'contain' }} />
+            ) : (
+              <div className="graphic-text-3d" dangerouslySetInnerHTML={{ __html: wordData.title.replace(' ', '<br/>') }}></div>
+            )}
           </div>
           <h1 className="word-title">{wordData.title}</h1>
           <p className="word-subtitle">{wordData.subtitle}</p>
@@ -183,7 +196,7 @@ export default function WordDetail() {
       </ScrollReveal>
 
       {/* Suggestions Section */}
-      <section className="word-suggestions neo-border-top" style={{ backgroundColor: 'var(--white)' }}>
+      {/* <section className="word-suggestions neo-border-top" style={{ backgroundColor: 'var(--white)' }}>
         <ScrollReveal>
           <div className="explore-cards-title" style={{ padding: '3rem 4rem 1rem' }}>Có Thể Bạn Muốn Xem</div>
           <div className="cards-grid" style={{ padding: '0 4rem 4rem' }}>
@@ -200,7 +213,7 @@ export default function WordDetail() {
             ))}
           </div>
         </ScrollReveal>
-      </section>
+      </section> */}
 
       {/* Story Section */}
       <ScrollReveal className="word-story bg-dots neo-border-top neo-border-bottom">

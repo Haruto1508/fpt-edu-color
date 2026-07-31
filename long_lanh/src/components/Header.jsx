@@ -50,7 +50,7 @@ export default function Header() {
       <nav className="nav-links">
         <Link to="/" className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>TRANG CHỦ</Link>
         <Link to="/kham-pha" className={`nav-item ${currentPath === '/kham-pha' ? 'active' : ''}`}>KHÁM PHÁ</Link>
-        <Link to="/tu-dien" className={`nav-item ${currentPath === '/tu-dien' ? 'active' : ''}`}>TỪ ĐIỂN</Link>
+        {/* <Link to="/tu-dien" className={`nav-item ${currentPath === '/tu-dien' ? 'active' : ''}`}>TỪ ĐIỂN</Link> */}
         <Link to="/chuyen-phia-sau" className={`nav-item ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}>CHUYỆN PHÍA SAU</Link>
       </nav>
 

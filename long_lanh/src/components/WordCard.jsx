@@ -4,7 +4,7 @@ import { visitedPaths } from '../utils/animationState';
 
 const MotionLink = motion.create(Link);
 
-export default function WordCard({ slug, color, tag, hashtag, title, desc, isMore }) {
+export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSrc, isMore }) {
   const location = useLocation();
   const animProps = {
     initial: visitedPaths.has(location.pathname) ? false : { opacity: 0, y: 40 },
@@ -32,6 +32,11 @@ export default function WordCard({ slug, color, tag, hashtag, title, desc, isMor
       </div>
       <h3 className="card-title">{title}</h3>
       <p className="card-desc" dangerouslySetInnerHTML={{ __html: desc }}></p>
+      {imgSrc && (
+        <div className="card-image" style={{ marginTop: 'auto', display: 'flex', justifyContent: 'center' }}>
+          <img src={imgSrc} alt={title} style={{ maxWidth: '100%', maxHeight: '120px', objectFit: 'contain' }} />
+        </div>
+      )}
     </MotionLink>
   );
 }

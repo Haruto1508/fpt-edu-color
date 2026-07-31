@@ -68,13 +68,13 @@ export default function BehindTheScenes() {
       <section className="bts-team neo-border-top">
         <ScrollReveal className="team-title text-blue">ĐỘI NGŨ NHỎ</ScrollReveal>
         <div className="team-grid">
-          <ScrollReveal delay={0.1} className="team-card bg-blue neo-border neo-shadow">
+          <ScrollReveal delay={0.1}>
             <div className="team-photo"><img src={imgHuy} alt="KIỀU CHÂU QUỐC HUY" /></div>
           </ScrollReveal>
-          <ScrollReveal delay={0.2} className="team-card bg-red neo-border neo-shadow">
+          <ScrollReveal delay={0.2}>
             <div className="team-photo"><img src={imgXuan} alt="PHẠM THỊ KIM XUÂN" /></div>
           </ScrollReveal>
-          <ScrollReveal delay={0.3} className="team-card bg-green neo-border neo-shadow">
+          <ScrollReveal delay={0.3}>
             <div className="team-photo"><img src={imgKhoa} alt="LÊ ĐĂNG KHOA" /></div>
           </ScrollReveal>
         </div>

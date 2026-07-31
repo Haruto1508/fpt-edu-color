@@ -2,8 +2,8 @@
   {
     "slug": "cha-ba", "color": "red", "tag": "Đời sống", "hashtag": "#chaba", "title": "CHÀ BÁ", "subtitle": "To, bự, lớn, khổng lồ",
     "desc": "To, bự, lớn, khổng lồ.<br/><br/>VD: Ổ bánh mì chà bá", "meaningMain": "rất to, rất lớn, khổng lồ.",
-    "meaningDesc": "\"Chà bá\" là cách nói cường điệu để nhấn mạnh kích thước. Người miền Tây dùng từ này rất thường xuyên.",
-    "examples": ["\"Ổ bánh mì chà bá.\"", "\"Cái núi chà bá lửa\""],
+    "meaningDesc": "\"Chà bá\" là cách nói cường điệu để nhấn mạnh kích thước.\u2028\u2028Người miền Tây dùng từ này rất thường xuyên trong giao tiếp.\u2028\u2028Có thể ghép với hầu hết mọi danh từ.",
+    "examples": ["\"Ổ bánh mì chà bá.\"", "\"Nhà người ta chà bá.\"", "\"Con cá chà bá luôn.\"", "\"Cái núi chà bá lửa\""],
     "storyLines": ["Người miền Tây thích cách nói giàu hình ảnh.", "Đó là nét hài hước rất đặc trưng."]
   },
   {
@@ -29,16 +29,16 @@
   },
   {
     "slug": "xi-xon", "color": "red", "tag": "Con người", "hashtag": "#xixon", "title": "XÍ XỌN", "subtitle": "Trang điểm, mặc đẹp, điệu đà",
-    "desc": "Trang điểm, mặc đẹp, điệu đà.<br/><br/>VD: Nhỏ đó xí xọn ghê.", "meaningMain": "làm dáng, hay chưng diện.",
-    "meaningDesc": "Ám chỉ sự điệu đà, thích trang điểm.",
-    "examples": ["\"Bữa nay xí xọn quá hen!\"", "\"Thích xí xọn từ bé.\""],
+    "desc": "Trang điểm, mặc đẹp, điệu đà.<br/><br/>VD: Nhỏ đó xí xọn ghê.", "meaningMain": "thích làm đẹp, thích ăn diện, chăm chút ngoại hình.",
+    "meaningDesc": "Ở miền Tây, \"xí xọn\" thường được dùng để trêu vui những người thích mặc đẹp, trang điểm, phối đồ hoặc chụp ảnh.\u2028\u2028Từ này đa phần mang sắc thái dễ thương, không hề có ý chê bai nếu nói trong ngữ cảnh thân mật.\u2028\u2028Một người xí xọn là người biết chăm chút bản thân và thích xuất hiện thật chỉn chu.",
+    "examples": ["\"Bữa nay xí xọn dữ nghen!\"", "\"Đi học mà xí xoạn dữ ta.\"", "\"Bữa nay xí xọn dữ nghen!\"", "\"Con bé đó xi xọn từ sáng tới tối.\""],
     "storyLines": ["Mộc mạc nhưng cũng rất thích cái đẹp.", "Từ này mang sắc thái vui vẻ."]
   },
   {
     "slug": "banh-ton", "color": "yellow", "tag": "Con người", "hashtag": "#banhton", "title": "BẢNH TỎN", "subtitle": "Đẹp, lịch sự, phong độ",
-    "desc": "Đẹp, lịch sự, phong độ.<br/><br/>VD: Nay bảnh tỏn dữ hen!", "meaningMain": "chải chuốt, ăn mặc sang trọng.",
-    "meaningDesc": "Dùng khen người đàn ông ăn mặc đẹp đẽ hơn ngày thường.",
-    "examples": ["\"Nay bảnh tỏn dữ!\"", "\"Chú rể hôm nay bảnh tỏn quá.\""],
+    "desc": "Đẹp, lịch sự, phong độ.<br/><br/>VD: Nay bảnh tỏn dữ hen!", "meaningMain": "ăn mặc đẹp, chỉn chu, sáng sủa.",
+    "meaningDesc": "\"Bảnh\" nghĩa là đẹp, lịch sự, phong độ.\u2028\u2028\"Tỏn\" chỉ là âm đệm giúp câu nói vui tai và nhấn mạnh hơn.\u2028\u2028Người miền Tây thường dùng để khen ai đó mặc đẹp.",
+    "examples": ["\"Thằng bé nay bảnh tỏn ta.\"", "\"Đi đám cưới bảnh tỏn dữ.\"", "\"Đi làm mà bảnh tỏn quá trời.\"", "\"Nay đi chơi bảnh tỏn dữ nha.\""],
     "storyLines": ["Lúc cần cũng rất tươm tất.", "Lời khen mang lại niềm vui nho nhỏ."]
   },
   {
@@ -57,9 +57,9 @@
   },
   {
     "slug": "mung-hum", "color": "blue", "tag": "Cảm xúc", "hashtag": "#munghum", "title": "MỪNG HÚM", "subtitle": "Vui mừng, yêu thích bất ngờ",
-    "desc": "Vui mừng, yêu thích bất ngờ.<br/><br/>VD: Mừng húm chạy ra.", "meaningMain": "vui vẻ, phấn khích bất ngờ.",
-    "meaningDesc": "Diễn tả cảm xúc mừng rỡ không giấu được ra mặt.",
-    "examples": ["\"Nghe tin đậu đại học, mừng húm.\"", "\"Được cho tiền, mừng húm.\""],
+    "desc": "Vui mừng, yêu thích bất ngờ.<br/><br/>VD: Mừng húm chạy ra.", "meaningMain": "ăn mặc đẹp, chỉn chu, sáng sủa.rất vui, rất mừng, rất thích, bất ngờ",
+    "meaningDesc": "\"Húm\" không có nghĩa độc lập rõ ràng.\nNhưng khi đi cùng \"mừng\", nó trở thành một cụm từ dùng để nhấn mạnh niềm vui.Đây là cách nói rất quen thuộc của người miền Tây.",
+    "examples": ["\"Hên quá sáng không bị sao đó ghi mừng húm mậy.\"", "\"Trúng thưởng cái mừng húm.\"", "\"Thi đậu cái mừng húm lun\"", "\"Nhỏ đó gặp người yêu là mừng húm.\""],
     "storyLines": ["Cảm xúc chân thật, có sao nói vậy.", "Niềm vui hiện rõ trên nụ cười."]
   },
   {
@@ -112,10 +112,10 @@
     "storyLines": ["Tinh thần vui chơi hết mình.", "Sống trọn vẹn từng khoảnh khắc."]
   },
   {
-    "slug": "ba-chay", "color": "yellow", "tag": "Ăn uống", "hashtag": "#bachay", "title": "BÁ CHÁY", "subtitle": "Rất hay, rất chất, rất ngon",
-    "desc": "Rất hay, rất chất, rất ngon.<br/><br/>VD: Món này ngon bá cháy.", "meaningMain": "ngon tuyệt đỉnh.",
-    "meaningDesc": "Khen ngợi đồ ăn xuất sắc.",
-    "examples": ["\"Tô phở ngon bá cháy bọ chét.\"", "\"Chấm nước mắm bá cháy.\""],
+    "slug": "ba-chay", "color": "yellow", "tag": "Ăn uống", "hashtag": "#bachay", "title": "BÁ CHÁY", "subtitle": "rất hay, rất đỉnh, rất chất, rất ngon",
+    "desc": "Rất hay, rất chất, rất ngon.<br/><br/>VD: Món này ngon bá cháy.", "meaningMain": "rất hay, rất đỉnh, rất chất, rất ngon.",
+    "meaningDesc": "Đây là tiếng lóng dùng để khen một thứ gì đó vượt mong đợi.\nCó thể dùng cho: Đồ ăn, Thiết kế, Âm nhạc, Con người.",
+    "examples": ["\"Nồi lẩu mắm bữa nay ngon bá cháy luôn!\"", "\"Bài nhạc đó bá cháy luôn.\"", "\"Ngon bá cháy\"", "\"Thiết kế này bá cháy.\""],
     "storyLines": ["Ẩm thực miền Tây đậm đà.", "Khen là phải bá cháy."]
   },
   {

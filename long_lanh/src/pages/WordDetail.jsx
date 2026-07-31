@@ -130,7 +130,7 @@ export default function WordDetail() {
         <ScrollReveal className="word-hero-center" delay={0.2}>
           <div className="graphic-placeholder">
             {wordImages[wordData.slug] ? (
-              <img src={wordImages[wordData.slug]} alt={wordData.title} style={{ maxHeight: '300px', objectFit: 'contain' }} />
+              <img src={wordImages[wordData.slug]} alt={wordData.title} className="word-hero-img" />
             ) : (
               <div className="graphic-text-3d" dangerouslySetInnerHTML={{ __html: wordData.title.replace(' ', '<br/>') }}></div>
             )}

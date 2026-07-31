@@ -569,7 +569,28 @@
 }
 
 .graphic-placeholder {
-  /* margin-bottom: 2rem; */
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-hero-img {
+  max-height: 300px;
+  object-fit: contain;
+  opacity: 0;
+  animation: fadeInImage 0.8s ease-out forwards;
+}
+
+@keyframes fadeInImage {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .graphic-text-3d {

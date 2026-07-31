@@ -505,7 +505,6 @@
 .explore-cards {
   padding: 4rem 4rem;
   background: var(--white);
-  border-bottom: 2px solid var(--border-color);
 }
 
 .explore-cards-title {

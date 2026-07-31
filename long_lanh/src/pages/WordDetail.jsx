@@ -22,6 +22,7 @@ export default function WordDetail() {
   const { word } = useParams();
   const wordData = wordsData.find(w => w.slug === word);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
 
   const randomSuggestions = useMemo(() => {
     const otherWords = wordsData.filter(w => w.slug !== word);
@@ -116,6 +117,14 @@ export default function WordDetail() {
     }, 150); // Tăng delay một chút để trình duyệt xả hàng đợi ổn định
   };
 
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
+
   return (
     <div className="page-content">
       {/* Word Header Section */}
@@ -172,9 +181,18 @@ export default function WordDetail() {
             </div>
           </div>
 
-          <button className="share-btn neo-border neo-shadow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" height="14" width="14" style={{ marginRight: '5px' }}><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-            Chia sẻ từ này
+          <button className="share-btn neo-border neo-shadow" onClick={handleShare} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {isCopied ? (
+              <>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" height="16" width="16" style={{ marginRight: '6px' }}><path strokeLinecap="round" strokeLinejoin="round" d="M20 6L9 17l-5-5"></path></svg>
+                Đã copy đường link
+              </>
+            ) : (
+              <>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" height="14" width="14" style={{ marginRight: '5px' }}><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                Chia sẻ từ này
+              </>
+            )}
           </button>
         </div>
       </ScrollReveal>

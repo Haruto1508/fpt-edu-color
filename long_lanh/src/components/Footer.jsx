@@ -4,7 +4,7 @@ import logoImg from '../assets/headerLogo.png';
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer neo-border-top">
       <div className="footer-col">
         <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
           <img src={logoImg} alt="Long Lanh Logo" style={{ height: '200px', margin: '-30px'}} />

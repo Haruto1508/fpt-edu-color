@@ -4,18 +4,24 @@ import ScrollReveal from '../components/ScrollReveal';
 import WordCard from '../components/WordCard';
 import wordsData from '../data/words.json';
 
-import imgChaBa from '../assets/Chà bá.png';
-import imgXiXon from '../assets/Xí xọn new.png';
-import imgBanhTon from '../assets/Bảnh tỏn.png';
-import imgMungHum from '../assets/Mừng Húm.png';
-import imgBaChay from '../assets/Bá cháy.png';
+import imgChaBa from '../assets/words/cha_ba.png';
+import imgXiXon from '../assets/words/xi_xon.png';
+import imgBanhTon from '../assets/words/banh_ton.png';
+import imgMungHum from '../assets/words/mung_hum.png';
+import imgBaChay from '../assets/words/ba_chay.png';
+import imgChangHang from '../assets/words/chang_hang.png';
+import imgTumHum from '../assets/words/tum_hum.png';
+import imgMitUot from '../assets/words/mit_uot.png';
 
 const wordImages = {
   "cha-ba": imgChaBa,
   "xi-xon": imgXiXon,
   "banh-ton": imgBanhTon,
   "mung-hum": imgMungHum,
-  "ba-chay": imgBaChay
+  "ba-chay": imgBaChay,
+  "chang-hang": imgChangHang,
+  "tum-hum": imgTumHum,
+  "mit-uot": imgMitUot
 };
 
 export default function WordDetail() {

@@ -4,16 +4,31 @@ import WordCard from '../components/WordCard';
 import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 
-import imgChaBa from '../assets/Chà bá.png';
-import imgXiXon from '../assets/Xí xọn new.png';
-import imgBanhTon from '../assets/Bảnh tỏn.png';
-import imgMungHum from '../assets/Mừng Húm.png';
-import imgBaChay from '../assets/Bá cháy.png';
+import imgChaBa from '../assets/words/cha_ba.png';
+import imgXiXon from '../assets/words/xi_xon.png';
+import imgBanhTon from '../assets/words/banh_ton.png';
+import imgMungHum from '../assets/words/mung_hum.png';
+import imgBaChay from '../assets/words/ba_chay.png';
+import imgChangHang from '../assets/words/chang_hang.png';
+import imgTumHum from '../assets/words/tum_hum.png';
+import imgMitUot from '../assets/words/mit_uot.png';
 
 const getMockData = () => [
   {
     "slug": "cha-ba", "color": "red", "tag": "Đời sống", "hashtag": "#chaba", "title": "CHÀ BÁ",
     "desc": "To, bự, lớn, khổng lồ.<br/><br/>VD: Ổ bánh mì chà bá", "imgSrc": imgChaBa
+  },
+  {
+    "slug": "chang-hang", "color": "blue", "tag": "Đời sống", "hashtag": "#changhang", "title": "CHÀNG HẢNG",
+    "desc": "Giạng chân, dang rộng hai chân.<br/><br/>VD: Đứng chàng hảng coi chừng té.", "imgSrc": imgChangHang
+  },
+  {
+    "slug": "tum-hum", "color": "green", "tag": "Đời sống", "hashtag": "#tumhum", "title": "TUM HÚM",
+    "desc": "Nhỏ hẹp, chật chội, co cụm.<br/><br/>VD: Cái nhà tum húm mà ấm cúng.", "imgSrc": imgTumHum
+  },
+  {
+    "slug": "mit-uot", "color": "red", "tag": "Đời sống", "hashtag": "#mituot", "title": "MÍT ƯỚT",
+    "desc": "Dễ xúc động, hay khóc, mau nước mắt.<br/><br/>VD: Nhỏ đó mít ướt lắm, coi phim là khóc.", "imgSrc": imgMitUot
   },
   {
     "slug": "xi-xon", "color": "green", "tag": "Con người", "hashtag": "#xixon", "title": "XÍ XỌN",
@@ -39,15 +54,9 @@ export default function Explore() {
   const resultsRef = useRef(null);
 
   const allWordsData = useMemo(() => {
-    const mockWords = getMockData();
-    return [
-      ...mockWords,
-      ...wordsData.filter(w => !mockWords.find(m => m.slug === w.slug))
-    ];
+    return getMockData();
   }, []);
 
-  // const filters = ["Tất cả", "Đời sống", "Con người", "Cảm xúc", "Sinh hoạt", "Ăn uống", "Giao tiếp"];
-  
   const filters = useMemo(() => {
     const tags = new Set(getMockData().map(word => word.tag));
     return ["Tất cả", ...tags];
@@ -65,8 +74,6 @@ export default function Explore() {
     }
   }, [searchParams]);
 
-
-
   const dropdownWords = allWordsData.filter(word => {
     return word.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       word.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -79,12 +86,8 @@ export default function Explore() {
       word.hashtag.toLowerCase().includes(submittedSearchTerm.toLowerCase());
 
     const matchesFilter = activeFilter === "Tất cả" || word.tag === activeFilter;
-    
-    // Chỉ show mock data khi chọn một chủ đề cụ thể
-    const isMockData = getMockData().some(m => m.slug === word.slug);
-    const matchesMockIfFiltered = activeFilter === "Tất cả" ? true : isMockData;
 
-    return matchesSearch && matchesFilter && matchesMockIfFiltered;
+    return matchesSearch && matchesFilter;
   });
 
   const isDefaultView = submittedSearchTerm === "" && activeFilter === "Tất cả";
@@ -109,7 +112,6 @@ export default function Explore() {
 
   return (
     <div className="page-content">
-      {/* Explore Hero */}
       <ScrollReveal className="explore-hero">
         <p className="explore-subtitle">Đi một vòng coi miền Tây nói chuyện sao</p>
         <h1 className="explore-title">
@@ -173,7 +175,6 @@ export default function Explore() {
         </form>
       </ScrollReveal>
 
-      {/* Filters */}
       <ScrollReveal className="filters-section" delay={0.2}>
         <button className="filter-main-btn">
           Chủ đề ➔
@@ -195,7 +196,6 @@ export default function Explore() {
         </div>
       </ScrollReveal>
 
-      {/* Cards List */}
       <div ref={resultsRef} style={{ paddingBottom: '6rem' }}>
         {isDefaultView ? (
           <ScrollReveal className="explore-cards" delay={0.3} style={{ marginBottom: '2rem' }}>
@@ -210,6 +210,7 @@ export default function Explore() {
                   hashtag={word.hashtag}
                   title={word.title}
                   desc={word.desc}
+                  imgSrc={word.imgSrc}
                 />
               ))}
             </div>
@@ -227,6 +228,7 @@ export default function Explore() {
                   hashtag={word.hashtag}
                   title={word.title}
                   desc={word.desc}
+                  imgSrc={word.imgSrc}
                 />
               ))}
               {filteredWords.length === 0 && (

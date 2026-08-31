@@ -32,11 +32,6 @@ export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSr
       </div>
       <h3 className="card-title">{title}</h3>
       <p className="card-desc" dangerouslySetInnerHTML={{ __html: desc }}></p>
-      {imgSrc && (
-        <div className="card-image" style={{ marginTop: 'auto', display: 'flex', justifyContent: 'center' }}>
-          <img src={imgSrc} alt={title} style={{ maxWidth: '100%', maxHeight: '120px', objectFit: 'contain' }} />
-        </div>
-      )}
     </MotionLink>
   );
 }

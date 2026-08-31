@@ -5,16 +5,31 @@ import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import nonImg from '../assets/non.png';
 
-import imgChaBa from '../assets/Chà bá.png';
-import imgXiXon from '../assets/Xí xọn new.png';
-import imgBanhTon from '../assets/Bảnh tỏn.png';
-import imgMungHum from '../assets/Mừng Húm.png';
-import imgBaChay from '../assets/Bá cháy.png';
+import imgChaBa from '../assets/words/cha_ba.png';
+import imgXiXon from '../assets/words/xi_xon.png';
+import imgBanhTon from '../assets/words/banh_ton.png';
+import imgMungHum from '../assets/words/mung_hum.png';
+import imgBaChay from '../assets/words/ba_chay.png';
+import imgChangHang from '../assets/words/chang_hang.png';
+import imgTumHum from '../assets/words/tum_hum.png';
+import imgMitUot from '../assets/words/mit_uot.png';
 
 const getMockData = () => [
   {
     "slug": "cha-ba", "color": "red", "tag": "Đời sống", "hashtag": "#chaba", "title": "CHÀ BÁ",
     "desc": "To, bự, lớn, khổng lồ.<br/><br/>VD: Ổ bánh mì chà bá", "imgSrc": imgChaBa
+  },
+  {
+    "slug": "chang-hang", "color": "blue", "tag": "Đời sống", "hashtag": "#changhang", "title": "CHÀNG HẢNG",
+    "desc": "Giạng chân, dang rộng hai chân.<br/><br/>VD: Đứng chàng hảng coi chừng té.", "imgSrc": imgChangHang
+  },
+  {
+    "slug": "tum-hum", "color": "green", "tag": "Đời sống", "hashtag": "#tumhum", "title": "TUM HÚM",
+    "desc": "Nhỏ hẹp, chật chội, co cụm.<br/><br/>VD: Cái nhà tum húm mà ấm cúng.", "imgSrc": imgTumHum
+  },
+  {
+    "slug": "mit-uot", "color": "red", "tag": "Đời sống", "hashtag": "#mituot", "title": "MÍT ƯỚT",
+    "desc": "Dễ xúc động, hay khóc, mau nước mắt.<br/><br/>VD: Nhỏ đó mít ướt lắm, coi phim là khóc.", "imgSrc": imgMitUot
   },
   {
     "slug": "xi-xon", "color": "green", "tag": "Con người", "hashtag": "#xixon", "title": "XÍ XỌN",
@@ -89,6 +104,7 @@ export default function Home() {
               hashtag={word.hashtag} 
               title={word.title} 
               desc={word.desc}
+              imgSrc={word.imgSrc}
             />
           ))}
           {/* <WordCard isMore={true} /> */}

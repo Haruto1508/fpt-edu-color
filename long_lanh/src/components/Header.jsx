@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logoImg from '../assets/headerLogo.png';
+import logoImg from '../assets/LOGO.png';
 import wordsData from '../data/words.json';
 
 export default function Header() {

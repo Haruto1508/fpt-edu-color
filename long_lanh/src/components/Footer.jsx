@@ -1,65 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../assets/headerLogo.png';
+import logoImg from '../assets/LOGO.png';
+import luaTrenImg from '../assets/lua_tren.png';
+import luaDuoiImg from '../assets/lua_duoi.png';
 
 export default function Footer() {
   return (
     <footer className="footer">
-      {/* Decorative Green Waves with Grid & Coral Accent on the left */}
+      {/* Decorative Background Rice Waves from Figma */}
       <div className="footer-decor" aria-hidden="true">
-        <svg
-          viewBox="0 0 460 200"
-          preserveAspectRatio="none"
-          className="footer-decor-svg"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="footer-grid-pattern"
-              width="14"
-              height="14"
-              patternUnits="userSpaceOnUse"
-              patternTransform="rotate(12)"
-            >
-              <line x1="0" y1="0" x2="0" y2="14" stroke="#088f3c" strokeWidth="1.2" strokeOpacity="0.75" />
-              <line x1="0" y1="0" x2="14" y2="0" stroke="#088f3c" strokeWidth="1.2" strokeOpacity="0.75" />
-            </pattern>
-          </defs>
-
-          {/* Top-Left Wave */}
-          <path
-            d="M 0,0 L 175,0 C 120,40 50,60 0,68 Z"
-            fill="#0db14b"
-          />
-          <path
-            d="M 0,0 L 175,0 C 120,40 50,60 0,68 Z"
-            fill="url(#footer-grid-pattern)"
-          />
-          <path
-            d="M 175,0 C 120,40 50,60 0,68"
-            fill="none"
-            stroke="#f26d5f"
-            strokeWidth="4.5"
-            strokeLinecap="round"
-          />
-
-          {/* Bottom-Left Wave */}
-          <path
-            d="M 0,115 C 80,85 190,100 295,135 C 360,158 410,182 450,200 L 0,200 Z"
-            fill="#0db14b"
-          />
-          <path
-            d="M 0,115 C 80,85 190,100 295,135 C 360,158 410,182 450,200 L 0,200 Z"
-            fill="url(#footer-grid-pattern)"
-          />
-          <path
-            d="M 0,115 C 80,85 190,100 295,135 C 360,158 410,182 450,200"
-            fill="none"
-            stroke="#f26d5f"
-            strokeWidth="5"
-            strokeLinecap="round"
-          />
-        </svg>
+        <img src={luaTrenImg} alt="" className="footer-decor-top" />
+        <img src={luaDuoiImg} alt="" className="footer-decor-bottom" />
       </div>
 
       <div className="footer-container">

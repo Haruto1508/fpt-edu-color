@@ -85,9 +85,9 @@ export default function WordDetail() {
     // Dùng setTimeout để đảm bảo cancel() đã hoàn tất trước khi speak()
     setTimeout(() => {
       const voices = window.speechSynthesis.getVoices();
-      
-      const viVoice = voices.find(v => 
-        v.lang.toLowerCase().includes('vi') || 
+
+      const viVoice = voices.find(v =>
+        v.lang.toLowerCase().includes('vi') ||
         v.name.toLowerCase().includes('vietnamese')
       );
 
@@ -102,7 +102,7 @@ export default function WordDetail() {
       utterance.rate = 0.85;
       utterance.pitch = 1;
       utterance.volume = 1;
-      
+
       if (viVoice) {
         utterance.voice = viVoice;
       }

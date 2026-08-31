@@ -801,7 +801,7 @@
 
 .box-yellow {
   background: var(--yellow);
-  color: var(--white);
+  color: var(--black);
 }
 
 .box-red {

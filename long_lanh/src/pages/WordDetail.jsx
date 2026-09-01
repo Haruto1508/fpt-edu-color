@@ -48,20 +48,6 @@ export default function WordDetail() {
     };
   }, [word]);
 
-  if (!wordData) {
-    return (
-      <div className="page-content" style={{ padding: '10rem 4rem', textAlign: 'center' }}>
-        <h1 className="word-title">KHÔNG TÌM THẤY TỪ NÀY</h1>
-        <Link to="/kham-pha" className="btn btn-primary neo-border neo-shadow-hover neo-shadow-active" style={{ marginTop: '2rem' }}>
-          Quay lại trang khám phá
-        </Link>
-      </div>
-    );
-  }
-
-  // Pre-defined colors for example boxes
-  const boxColors = ["box-blue", "box-yellow", "box-red", "box-green"];
-
   // Tải danh sách giọng đọc ngay khi component mount để tránh lỗi delay
   useEffect(() => {
     if ('speechSynthesis' in window) {
@@ -71,6 +57,37 @@ export default function WordDetail() {
       };
     }
   }, []);
+
+  if (!wordData) {
+    const searchedWord = decodeURIComponent(word || '');
+    return (
+      <div className="page-content" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '65vh', padding: '4rem 1rem' }}>
+        <ScrollReveal className="explore-hero" style={{ textAlign: 'center', maxWidth: '650px', borderBottom: 'none' }}>
+          <div className="badge neo-border neo-shadow" style={{ marginBottom: '1.5rem', backgroundColor: 'var(--red)', color: 'var(--white)', display: 'inline-block' }}>
+            Không tìm thấy
+          </div>
+          <h1 className="explore-title" style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: 1.3 }}>
+            <span className="title-red">"{searchedWord.toUpperCase()}"</span><br />
+            <span className="title-blue">CHƯA CÓ TRONG KHO TÀNG</span>
+          </h1>
+          <p style={{ fontSize: '1.15rem', marginBottom: '2.5rem', color: 'var(--black)', lineHeight: 1.6 }}>
+            Từ lóng này chưa có trong bộ sưu tập hoặc có thể bạn đã gõ chưa đúng chính tả. Thử dạo một vòng khám phá thêm nhiều từ miền Tây bá cháy khác nha!
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/kham-pha" className="btn btn-primary neo-border neo-shadow-hover neo-shadow-active" style={{ textDecoration: 'none', fontSize: '1.1rem', padding: '0.8rem 1.8rem' }}>
+              Khám phá từ khác ➔
+            </Link>
+            <Link to="/" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{ textDecoration: 'none', fontSize: '1.1rem', padding: '0.8rem 1.8rem' }}>
+              Về trang chủ
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
+    );
+  }
+
+  // Pre-defined colors for example boxes
+  const boxColors = ["box-blue", "box-yellow", "box-red", "box-green"];
 
   const handlePlayAudio = () => {
     if (isPlaying) {

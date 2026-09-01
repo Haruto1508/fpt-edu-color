@@ -14,40 +14,16 @@ import imgChangHang from '../assets/words/chang_hang.png';
 import imgTumHum from '../assets/words/tum_hum.png';
 import imgMitUot from '../assets/words/mit_uot.png';
 
-const getMockData = () => [
-  {
-    "slug": "cha-ba", "color": "red", "tag": "Đời sống", "hashtag": "#chaba", "title": "CHÀ BÁ",
-    "desc": "To, bự, lớn, khổng lồ.<br/><br/>VD: Ổ bánh mì chà bá", "imgSrc": imgChaBa
-  },
-  {
-    "slug": "chang-hang", "color": "blue", "tag": "Đời sống", "hashtag": "#changhang", "title": "CHÀNG HẢNG",
-    "desc": "Giạng chân, dang rộng hai chân.<br/><br/>VD: Đứng chàng hảng coi chừng té.", "imgSrc": imgChangHang
-  },
-  {
-    "slug": "tum-hum", "color": "green", "tag": "Đời sống", "hashtag": "#tumhum", "title": "TUM HÚM",
-    "desc": "Nhỏ hẹp, chật chội, co cụm.<br/><br/>VD: Cái nhà tum húm mà ấm cúng.", "imgSrc": imgTumHum
-  },
-  {
-    "slug": "mit-uot", "color": "red", "tag": "Đời sống", "hashtag": "#mituot", "title": "MÍT ƯỚT",
-    "desc": "Dễ xúc động, hay khóc, mau nước mắt.<br/><br/>VD: Nhỏ đó mít ướt lắm, coi phim là khóc.", "imgSrc": imgMitUot
-  },
-  {
-    "slug": "xi-xon", "color": "green", "tag": "Con người", "hashtag": "#xixon", "title": "XÍ XỌN",
-    "desc": "Trang điểm, mặc đẹp, điệu đà.<br/><br/>VD: Nhỏ đó xí xọn ghê.", "imgSrc": imgXiXon
-  },
-  {
-    "slug": "mung-hum", "color": "blue", "tag": "Cảm xúc", "hashtag": "#munghum", "title": "MỪNG HÚM",
-    "desc": "Vui mừng khôn xiết.<br/><br/>VD: Được quà mừng húm.", "imgSrc": imgMungHum
-  },
-  {
-    "slug": "ba-chay", "color": "blue", "tag": "Đời sống", "hashtag": "#bachay", "title": "BÁ CHÁY",
-    "desc": "Rất ngon, tuyệt vời.<br/><br/>VD: Món này ngon bá cháy.", "imgSrc": imgBaChay
-  },
-  {
-    "slug": "banh-ton", "color": "yellow", "tag": "Con người", "hashtag": "#banhton", "title": "BẢNH TỎN",
-    "desc": "Đẹp, lịch sự, phong độ.<br/><br/>VD: Nay bảnh tỏn dữ hen!", "imgSrc": imgBanhTon
-  }
-];
+const wordImages = {
+  "cha-ba": imgChaBa,
+  "xi-xon": imgXiXon,
+  "banh-ton": imgBanhTon,
+  "mung-hum": imgMungHum,
+  "ba-chay": imgBaChay,
+  "chang-hang": imgChangHang,
+  "tum-hum": imgTumHum,
+  "mit-uot": imgMitUot
+};
 
 export default function Home() {
   return (
@@ -72,9 +48,9 @@ export default function Home() {
             <Link to="/kham-pha" className="btn btn-primary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
               Khám phá tiếng lóng ➔
             </Link>
-            <Link to="/tu-dien" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
+            {/* <Link to="/tu-dien" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
               Thử cho chữ ngẫu nhiên
-            </Link>
+            </Link> */}
           </div>
         </ScrollReveal>
 
@@ -95,7 +71,7 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="cards-grid">
-          {getMockData().map((word, idx) => (
+          {wordsData.map((word, idx) => (
             <WordCard 
               key={idx} 
               slug={word.slug}
@@ -104,7 +80,7 @@ export default function Home() {
               hashtag={word.hashtag} 
               title={word.title} 
               desc={word.desc}
-              imgSrc={word.imgSrc}
+              imgSrc={wordImages[word.slug]}
             />
           ))}
           {/* <WordCard isMore={true} /> */}

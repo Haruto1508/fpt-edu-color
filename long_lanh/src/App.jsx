@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
 import { visitedPaths } from './utils/animationState';
+import { preloadWordImages } from './utils/wordAssets';
 
 function AppRoutes() {
   const location = useLocation();
@@ -39,6 +40,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    preloadWordImages();
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1200);

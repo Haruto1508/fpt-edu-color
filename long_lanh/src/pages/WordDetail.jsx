@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import WordCard from '../components/WordCard';
@@ -13,6 +13,15 @@ import imgChangHang from '../assets/words/chang_hang.png';
 import imgTumHum from '../assets/words/tum_hum.png';
 import imgMitUot from '../assets/words/mit_uot.png';
 
+import audioChaBa from '../assets/record/cha_ba.mp3';
+import audioXiXon from '../assets/record/xi_xon.mp3';
+import audioBanhTon from '../assets/record/banh_ton.mp3';
+import audioMungHum from '../assets/record/mung_hum.mp3';
+import audioBaChay from '../assets/record/bao_chay.mp3';
+import audioChangHang from '../assets/record/chang_hang.mp3';
+import audioTumHum from '../assets/record/tun_hun.mp3';
+import audioMitUot from '../assets/record/mit_uot.mp3';
+
 const wordImages = {
   "cha-ba": imgChaBa,
   "xi-xon": imgXiXon,
@@ -24,11 +33,23 @@ const wordImages = {
   "mit-uot": imgMitUot
 };
 
+const wordAudios = {
+  "cha-ba": audioChaBa,
+  "xi-xon": audioXiXon,
+  "banh-ton": audioBanhTon,
+  "mung-hum": audioMungHum,
+  "ba-chay": audioBaChay,
+  "chang-hang": audioChangHang,
+  "tum-hum": audioTumHum,
+  "mit-uot": audioMitUot
+};
+
 export default function WordDetail() {
   const { word } = useParams();
   const wordData = wordsData.find(w => w.slug === word);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+  const audioRef = useRef(null);
 
   const randomSuggestions = useMemo(() => {
     const otherWords = wordsData.filter(w => w.slug !== word);
@@ -37,18 +58,28 @@ export default function WordDetail() {
 
   // Ngắt âm thanh khi chuyển sang từ mới hoặc rời trang
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
+    setIsPlaying(false);
+
     return () => {
-      setIsPlaying(false);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
       }
+      setIsPlaying(false);
     };
   }, [word]);
 
-  // Tải danh sách giọng đọc ngay khi component mount để tránh lỗi delay
+  // Tải danh sách giọng đọc nếu cần fallback
   useEffect(() => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.getVoices();
@@ -90,54 +121,75 @@ export default function WordDetail() {
   const boxColors = ["box-blue", "box-yellow", "box-red", "box-green"];
 
   const handlePlayAudio = () => {
+    const audioSrc = wordData ? wordAudios[wordData.slug] : null;
+
+    if (audioSrc && audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        setIsPlaying(false);
+      } else {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((err) => {
+            console.error("Lỗi phát audio:", err);
+            setIsPlaying(false);
+          });
+      }
+      return;
+    }
+
+    // Fallback: Dùng SpeechSynthesis nếu không có file âm thanh
     if (isPlaying) {
-      window.speechSynthesis.cancel();
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       setIsPlaying(false);
       return;
     }
 
-    // Luôn luôn hủy các luồng đọc đang chờ
-    window.speechSynthesis.cancel();
+    if ('speechSynthesis' in window && wordData) {
+      window.speechSynthesis.cancel();
+      setTimeout(() => {
+        const voices = window.speechSynthesis.getVoices();
 
-    // Dùng setTimeout để đảm bảo cancel() đã hoàn tất trước khi speak()
-    setTimeout(() => {
-      const voices = window.speechSynthesis.getVoices();
+        const viVoice = voices.find(v =>
+          v.lang.toLowerCase().includes('vi') ||
+          v.name.toLowerCase().includes('vietnamese')
+        );
 
-      const viVoice = voices.find(v =>
-        v.lang.toLowerCase().includes('vi') ||
-        v.name.toLowerCase().includes('vietnamese')
-      );
-
-      // Nếu đã có danh sách giọng mà không có tiếng Việt
-      if (!viVoice && voices.length > 0) {
-        alert("⚠️ Máy tính của bạn chưa cài đặt Giọng Đọc Tiếng Việt.\n\nCách khắc phục (Windows):\n1. Mở Settings -> Time & Language -> Speech.\n2. Chọn 'Add voices' và tải 'Vietnamese'.\n3. Khởi động lại trình duyệt để nghe âm thanh!");
-        return;
-      }
-
-      const utterance = new SpeechSynthesisUtterance(wordData.title);
-      utterance.lang = 'vi-VN';
-      utterance.rate = 0.85;
-      utterance.pitch = 1;
-      utterance.volume = 1;
-
-      if (viVoice) {
-        utterance.voice = viVoice;
-      }
-
-      // Giữ tham chiếu global để chống garbage collection ở Chrome
-      window.speechSynthesisUtterance = utterance;
-
-      utterance.onstart = () => setIsPlaying(true);
-      utterance.onend = () => setIsPlaying(false);
-      utterance.onerror = (e) => {
-        if (e.error !== 'interrupted') {
-          console.error("Lỗi SpeechSynthesis:", e);
+        // Nếu đã có danh sách giọng mà không có tiếng Việt
+        if (!viVoice && voices.length > 0) {
+          alert("⚠️ Máy tính của bạn chưa cài đặt Giọng Đọc Tiếng Việt.\n\nCách khắc phục (Windows):\n1. Mở Settings -> Time & Language -> Speech.\n2. Chọn 'Add voices' và tải 'Vietnamese'.\n3. Khởi động lại trình duyệt để nghe âm thanh!");
+          return;
         }
-        setIsPlaying(false);
-      };
 
-      window.speechSynthesis.speak(utterance);
-    }, 150); // Tăng delay một chút để trình duyệt xả hàng đợi ổn định
+        const utterance = new SpeechSynthesisUtterance(wordData.title);
+        utterance.lang = 'vi-VN';
+        utterance.rate = 0.85;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        if (viVoice) {
+          utterance.voice = viVoice;
+        }
+
+        // Giữ tham chiếu global để chống garbage collection ở Chrome
+        window.speechSynthesisUtterance = utterance;
+
+        utterance.onstart = () => setIsPlaying(true);
+        utterance.onend = () => setIsPlaying(false);
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted') {
+            console.error("Lỗi SpeechSynthesis:", e);
+          }
+          setIsPlaying(false);
+        };
+
+        window.speechSynthesis.speak(utterance);
+      }, 150);
+    }
   };
 
   const handleShare = () => {
@@ -159,10 +211,18 @@ export default function WordDetail() {
           <div className="word-tag neo-border neo-shadow">{wordData.tag}</div>
         </div>
 
-        <ScrollReveal className="word-hero-center" delay={0.2}>
+        <ScrollReveal className="word-hero-center" delay={0.05} duration={0.35}>
           <div className="graphic-placeholder">
             {wordImages[wordData.slug] ? (
-              <img src={wordImages[wordData.slug]} alt={wordData.title} className="word-hero-img" />
+              <img
+                key={wordData.slug}
+                src={wordImages[wordData.slug]}
+                alt={wordData.title}
+                className="word-hero-img"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
             ) : (
               <div className="graphic-text-3d" dangerouslySetInnerHTML={{ __html: wordData.title.replace(' ', '<br/>') }}></div>
             )}
@@ -187,7 +247,25 @@ export default function WordDetail() {
           <h3 className="audio-title">CÁCH PHÁT ÂM</h3>
 
           <div className="audio-player neo-border">
-            <button className={`play-btn ${isPlaying ? 'playing' : ''}`} onClick={handlePlayAudio} style={{ cursor: 'pointer', transition: 'transform 0.1s' }} onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.9)'} onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+            {wordAudios[wordData.slug] && (
+              <audio
+                key={wordData.slug}
+                ref={audioRef}
+                src={wordAudios[wordData.slug]}
+                onEnded={() => setIsPlaying(false)}
+                onPause={() => setIsPlaying(false)}
+                preload="auto"
+              />
+            )}
+            <button
+              className={`play-btn ${isPlaying ? 'playing' : ''}`}
+              onClick={handlePlayAudio}
+              style={{ cursor: 'pointer', transition: 'transform 0.1s' }}
+              onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.9)'}
+              onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              title={isPlaying ? "Dừng phát" : "Nghe phát âm"}
+            >
               <svg viewBox="0 0 24 24" fill="currentColor" height="20" width="20">
                 {isPlaying ? (
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>

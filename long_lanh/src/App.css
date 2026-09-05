@@ -81,6 +81,7 @@
   font-weight: 600;
   font-size: 0.9rem;
   width: 130px;
+  background: none;
 }
 
 /* Hero Section (Home) */
@@ -583,19 +584,19 @@
 
 .word-hero-img {
   max-height: 300px;
+  width: auto;
   object-fit: contain;
-  opacity: 0;
-  animation: fadeInImage 0.8s ease-out forwards;
+  animation: popInImage 0.25s ease-out forwards;
 }
 
-@keyframes fadeInImage {
+@keyframes popInImage {
   0% {
     opacity: 0;
-    transform: translateY(15px) scale(0.95);
+    transform: scale(0.96);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 

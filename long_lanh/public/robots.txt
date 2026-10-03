@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://longlanh.com/sitemap.xml
+Sitemap: https://tienglongmientay.com/sitemap.xml

@@ -41,10 +41,27 @@ function App() {
 
   useEffect(() => {
     preloadWordImages();
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1200);
-    return () => clearTimeout(timer);
+
+    let isMounted = true;
+    const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
+    const minTimer = new Promise((resolve) => setTimeout(resolve, 800));
+
+    // Đợi font chữ và tài nguyên nạp xong hoàn toàn trước khi hiển thị giao diện
+    Promise.all([fontPromise, minTimer]).then(() => {
+      if (isMounted) setLoading(false);
+    }).catch(() => {
+      if (isMounted) setLoading(false);
+    });
+
+    // Timeout an toàn tối đa 2.5s phòng khi mạng chậm
+    const maxTimer = setTimeout(() => {
+      if (isMounted) setLoading(false);
+    }, 2500);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(maxTimer);
+    };
   }, []);
 
   if (loading) {

@@ -1,4 +1,24 @@
+# ==============================================
+# ROBOTS.TXT - LÓNG LÁNH (TIẾNG LÓNG MIỀN TÂY)
+# Website: https://www.tienglongmientay.com
+# ==============================================
+
+# Cho phép tất cả các bot tìm kiếm thu thập dữ liệu toàn bộ website
 User-agent: *
 Allow: /
 
+# Cấu hình tối ưu cho Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Cho phép bot hình ảnh lập chỉ mục tranh minh họa & logo
+User-agent: Googlebot-Image
+Allow: /
+
+# Cấu hình tối ưu cho Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Khai báo vị trí Sitemap chuẩn xác
 Sitemap: https://www.tienglongmientay.com/sitemap.xml
+Host: https://www.tienglongmientay.com

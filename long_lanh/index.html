@@ -5,6 +5,13 @@
     <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Auto Redirect non-www to www -->
+    <script>
+      if (window.location.hostname === 'tienglongmientay.com') {
+        window.location.replace('https://www.tienglongmientay.com' + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
+
     <!-- Google Fonts (Tải font WOFF2 tối ưu dung lượng & tốc độ hiển thị) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -48,9 +48,9 @@ export default function Home() {
             <Link to="/kham-pha" className="btn btn-primary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
               Khám phá tiếng lóng ➔
             </Link>
-            {/* <Link to="/tu-dien" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
-              Thử cho chữ ngẫu nhiên
-            </Link> */}
+            <Link to="/game" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
+              Chơi game Nối Từ 🎮
+            </Link>
           </div>
         </ScrollReveal>
 

@@ -8,6 +8,7 @@ import Explore from './pages/Explore';
 import Dictionary from './pages/Dictionary';
 import WordDetail from './pages/WordDetail';
 import BehindTheScenes from './pages/BehindTheScenes';
+import Game from './pages/Game';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
@@ -29,6 +30,8 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/kham-pha" element={<Explore />} />
       <Route path="/tu-dien" element={<Dictionary />} />
+      <Route path="/game" element={<Game />} />
+      <Route path="/noi-tu" element={<Game />} />
       <Route path="/tu-vung/:word" element={<WordDetail />} />
       <Route path="/chuyen-phia-sau" element={<BehindTheScenes />} />
       <Route path="*" element={<NotFound />} />

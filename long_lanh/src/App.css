@@ -1379,3 +1379,563 @@
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
 }
+
+/* ==========================================================================
+   GAME: NỐI TỪ / TRẮC NGHIỆM TIẾNG LÓNG MIỀN TÂY
+   ========================================================================== */
+
+.game-page-wrapper {
+  min-height: calc(100vh - 85px - 260px);
+  padding: 1.5rem 4rem 5rem;
+  background-color: var(--white);
+  background-image: radial-gradient(rgba(44, 74, 154, 0.06) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1050px;
+  margin: 0 auto 1.5rem;
+  width: 100%;
+}
+
+.game-back-link {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #555;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.game-back-link:hover {
+  color: var(--blue);
+}
+
+.sound-toggle-btn {
+  background: var(--white);
+  border-radius: 99px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.game-main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.game-screen {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* --- MÀN HÌNH 1: INTRO / LOBBY --- */
+.intro-hero-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 3.5rem;
+  min-height: 480px;
+  padding: 2rem 0;
+}
+
+.intro-boat-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boat-image-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+}
+
+.boat-img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(44, 74, 154, 0.15));
+}
+
+.intro-action-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.game-title-huge {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: clamp(3.5rem, 6.5vw, 5.2rem);
+  color: var(--blue);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin: 0;
+}
+
+.game-tagline {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #333;
+  font-weight: 500;
+  max-width: 420px;
+}
+
+.game-play-btn {
+  background-color: var(--green);
+  color: var(--white);
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.45rem;
+  padding: 0.9rem 3.2rem;
+  border-radius: 99px;
+  border-width: 3.5px;
+  cursor: pointer;
+  box-shadow: 6px 6px 0px var(--black);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* --- MÀN HÌNH 2: QUIZ / CÂU HỎI --- */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.quiz-top-title {
+  font-family: 'Dela Gothic One', cursive;
+  color: var(--blue);
+  font-size: 2.6rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: -1px;
+}
+
+.quiz-status-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.quiz-badge {
+  background: var(--white);
+  padding: 0.4rem 1.2rem;
+  border-radius: 99px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--black);
+}
+
+.badge-score {
+  background: var(--yellow);
+}
+
+.badge-streak {
+  background: #ff7675;
+  color: var(--white);
+}
+
+.quiz-yellow-card {
+  background-color: var(--yellow);
+  border: 3.5px solid var(--black);
+  border-radius: 32px;
+  box-shadow: 8px 8px 0px var(--black);
+  padding: 3rem 3.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quiz-question-text {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
+}
+
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 1.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.quiz-option-btn {
+  background: var(--white);
+  border: 3px solid var(--black);
+  border-radius: 99px;
+  box-shadow: 4px 4px 0px var(--black);
+  padding: 1.05rem 1.8rem;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.quiz-option-btn .option-key {
+  color: #666;
+}
+
+.quiz-option-btn:hover {
+  background: #ffffff;
+}
+
+.quiz-option-btn.selected {
+  background-color: var(--blue);
+  color: var(--white);
+  border-color: var(--black);
+  box-shadow: 2px 2px 0px var(--black);
+  transform: translate(2px, 2px);
+}
+
+.quiz-option-btn.selected .option-key {
+  color: var(--yellow);
+}
+
+.quiz-action-area {
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-submit-btn {
+  background-color: var(--green);
+  color: var(--white);
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.35rem;
+  padding: 0.75rem 3.2rem;
+  border: 3px solid var(--black);
+  border-radius: 99px;
+  box-shadow: 5px 5px 0px var(--black);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.quiz-submit-btn.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+  box-shadow: 2px 2px 0px var(--black);
+  transform: none !important;
+}
+
+/* --- MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI --- */
+.result-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3.5rem;
+  min-height: 480px;
+  padding: 2rem 0;
+}
+
+.result-win .result-text-col {
+  order: 1;
+}
+
+.result-win .result-graphic-col {
+  order: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.result-lose .result-graphic-col {
+  order: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.result-lose .result-text-col {
+  order: 2;
+}
+
+.character-box {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-char-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.1));
+}
+
+.win-heading {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: clamp(3rem, 5.5vw, 4.4rem);
+  color: var(--green);
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin-bottom: 1.2rem;
+}
+
+.lose-heading {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: clamp(3.2rem, 6vw, 4.8rem);
+  color: var(--red);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1.2rem;
+}
+
+.result-info-box {
+  background: var(--white);
+  border: 3px solid var(--black);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px var(--black);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.result-point-badge {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.2rem;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.result-wrong-hint {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.word-reveal-title {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.word-meaning-snippet {
+  font-size: 1.05rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.word-explanation-snippet {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.55;
+}
+
+.result-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.btn-next-question {
+  background-color: var(--blue);
+  color: var(--white);
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.15rem;
+  padding: 0.85rem 2.4rem;
+  border: 3px solid var(--black);
+  border-radius: 99px;
+  box-shadow: 5px 5px 0px var(--black);
+  cursor: pointer;
+}
+
+.link-view-dict {
+  font-weight: 800;
+  color: var(--black);
+  padding: 0.6rem 1.2rem;
+  border-bottom: 2px dashed var(--black);
+  transition: all 0.2s;
+}
+
+.link-view-dict:hover {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+/* --- MÀN HÌNH TỔNG KẾT (SUMMARY) --- */
+.game-screen-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.summary-card {
+  background: var(--white);
+  border: 3.5px solid var(--black);
+  border-radius: 32px;
+  box-shadow: 8px 8px 0px var(--black);
+  padding: 3rem 3.5rem;
+  max-width: 620px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.summary-title {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.summary-score-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border-width: 3.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 0px var(--black);
+}
+
+.score-num {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--black);
+}
+
+.score-total {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.summary-badge-box {
+  background: #f1f2f6;
+  border: 2px solid var(--black);
+  border-radius: 18px;
+  padding: 1.2rem 1.8rem;
+  width: 100%;
+}
+
+.badge-name {
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.35rem;
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+}
+
+.badge-desc {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.45;
+}
+
+.summary-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-restart {
+  background-color: var(--green);
+  color: var(--white);
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.8rem;
+  border: 3px solid var(--black);
+  border-radius: 99px;
+  box-shadow: 5px 5px 0px var(--black);
+  cursor: pointer;
+}
+
+.btn-explore-dict {
+  background-color: var(--blue);
+  color: var(--white);
+  font-family: 'Dela Gothic One', cursive;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.8rem;
+  border: 3px solid var(--black);
+  border-radius: 99px;
+  box-shadow: 5px 5px 0px var(--black);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* RESPONSIVE GAME */
+@media (max-width: 868px) {
+  .game-page-wrapper {
+    padding: 1rem 1.5rem 4rem;
+  }
+
+  .intro-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .intro-action-col {
+    align-items: center;
+  }
+
+  .quiz-yellow-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .quiz-options-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .result-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .result-win .result-text-col,
+  .result-lose .result-text-col {
+    order: 2;
+  }
+
+  .result-win .result-graphic-col,
+  .result-lose .result-graphic-col {
+    order: 1;
+  }
+
+  .result-actions {
+    justify-content: center;
+  }
+}

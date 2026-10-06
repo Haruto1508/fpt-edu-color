@@ -34,6 +34,10 @@ export default function Footer() {
               <span className="footer-arrow">➔</span>
               <span>Kho tàng tiếng lóng</span>
             </Link>
+            <Link to="/game" className="footer-link-item">
+              <span className="footer-arrow">➔</span>
+              <span>Trò chơi Nối từ</span>
+            </Link>
             <Link to="/chuyen-phia-sau" className="footer-link-item">
               <span className="footer-arrow">➔</span>
               <span>Chuyện phía sau dự án</span>

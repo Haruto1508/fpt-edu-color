@@ -207,7 +207,7 @@ export default function Explore() {
             borderWidth: '3.5px'
           }}>
             <div>
-              <h3 style={{ fontFamily: 'Dela Gothic One, cursive', fontSize: '1.3rem', color: 'var(--black)', margin: 0 }}>
+              <h3 style={{ fontFamily: 'var(--font-display, Phudu, cursive)', fontSize: '1.3rem', color: 'var(--black)', margin: 0 }}>
                 🎮 THỬ TÀI ĐỐ VUI: TRẮC NGHIỆM NỐI TỪ!
               </h3>
               <p style={{ margin: '0.4rem 0 0', fontWeight: 600, color: '#222', fontSize: '0.98rem' }}>
@@ -221,7 +221,7 @@ export default function Explore() {
               borderRadius: '99px',
               fontWeight: 800,
               textDecoration: 'none',
-              fontFamily: 'Dela Gothic One, cursive',
+              fontFamily: 'var(--font-display, Phudu, cursive)',
               fontSize: '1rem',
               borderWidth: '3px'
             }}>

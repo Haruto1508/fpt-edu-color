@@ -51,6 +51,8 @@
 
 :root {
   color-scheme: light only;
+  --font-display: 'Phudu', cursive;
+  --font-body: 'Be Vietnam Pro', sans-serif;
   --blue: #2c4a9a;
   --green: #5eb23c;
   --yellow: #f5d657;
@@ -132,6 +134,6 @@ button {
 }
 
 .hero-title, .sticky-note-text, .trending-title, .card-title, .quote-text, .explore-title, .graphic-text-3d, .word-title, .meaning-main, .examples-title, .example-box, .story-title, .mission-title, .process-title, .team-title, .logo {
-  font-family: 'Dela Gothic One', cursive;
-  font-weight: 400; /* Dela Gothic One usually only has weight 400 */
+  font-family: var(--font-display, 'Phudu', cursive);
+  font-weight: 800; /* Nét đậm chắc chắn, khoảng cách dấu tiếng Việt thoáng đẹp */
 }

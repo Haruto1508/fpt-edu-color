@@ -1480,7 +1480,7 @@
 }
 
 .game-title-huge {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: clamp(3.5rem, 6.5vw, 5.2rem);
   color: var(--blue);
   line-height: 1.05;
@@ -1499,7 +1499,7 @@
 .game-play-btn {
   background-color: var(--green);
   color: var(--white);
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.45rem;
   padding: 0.9rem 3.2rem;
   border-radius: 99px;
@@ -1521,7 +1521,7 @@
 }
 
 .quiz-top-title {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   color: var(--blue);
   font-size: 2.6rem;
   margin-bottom: 0.8rem;
@@ -1660,7 +1660,7 @@
 .quiz-submit-btn {
   background-color: #27ae60;
   color: var(--white);
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.35rem;
   padding: 0.75rem 3.4rem;
   border: 3.5px solid var(--black);
@@ -1737,7 +1737,7 @@
 }
 
 .win-heading {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: clamp(3rem, 5.5vw, 4.4rem);
   color: #27ae60;
   line-height: 1.08;
@@ -1747,7 +1747,7 @@
 }
 
 .lose-heading {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: clamp(3.2rem, 6vw, 4.8rem);
   color: #d63031;
   line-height: 1.1;
@@ -1767,7 +1767,7 @@
 }
 
 .result-point-badge {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.25rem;
   color: #27ae60;
   margin-bottom: 0.5rem;
@@ -1783,7 +1783,7 @@
 }
 
 .word-reveal-title {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.85rem;
   margin-bottom: 0.6rem;
   text-align: left;
@@ -1815,7 +1815,7 @@
 .btn-next-question {
   background-color: var(--blue);
   color: var(--white);
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.15rem;
   padding: 0.85rem 2.4rem;
   border: 3px solid var(--black);
@@ -1861,7 +1861,7 @@
 }
 
 .summary-title {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 2.2rem;
   margin: 0;
 }
@@ -1880,7 +1880,7 @@
 }
 
 .score-num {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 2.6rem;
   line-height: 1;
   color: var(--black);
@@ -1903,7 +1903,7 @@
 }
 
 .badge-name {
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.4rem;
   color: var(--blue);
   margin-bottom: 0.5rem;
@@ -1930,7 +1930,7 @@
 .btn-restart {
   background-color: var(--green);
   color: var(--white);
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.05rem;
   padding: 0.85rem 1.8rem;
   border: 3px solid var(--black);
@@ -1942,7 +1942,7 @@
 .btn-explore-dict {
   background-color: var(--blue);
   color: var(--white);
-  font-family: 'Dela Gothic One', cursive;
+  font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.05rem;
   padding: 0.85rem 1.8rem;
   border: 3px solid var(--black);

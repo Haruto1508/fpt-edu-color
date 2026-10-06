@@ -199,6 +199,7 @@ export default function Game() {
                         >
                           <span className="option-key">{opt.key}.</span>
                           <span className="option-text">{opt.text}</span>
+                          {isSelected && <span className="option-check">✓</span>}
                         </motion.button>
                       );
                     })}

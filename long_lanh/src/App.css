@@ -1530,14 +1530,16 @@
 
 .quiz-status-bar {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   align-items: center;
-  margin-bottom: 1.8rem;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 1.6rem;
 }
 
 .quiz-badge {
   background: var(--white);
-  padding: 0.4rem 1.2rem;
+  padding: 0.45rem 1.2rem;
   border-radius: 99px;
   font-weight: 800;
   font-size: 0.95rem;
@@ -1567,8 +1569,8 @@
   font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 900;
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  text-align: center;
-  color: var(--black);
+  text-align: left;
+  color: #111111;
   margin-bottom: 2.5rem;
   line-height: 1.4;
 }
@@ -1581,42 +1583,73 @@
 }
 
 .quiz-option-btn {
-  background: var(--white);
-  border: 3px solid var(--black);
+  background: #ffffff;
+  border: 3.5px solid #111111;
   border-radius: 99px;
-  box-shadow: 4px 4px 0px var(--black);
-  padding: 1.05rem 1.8rem;
+  box-shadow: 5px 5px 0px #111111;
+  padding: 1.15rem 2rem;
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--black);
+  color: #111111;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 0.8rem;
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
+  width: 100%;
 }
 
 .quiz-option-btn .option-key {
-  color: #666;
+  color: #2c4a9a;
+  font-weight: 900;
+  font-size: 1.25rem;
+  min-width: 32px;
+}
+
+.quiz-option-btn .option-text {
+  color: #111111;
+  font-weight: 800;
+  flex: 1;
+}
+
+.quiz-option-btn .option-check {
+  background-color: #27ae60;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin-left: auto;
 }
 
 .quiz-option-btn:hover {
-  background: #ffffff;
+  background: #f8fafc;
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #111111;
 }
 
 .quiz-option-btn.selected {
-  background-color: var(--blue);
-  color: var(--white);
-  border-color: var(--black);
-  box-shadow: 2px 2px 0px var(--black);
+  background-color: #2c4a9a;
+  color: #ffffff;
+  border-color: #111111;
+  box-shadow: 2px 2px 0px #111111;
   transform: translate(2px, 2px);
 }
 
 .quiz-option-btn.selected .option-key {
-  color: var(--yellow);
+  color: #f5d657;
+}
+
+.quiz-option-btn.selected .option-text {
+  color: #ffffff;
 }
 
 .quiz-action-area {
@@ -1625,17 +1658,27 @@
 }
 
 .quiz-submit-btn {
-  background-color: var(--green);
+  background-color: #27ae60;
   color: var(--white);
   font-family: 'Dela Gothic One', cursive;
   font-size: 1.35rem;
-  padding: 0.75rem 3.2rem;
-  border: 3px solid var(--black);
+  padding: 0.75rem 3.4rem;
+  border: 3.5px solid var(--black);
   border-radius: 99px;
-  box-shadow: 5px 5px 0px var(--black);
+  box-shadow: 6px 6px 0px var(--black);
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.2s ease;
+}
+
+.quiz-submit-btn:hover:not(.disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--black);
+}
+
+.quiz-submit-btn:active:not(.disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px var(--black);
 }
 
 .quiz-submit-btn.disabled {
@@ -1658,6 +1701,7 @@
 
 .result-win .result-text-col {
   order: 1;
+  text-align: left;
 }
 
 .result-win .result-graphic-col {
@@ -1674,6 +1718,7 @@
 
 .result-lose .result-text-col {
   order: 2;
+  text-align: left;
 }
 
 .character-box {
@@ -1694,61 +1739,69 @@
 .win-heading {
   font-family: 'Dela Gothic One', cursive;
   font-size: clamp(3rem, 5.5vw, 4.4rem);
-  color: var(--green);
+  color: #27ae60;
   line-height: 1.08;
   letter-spacing: -1px;
   margin-bottom: 1.2rem;
+  text-align: left;
 }
 
 .lose-heading {
   font-family: 'Dela Gothic One', cursive;
   font-size: clamp(3.2rem, 6vw, 4.8rem);
-  color: var(--red);
+  color: #d63031;
   line-height: 1.1;
   letter-spacing: -1px;
   margin-bottom: 1.2rem;
+  text-align: left;
 }
 
 .result-info-box {
-  background: var(--white);
-  border: 3px solid var(--black);
+  background: #ffffff;
+  border: 3.5px solid var(--black);
   border-radius: 20px;
-  box-shadow: 5px 5px 0px var(--black);
-  padding: 1.5rem 1.8rem;
+  box-shadow: 6px 6px 0px var(--black);
+  padding: 1.8rem 2.2rem;
   margin-bottom: 1.8rem;
+  text-align: left;
 }
 
 .result-point-badge {
   font-family: 'Dela Gothic One', cursive;
-  font-size: 1.2rem;
-  color: var(--green);
+  font-size: 1.25rem;
+  color: #27ae60;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .result-wrong-hint {
   font-weight: 800;
-  font-size: 1.05rem;
-  color: var(--red);
+  font-size: 1.15rem;
+  color: #d63031;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .word-reveal-title {
   font-family: 'Dela Gothic One', cursive;
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.85rem;
+  margin-bottom: 0.6rem;
+  text-align: left;
 }
 
 .word-meaning-snippet {
-  font-size: 1.05rem;
-  color: #222;
+  font-size: 1.15rem;
+  color: #111111;
   margin-bottom: 0.5rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .word-explanation-snippet {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.55;
+  font-size: 1.05rem;
+  color: #2d3436;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .result-actions {
@@ -1756,6 +1809,7 @@
   align-items: center;
   gap: 1.2rem;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .btn-next-question {
@@ -1839,24 +1893,29 @@
 }
 
 .summary-badge-box {
-  background: #f1f2f6;
-  border: 2px solid var(--black);
-  border-radius: 18px;
-  padding: 1.2rem 1.8rem;
+  background: #ffffff;
+  border: 3px solid var(--black);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px var(--black);
+  padding: 1.4rem 2rem;
   width: 100%;
+  text-align: left;
 }
 
 .badge-name {
   font-family: 'Dela Gothic One', cursive;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   color: var(--blue);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .badge-desc {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.45;
+  font-size: 1.05rem;
+  color: #111111;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .summary-buttons {

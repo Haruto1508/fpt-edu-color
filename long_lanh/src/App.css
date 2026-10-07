@@ -92,7 +92,11 @@
   gap: 4rem;
   align-items: center;
   border-bottom: 3.5px solid var(--blue);
-  background: var(--white);
+  background-color: var(--white);
+  background-image: url('./assets/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -428,7 +432,11 @@
   align-items: center;
   text-align: center;
   border-bottom: 3.5px solid var(--blue);
-  background: var(--white);
+  background-color: var(--white);
+  background-image: url('./assets/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .explore-subtitle {
@@ -528,7 +536,11 @@
 
 .word-hero {
   padding: 3rem 4rem;
-  background: var(--white);
+  background-color: var(--white);
+  background-image: url('./assets/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -848,7 +860,11 @@
 /* ========================================= */
 
 .bts-hero {
-  background: var(--yellow);
+  background-color: var(--yellow);
+  background-image: url('./assets/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
@@ -1388,8 +1404,10 @@
   min-height: calc(100vh - 85px - 260px);
   padding: 1.5rem 4rem 5rem;
   background-color: var(--white);
-  background-image: radial-gradient(rgba(44, 74, 154, 0.06) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  background-image: url('./assets/hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   display: flex;
   flex-direction: column;

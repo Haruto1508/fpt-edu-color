@@ -32,7 +32,19 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <link rel="canonical" href="https://www.tienglongmientay.com/" />
+    <link rel="canonical" id="canonical-url" href="https://www.tienglongmientay.com/" />
+    <script>
+      (function() {
+        try {
+          var canonicalLink = document.getElementById('canonical-url');
+          if (canonicalLink) {
+            var pathname = window.location.pathname || '/';
+            var cleanPath = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+            canonicalLink.href = 'https://www.tienglongmientay.com' + cleanPath;
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta name="msvalidate.01" content="9116485C0592F54E0419A0F4AFD362D2" />
 
     <!-- Open Graph / Facebook -->
@@ -70,6 +82,28 @@
     </script>
   </head>
   <body>
+    <noscript>
+      <div style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
+        <h1>Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây</h1>
+        <p>Khám phá kho tàng tiếng lóng và khẩu ngữ Nam Bộ mộc mạc, dí dỏm và chân chất kèm phát âm thực tế.</p>
+        <nav>
+          <ul>
+            <li><a href="https://www.tienglongmientay.com/kham-pha">Khám Phá Từ Điển</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-dien">Từ Điển Theo Chủ Đề</a></li>
+            <li><a href="https://www.tienglongmientay.com/game">Trò Chơi Nối Từ Miền Tây</a></li>
+            <li><a href="https://www.tienglongmientay.com/chuyen-phia-sau">Chuyện Phía Sau Dự Án</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/cha-ba">Chà Bá - To, bự, lớn, khổng lồ</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/chang-hang">Chàng Hảng - Giạng chân, dang rộng hai chân</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/tum-hum">Túm Húm - Nhỏ hẹp, chật chội, co cụm</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/mit-uot">Mít Ướt - Dễ xúc động, mau nước mắt</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/xi-xon">Xí Xọn - Trang điểm, mặc đẹp, điệu đà</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/mung-hum">Mừng Húm - Vui mừng khôn xiết</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/ba-chay">Bá Cháy - Rất ngon, tuyệt vời, đỉnh cao</a></li>
+            <li><a href="https://www.tienglongmientay.com/tu-vung/banh-ton">Bảnh Tỏn - Đẹp, lịch sự, phong độ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

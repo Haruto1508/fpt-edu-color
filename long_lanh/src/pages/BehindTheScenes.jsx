@@ -1,10 +1,18 @@
 import React from 'react';
 import ScrollReveal from '../components/ScrollReveal';
+import useSEO from '../utils/useSEO';
 import imgXuan from '../assets/logoArtboard 5ĐƯA DÔ WEB.png';
 import imgKhoa from '../assets/logoArtboard 6ĐƯA DÔ WEB.png';
 import imgHuy from '../assets/logoArtboard 7ĐƯA DÔ WEB.png';
 
 export default function BehindTheScenes() {
+  useSEO({
+    title: 'Chuyện Phía Sau Dự Án | Lóng Lánh - Tiếng Lóng Miền Tây',
+    description: 'Tìm hiểu câu chuyện, hành trình phát triển và sứ mệnh "Giữ chữ, giữ hồn quê" của dự án văn hóa số Lóng Lánh - Tiếng Lóng Miền Tây.',
+    canonicalPath: '/chuyen-phia-sau',
+    ogImage: '/logo.jpeg'
+  });
+
   return (
     <div className="page-content">
       {/* Hero Section */}

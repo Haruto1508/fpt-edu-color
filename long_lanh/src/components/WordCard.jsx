@@ -4,7 +4,7 @@ import { visitedPaths } from '../utils/animationState';
 
 const MotionLink = motion.create(Link);
 
-export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSrc, isMore }) {
+export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSrc: _imgSrc, isMore }) {
   const location = useLocation();
   const animProps = {
     initial: visitedPaths.has(location.pathname) ? false : { opacity: 0, y: 40 },

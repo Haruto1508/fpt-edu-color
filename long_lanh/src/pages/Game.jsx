@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gameQuestions } from '../data/gameQuestions';
 import { playSound } from '../utils/gameAudio';
+import useSEO from '../utils/useSEO';
 
 import imgBoat from '../assets/game/boat_final.png';
 import imgWinner from '../assets/game/winner_clean.png';
 import imgLoser from '../assets/game/loser_clean.png';
 
 export default function Game() {
+  useSEO({
+    title: 'Thử Thách Nối Từ Miền Tây - Game Lóng Lánh',
+    description: 'Thử tài đoán và nối từ tiếng lóng miền Tây cực vui và hấp dẫn. Xem bạn hiểu khẩu ngữ Nam Bộ đến mức nào cùng Lóng Lánh!',
+    canonicalPath: '/game',
+    ogImage: '/logo.jpeg'
+  });
+
   const [gameState, setGameState] = useState('intro'); // 'intro' | 'question' | 'result' | 'summary'
   const [questions, setQuestions] = useState(gameQuestions);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,7 +25,6 @@ export default function Game() {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
-  const [userAnswers, setUserAnswers] = useState([]);
 
   const currentQ = questions[currentIndex] || questions[0];
 

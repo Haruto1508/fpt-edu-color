@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
+import useSEO from '../utils/useSEO';
 
 export default function NotFound() {
+  useSEO({
+    title: '404 - Không Tìm Thấy Trang | Lóng Lánh',
+    description: 'Trang bạn đang tìm kiếm không tồn tại trên website Lóng Lánh - Tiếng Lóng Miền Tây.',
+    canonicalPath: '/404'
+  });
   return (
     <div className="page-content" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', padding: '4rem 1rem' }}>
       <ScrollReveal className="explore-hero" style={{ textAlign: 'center', maxWidth: '600px' }}>

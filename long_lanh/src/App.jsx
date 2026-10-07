@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -40,46 +40,9 @@ function AppRoutes() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     preloadWordImages();
-
-    let isMounted = true;
-    const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
-    const minTimer = new Promise((resolve) => setTimeout(resolve, 800));
-
-    // Đợi font chữ và tài nguyên nạp xong hoàn toàn trước khi hiển thị giao diện
-    Promise.all([fontPromise, minTimer]).then(() => {
-      if (isMounted) setLoading(false);
-    }).catch(() => {
-      if (isMounted) setLoading(false);
-    });
-
-    // Timeout an toàn tối đa 2.5s phòng khi mạng chậm
-    const maxTimer = setTimeout(() => {
-      if (isMounted) setLoading(false);
-    }, 2500);
-
-    return () => {
-      isMounted = false;
-      clearTimeout(maxTimer);
-    };
   }, []);
-
-  if (loading) {
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'var(--yellow)', margin: 0 }}>
-        <div className="neo-border neo-shadow" style={{ padding: '2rem 3rem', backgroundColor: 'var(--white)', fontSize: '2rem', fontWeight: '900', display: 'flex', alignItems: 'center', gap: '1rem', textTransform: 'uppercase' }}>
-          <svg className="spinner" width="40" height="40" viewBox="0 0 50 50" style={{ animation: 'spin 1s linear infinite' }}>
-            <circle cx="25" cy="25" r="20" fill="none" stroke="var(--black)" strokeWidth="5" strokeDasharray="31.4 31.4" />
-          </svg>
-          <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
-          Đang tải dữ liệu...
-        </div>
-      </div>
-    );
-  }
 
   return (
     <BrowserRouter>

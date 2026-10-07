@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import WordCard from '../components/WordCard';
 import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
+import useSEO from '../utils/useSEO';
 
 import imgChaBa from '../assets/words/cha_ba.png';
 import imgXiXon from '../assets/words/xi_xon.png';
@@ -25,6 +26,13 @@ const wordImages = {
 };
 
 export default function Explore() {
+  useSEO({
+    title: 'Khám Phá Tiếng Lóng Miền Tây | Lóng Lánh',
+    description: 'Khám phá và tra cứu kho tàng tiếng lóng miền Tây Nam Bộ theo các chủ đề đời sống, con người, cảm xúc, tính cách với phát âm thực tế và hình ảnh sinh động.',
+    canonicalPath: '/kham-pha',
+    ogImage: '/logo.jpeg'
+  });
+
   const [searchParams] = useSearchParams();
   const queryParam = searchParams.get('q') || '';
   const resultsRef = useRef(null);

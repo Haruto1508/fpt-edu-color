@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
-import WordCard from '../components/WordCard';
 import wordsData from '../data/words.json';
+import useSEO from '../utils/useSEO';
 
 import imgChaBa from '../assets/words/cha_ba.png';
 import imgXiXon from '../assets/words/xi_xon.png';
@@ -51,16 +51,34 @@ export default function WordDetail() {
   const [isCopied, setIsCopied] = useState(false);
   const audioRef = useRef(null);
 
-  const randomSuggestions = useMemo(() => {
-    const otherWords = wordsData.filter(w => w.slug !== word);
-    return otherWords.sort(() => 0.5 - Math.random()).slice(0, 5);
-  }, [word]);
+  useSEO({
+    title: wordData 
+      ? `${wordData.title} là gì? Ý nghĩa từ điển tiếng lóng miền Tây | Lóng Lánh` 
+      : 'Không tìm thấy từ | Lóng Lánh',
+    description: wordData 
+      ? `Giải nghĩa từ lóng "${wordData.title}": ${wordData.meaningMain} ${wordData.subtitle}. Nghe audio phát âm giọng miền Tây chuẩn và ví dụ minh họa dí dỏm.` 
+      : 'Từ lóng này chưa có trong kho tàng từ điển Lóng Lánh.',
+    canonicalPath: `/tu-vung/${word}`,
+    ogImage: wordData && wordImages[wordData.slug] ? wordImages[wordData.slug] : '/logo.jpeg',
+    schema: wordData ? {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": wordData.title,
+      "description": `${wordData.meaningMain} - ${wordData.subtitle}`,
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây",
+        "url": "https://www.tienglongmientay.com"
+      }
+    } : null
+  });
 
   // Ngắt âm thanh khi chuyển sang từ mới hoặc rời trang
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+    const audioEl = audioRef.current;
+    if (audioEl) {
+      audioEl.pause();
+      audioEl.currentTime = 0;
     }
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -68,9 +86,9 @@ export default function WordDetail() {
     setIsPlaying(false);
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
+      if (audioEl) {
+        audioEl.pause();
+        audioEl.currentTime = 0;
       }
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();

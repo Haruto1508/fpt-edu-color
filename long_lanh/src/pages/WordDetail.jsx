@@ -7,6 +7,15 @@ import { getWordSEO } from '../data/seoMetadata';
 
 import { wordImages } from '../utils/wordAssets';
 
+import audioChaBa from '../assets/record/cha_ba.mp3';
+import audioXiXon from '../assets/record/xi_xon.mp3';
+import audioBanhTon from '../assets/record/banh_ton.mp3';
+import audioMungHum from '../assets/record/mung_hum.mp3';
+import audioBaChay from '../assets/record/bao_chay.mp3';
+import audioChangHang from '../assets/record/chang_hang.mp3';
+import audioTumHum from '../assets/record/tun_hun.mp3';
+import audioMitUot from '../assets/record/mit_uot.mp3';
+
 const wordAudios = {
   "cha-ba": audioChaBa,
   "xi-xon": audioXiXon,

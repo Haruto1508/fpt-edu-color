@@ -3,6 +3,7 @@ import WordCard from '../components/WordCard';
 import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import useSEO from '../utils/useSEO';
+import { pageMetaMap } from '../data/seoMetadata';
 
 import imgChaBa from '../assets/words/cha_ba.png';
 import imgXiXon from '../assets/words/xi_xon.png';
@@ -25,12 +26,7 @@ const wordImages = {
 };
 
 export default function Dictionary() {
-  useSEO({
-    title: 'Từ Điển Tiếng Lóng Theo Chủ Đề | Lóng Lánh',
-    description: 'Tổng hợp từ điển tiếng lóng miền Tây Nam Bộ phân loại theo chủ đề: Đời sống, Con người, Cảm xúc, Hành động... dễ dàng tra cứu và ghi nhớ.',
-    canonicalPath: '/tu-dien',
-    ogImage: '/logo.jpeg'
-  });
+  useSEO(pageMetaMap['/tu-dien']);
 
   const [collapsedCategories, setCollapsedCategories] = useState({});
 

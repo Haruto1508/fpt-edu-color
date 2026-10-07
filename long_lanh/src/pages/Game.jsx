@@ -4,18 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { gameQuestions } from '../data/gameQuestions';
 import { playSound } from '../utils/gameAudio';
 import useSEO from '../utils/useSEO';
+import { pageMetaMap } from '../data/seoMetadata';
 
 import imgBoat from '../assets/game/boat_final.png';
 import imgWinner from '../assets/game/winner_clean.png';
 import imgLoser from '../assets/game/loser_clean.png';
 
 export default function Game() {
-  useSEO({
-    title: 'Thử Thách Nối Từ Miền Tây - Game Lóng Lánh',
-    description: 'Thử tài đoán và nối từ tiếng lóng miền Tây cực vui và hấp dẫn. Xem bạn hiểu khẩu ngữ Nam Bộ đến mức nào cùng Lóng Lánh!',
-    canonicalPath: '/game',
-    ogImage: '/logo.jpeg'
-  });
+  useSEO(pageMetaMap['/game']);
 
   const [gameState, setGameState] = useState('intro'); // 'intro' | 'question' | 'result' | 'summary'
   const [questions, setQuestions] = useState(gameQuestions);

@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": {
+    "name": "Lóng Lánh",
+    "fullName": "Lóng Lánh - Tiếng Lóng Miền Tây",
+    "slogan": "Giữ chữ, giữ hồn quê - Tiếng lóng miền Tây, nói sao cho đã?",
+    "domain": "tienglongmientay.com",
+    "canonicalUrl": "https://www.tienglongmientay.com",
+    "language": "vi-VN",
+    "category": "Education, Culture, Linguistics, Digital Humanities",
+    "year": 2026,
+    "themeColor": "#f5d657",
+    "logo": "https://www.tienglongmientay.com/logo.jpeg"
+  },
+  "seoStrategy": {
+    "primaryKeywords": [
+      "tiếng lóng miền tây",
+      "tieng long mien tay",
+      "lóng lánh",
+      "long lanh",
+      "từ điển tiếng lóng",
+      "khẩu ngữ nam bộ",
+      "phương ngữ miền tây",
+      "tiếng miền tây"
+    ],
+    "secondaryKeywords": [
+      "tra cứu tiếng miền tây",
+      "giải nghĩa tiếng lóng nam bộ",
+      "phát âm tiếng lóng miền tây",
+      "học tiếng miền tây",
+      "tiếng lóng gen z miền tây",
+      "game nối từ miền tây",
+      "văn hóa sông nước nam bộ"
+    ],
+    "searchIntentQueries": [
+      "tiếng lóng miền tây là gì",
+      "những từ tiếng lóng miền tây hay nhất",
+      "chà bá là gì",
+      "bá cháy là gì",
+      "bảnh tỏn nghĩa là gì",
+      "xí xọn là gì",
+      "chàng hảng là gì",
+      "túm húm là gì",
+      "mít ướt là gì",
+      "mừng húm nghĩa là gì",
+      "từ điển khẩu ngữ miền tây có phát âm"
+    ]
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.tienglongmientay.com/#website",
+        "url": "https://www.tienglongmientay.com/",
+        "name": "Lóng Lánh",
+        "alternateName": [
+          "Tiếng Lóng Miền Tây",
+          "tieng long mien tay",
+          "Lóng Lánh - Tiếng Lóng Miền Tây"
+        ],
+        "description": "Website tra cứu từ điển tiếng lóng miền Tây, khẩu ngữ Nam Bộ mộc mạc, dí dỏm với audio phát âm thực tế và hình ảnh sinh động.",
+        "inLanguage": "vi-VN",
+        "publisher": {
+          "@id": "https://www.tienglongmientay.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.tienglongmientay.com/kham-pha?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://www.tienglongmientay.com/#organization",
+        "name": "Lóng Lánh - Tiếng Lóng Miền Tây",
+        "url": "https://www.tienglongmientay.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.tienglongmientay.com/logo.jpeg",
+          "width": 1200,
+          "height": 630
+        },
+        "description": "Dự án văn hóa số gìn giữ và lan tỏa tiếng lóng, khẩu ngữ Nam Bộ.",
+        "slogan": "Giữ chữ, giữ hồn quê"
+      },
+      {
+        "@type": "DefinedTermSet",
+        "@id": "https://www.tienglongmientay.com/#dictionary",
+        "name": "Kho Tàng Từ Điển Tiếng Lóng Miền Tây",
+        "url": "https://www.tienglongmientay.com/tu-dien",
+        "description": "Bộ sưu tập khẩu ngữ, tiếng lóng đặc sắc của người miền Tây Nam Bộ có giải nghĩa và file ghi âm phát âm."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.tienglongmientay.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Tiếng lóng miền Tây là gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tiếng lóng miền Tây là hệ thống từ ngữ, khẩu ngữ dân dã, biểu cảm và sinh động được người dân miền Tây Nam Bộ sử dụng thường nhật trong giao tiếp, phản ánh tính cách hào sảng, thật thà và hóm hỉnh như Chà Bá, Bá Cháy, Bảnh Tỏn, Xí Xọn..."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Website Lóng Lánh có những tính năng tra cứu gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lóng Lánh cung cấp tra cứu từ điển tiếng lóng Nam Bộ kèm audio phát âm chuẩn giọng người bản địa, phân loại theo chủ đề đời sống - con người - cảm xúc, minh họa trực quan và minigame thử tài nối từ."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Từ 'Chà Bá' trong tiếng miền Tây có nghĩa là gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "'Chà Bá' là cách nói cường điệu phổ biến của người miền Tây để chỉ kích thước rất to, khổng lồ (ví dụ: 'ổ bánh mì chà bá', 'con cá chà bá lửa')."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Từ 'Bá Cháy' trong tiếng miền Tây có nghĩa là gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "'Bá Cháy' (hay 'bá cháy bọ chét') là lời khen ngợi chỉ sự tuyệt vời, cực ngon, đỉnh cao, không còn chỗ nào chê được (ví dụ: 'nồi lẩu mắm ngon bá cháy')."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Từ 'Bảnh Tỏn' nghĩa là gì?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "'Bảnh Tỏn' là từ khen người ăn mặc đẹp đẽ, lịch sự, chải chuốt và phong độ hơn ngày thường một cách dí dỏm, thân tình."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "sitemapPages": [
+    {
+      "url": "https://www.tienglongmientay.com/",
+      "title": "Lóng Lánh - Tiếng Lóng Miền Tây | Tra cứu khẩu ngữ Nam Bộ",
+      "priority": 1.0,
+      "changefreq": "daily"
+    },
+    {
+      "url": "https://www.tienglongmientay.com/kham-pha",
+      "title": "Khám Phá Tiếng Lóng Miền Tây | Lóng Lánh",
+      "priority": 0.9,
+      "changefreq": "weekly"
+    },
+    {
+      "url": "https://www.tienglongmientay.com/tu-dien",
+      "title": "Từ Điển Tiếng Lóng Theo Chủ Đề | Lóng Lánh",
+      "priority": 0.9,
+      "changefreq": "weekly"
+    },
+    {
+      "url": "https://www.tienglongmientay.com/game",
+      "title": "Thử Thách Nối Từ Miền Tây - Game Lóng Lánh",
+      "priority": 0.85,
+      "changefreq": "weekly"
+    },
+    {
+      "url": "https://www.tienglongmientay.com/chuyen-phia-sau",
+      "title": "Chuyện Phía Sau Dự Án | Lóng Lánh - Tiếng Lóng Miền Tây",
+      "priority": 0.8,
+      "changefreq": "monthly"
+    }
+  ],
+  "words": [
+    {
+      "slug": "cha-ba",
+      "title": "CHÀ BÁ",
+      "subtitle": "To, bự, lớn, khổng lồ",
+      "meaning": "rất to, rất lớn, khổng lồ",
+      "tag": "Đời sống",
+      "url": "https://www.tienglongmientay.com/tu-vung/cha-ba"
+    },
+    {
+      "slug": "chang-hang",
+      "title": "CHÀNG HẢNG",
+      "subtitle": "Giạng chân, dang rộng hai chân",
+      "meaning": "Giạng chân, dang rộng hai chân",
+      "tag": "Đời sống",
+      "url": "https://www.tienglongmientay.com/tu-vung/chang-hang"
+    },
+    {
+      "slug": "tum-hum",
+      "title": "TÚM HÚM",
+      "subtitle": "Nhỏ hẹp, chật chội, co cụm",
+      "meaning": "nhỏ hẹp, chật chội, co cụm",
+      "tag": "Đời sống",
+      "url": "https://www.tienglongmientay.com/tu-vung/tum-hum"
+    },
+    {
+      "slug": "mit-uot",
+      "title": "MÍT ƯỚT",
+      "subtitle": "Dễ xúc động, hay khóc, mau nước mắt",
+      "meaning": "dễ xúc động, hay khóc, mau nước mắt",
+      "tag": "Cảm xúc",
+      "url": "https://www.tienglongmientay.com/tu-vung/mit-uot"
+    },
+    {
+      "slug": "xi-xon",
+      "title": "XÍ XỌN",
+      "subtitle": "Trang điểm, mặc đẹp, điệu đà",
+      "meaning": "thích làm đẹp, thích ăn diện, chăm chút ngoại hình",
+      "tag": "Con người",
+      "url": "https://www.tienglongmientay.com/tu-vung/xi-xon"
+    },
+    {
+      "slug": "mung-hum",
+      "title": "MỪNG HÚM",
+      "subtitle": "Vui mừng khôn xiết, mừng rỡ bất ngờ",
+      "meaning": "rất vui, rất mừng, mừng rỡ bất ngờ",
+      "tag": "Cảm xúc",
+      "url": "https://www.tienglongmientay.com/tu-vung/mung-hum"
+    },
+    {
+      "slug": "ba-chay",
+      "title": "BÁ CHÁY",
+      "subtitle": "Rất ngon, tuyệt vời, đỉnh cao",
+      "meaning": "rất ngon, xuất sắc, không còn gì bằng",
+      "tag": "Đời sống",
+      "url": "https://www.tienglongmientay.com/tu-vung/ba-chay"
+    },
+    {
+      "slug": "banh-ton",
+      "title": "BẢNH TỎN",
+      "subtitle": "Đẹp, lịch sự, phong độ, bảnh bao",
+      "meaning": "ăn mặc đẹp, chỉn chu, sáng sủa, phong độ",
+      "tag": "Con người",
+      "url": "https://www.tienglongmientay.com/tu-vung/banh-ton"
+    }
+  ]
+}

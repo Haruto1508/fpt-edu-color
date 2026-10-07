@@ -5,6 +5,7 @@ import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import nonImg from '../assets/non.png';
 import useSEO from '../utils/useSEO';
+import { pageMetaMap } from '../data/seoMetadata';
 
 import imgChaBa from '../assets/words/cha_ba.png';
 import imgXiXon from '../assets/words/xi_xon.png';
@@ -27,12 +28,7 @@ const wordImages = {
 };
 
 export default function Home() {
-  useSEO({
-    title: 'Lóng Lánh - Tiếng Lóng Miền Tây | Tra cứu khẩu ngữ Nam Bộ',
-    description: 'Lóng Lánh - Dự án văn hóa số tra cứu từ điển tiếng lóng miền Tây, khẩu ngữ Nam Bộ mộc mạc, dí dỏm. Khám phá nét đẹp văn hóa sông nước qua audio phát âm thực tế và hình ảnh sinh động.',
-    canonicalPath: '/',
-    ogImage: '/logo.jpeg'
-  });
+  useSEO(pageMetaMap['/']);
 
   return (
     <div className="page-content">

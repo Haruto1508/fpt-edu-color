@@ -166,4 +166,53 @@ routes.forEach(route => {
   console.log(`✓ Generated: dist${route.path}/index.html`);
 });
 
+// Cập nhật schema FAQ cho trang chủ dist/index.html
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${BASE_URL}/#faq`,
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Tiếng lóng miền Tây là gì?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiếng lóng miền Tây là hệ thống khẩu ngữ, phương ngữ dân dã, biểu cảm và sinh động được người dân miền Tây Nam Bộ sử dụng thường nhật như Chà Bá, Bá Cháy, Bảnh Tỏn, Xí Xọn, Chàng Hảng, Túm Húm..."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Website Lóng Lánh tra cứu từ điển tiếng lóng như thế nào?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Website Lóng Lánh cung cấp tính năng tra cứu từ điển tiếng lóng Nam Bộ trực tuyến miễn phí kèm phát âm audio giọng chuẩn miền Tây, hình ảnh minh họa độc quyền và game nối từ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Từ 'Chà Bá' có nghĩa là gì?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'Chà Bá' là cách nói cường điệu của người miền Tây để chỉ kích thước rất to, khổng lồ (ví dụ: ổ bánh mì chà bá, con cá chà bá)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Từ 'Bá Cháy' có nghĩa là gì?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'Bá Cháy' (hay bá cháy bọ chét) là câu khen ngợi quen thuộc chỉ sự tuyệt vời, cực ngon, đỉnh cao không chê vào đâu được."
+      }
+    }
+  ]
+};
+
+const homeFaqTag = `<script id="home-faq-structured-data" type="application/ld+json">${JSON.stringify(homeFaqSchema)}</script>`;
+let rootHtml = fs.readFileSync(templatePath, 'utf8');
+if (!rootHtml.includes('home-faq-structured-data')) {
+  rootHtml = rootHtml.replace('</head>', `  ${homeFaqTag}\n</head>`);
+  fs.writeFileSync(templatePath, rootHtml, 'utf8');
+  console.log('✓ Injected FAQPage schema into root dist/index.html');
+}
+
 console.log('Pre-rendering completed successfully!');

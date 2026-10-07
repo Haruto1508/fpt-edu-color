@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import useSEO from '../utils/useSEO';
+import { getWordSEO } from '../data/seoMetadata';
 
 import imgChaBa from '../assets/words/cha_ba.png';
 import imgXiXon from '../assets/words/xi_xon.png';
@@ -51,27 +52,7 @@ export default function WordDetail() {
   const [isCopied, setIsCopied] = useState(false);
   const audioRef = useRef(null);
 
-  useSEO({
-    title: wordData 
-      ? `${wordData.title} là gì? Ý nghĩa từ điển tiếng lóng miền Tây | Lóng Lánh` 
-      : 'Không tìm thấy từ | Lóng Lánh',
-    description: wordData 
-      ? `Giải nghĩa từ lóng "${wordData.title}": ${wordData.meaningMain} ${wordData.subtitle}. Nghe audio phát âm giọng miền Tây chuẩn và ví dụ minh họa dí dỏm.` 
-      : 'Từ lóng này chưa có trong kho tàng từ điển Lóng Lánh.',
-    canonicalPath: `/tu-vung/${word}`,
-    ogImage: wordData && wordImages[wordData.slug] ? wordImages[wordData.slug] : '/logo.jpeg',
-    schema: wordData ? {
-      "@context": "https://schema.org",
-      "@type": "DefinedTerm",
-      "name": wordData.title,
-      "description": `${wordData.meaningMain} - ${wordData.subtitle}`,
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây",
-        "url": "https://www.tienglongmientay.com"
-      }
-    } : null
-  });
+  useSEO(getWordSEO(wordData, wordData && wordImages[wordData.slug]));
 
   // Ngắt âm thanh khi chuyển sang từ mới hoặc rời trang
   useEffect(() => {

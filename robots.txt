@@ -1,24 +1,53 @@
-# ==============================================
+# ===================================================
 # ROBOTS.TXT - LÓNG LÁNH (TIẾNG LÓNG MIỀN TÂY)
 # Website: https://www.tienglongmientay.com
-# ==============================================
+# ===================================================
 
-# Cho phép tất cả các bot tìm kiếm thu thập dữ liệu toàn bộ website
+# Cho phép tất cả các công cụ tìm kiếm cào dữ liệu toàn bộ website
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.mp3$
+Allow: /*.ttf$
 
-# Cấu hình tối ưu cho Googlebot
+# Cấu hình tối ưu thu thập dữ liệu cho Google
 User-agent: Googlebot
 Allow: /
 
-# Cho phép bot hình ảnh lập chỉ mục tranh minh họa & logo
 User-agent: Googlebot-Image
 Allow: /
+Allow: /assets/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
 
-# Cấu hình tối ưu cho Bingbot
+User-agent: Google-InspectionTool
+Allow: /
+
+# Cấu hình tối ưu cho Bingbot & Microsoft Copilot
 User-agent: Bingbot
+Allow: /
+
+# Cấu hình tối ưu cho Applebot & Siri Search
+User-agent: Applebot
+Allow: /
+
+# Cấu hình tối ưu cho mạng xã hội xem trước liên kết (Open Graph Crawlers)
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
 Allow: /
 
 # Khai báo vị trí Sitemap chuẩn xác
 Sitemap: https://www.tienglongmientay.com/sitemap.xml
-Host: https://www.tienglongmientay.com

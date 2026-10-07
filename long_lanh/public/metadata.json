@@ -43,6 +43,12 @@
       "túm húm là gì",
       "mít ướt là gì",
       "mừng húm nghĩa là gì",
+      "no nóc là gì",
+      "thẳng băng nghĩa là gì",
+      "chọt lét là gì",
+      "lóc chóc nghĩa là gì",
+      "chù ụ là gì",
+      "banh chành nghĩa là gì",
       "từ điển khẩu ngữ miền tây có phát âm"
     ]
   },
@@ -238,6 +244,54 @@
       "meaning": "ăn mặc đẹp, chỉn chu, sáng sủa, phong độ",
       "tag": "Con người",
       "url": "https://www.tienglongmientay.com/tu-vung/banh-ton"
+    },
+    {
+      "slug": "no-noc",
+      "title": "NO NÓC",
+      "subtitle": "Rất no, no căng bụng",
+      "meaning": "rất no, no căng bụng",
+      "tag": "Ăn uống",
+      "url": "https://www.tienglongmientay.com/tu-vung/no-noc"
+    },
+    {
+      "slug": "thang-bang",
+      "title": "THẲNG BĂNG",
+      "subtitle": "Thẳng tắp, không cong, không lệch",
+      "meaning": "thẳng tắp, không cong, không lệch",
+      "tag": "Đời sống",
+      "url": "https://www.tienglongmientay.com/tu-vung/thang-bang"
+    },
+    {
+      "slug": "chot-let",
+      "title": "CHỌT LÉT",
+      "subtitle": "Chọc vào chỗ nhột làm người khác cười",
+      "meaning": "chọc vào chỗ nhột làm người khác cười",
+      "tag": "Sinh hoạt",
+      "url": "https://www.tienglongmientay.com/tu-vung/chot-let"
+    },
+    {
+      "slug": "loc-choc",
+      "title": "LÓC CHÓC",
+      "subtitle": "Lanh chanh, hoạt bát và nhanh nhảu",
+      "meaning": "lanh chanh, hoạt bát và nhanh nhảu",
+      "tag": "Con người",
+      "url": "https://www.tienglongmientay.com/tu-vung/loc-choc"
+    },
+    {
+      "slug": "chu-u",
+      "title": "CHÙ Ụ",
+      "subtitle": "Một buồn bực, không vui, cau có",
+      "meaning": "mặt buồn bực, không vui, cau có",
+      "tag": "Cảm xúc",
+      "url": "https://www.tienglongmientay.com/tu-vung/chu-u"
+    },
+    {
+      "slug": "banh-chanh",
+      "title": "BANH CHÀNH",
+      "subtitle": "Tan nát, hư hỏng, không còn nguyên vẹn",
+      "meaning": "tan nát, hư hỏng, không còn nguyên vẹn",
+      "tag": "Đời sống",
+      "url": "https://www.tienglongmientay.com/tu-vung/banh-chanh"
     }
   ]
 }

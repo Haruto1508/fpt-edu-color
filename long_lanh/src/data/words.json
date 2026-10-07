@@ -175,5 +175,131 @@
       "Bảnh tỏn dữ ha!",
       "Là đủ để người nghe biết mình vừa được khen một cách thân tình."
     ]
+  },
+  {
+    "slug": "no-noc",
+    "color": "yellow",
+    "tag": "Ăn uống",
+    "hashtag": "#nonoc",
+    "title": "NO NÓC",
+    "subtitle": "Rất no, no căng bụng.",
+    "desc": "Rất no, no căng bụng.<br/><br/>VD: Ăn nhiêu đó là no nóc rồi!",
+    "meaningMain": "Rất no, no căng bụng.",
+    "meaningDesc": "\"No nóc\" Chỉ trạng thái ăn uống rất no, no căng bụng, thường dùng để nói vui khi ăn một bữa thật đã.",
+    "examples": [
+      "\"Ăn nhiêu đó là no nóc rồi!\"",
+      "\"Bữa nay ăn no nóc luôn nghen!\"",
+      "\"Qua đây ăn miếng cá kho đi, bảo đảm no nóc.\"",
+      "\"Đi đám giỗ về đứa nào cũng no nóc hết trơn!\""
+    ],
+    "storyLines": [
+      "Một cái bụng căng đầy sau bữa ăn no nê.",
+      "Một kiểu ăn uống thiệt đã, no tới mức không ăn thêm nổi."
+    ]
+  },
+  {
+    "slug": "thang-bang",
+    "color": "yellow",
+    "tag": "Đời sống",
+    "hashtag": "#thangbang",
+    "title": "THẲNG BĂNG",
+    "subtitle": "Thẳng tắp, không cong, không lệch.",
+    "desc": "Thẳng tắp, không cong, không lệch.<br/><br/>VD: Cây tre này thẳng băng luôn!",
+    "meaningMain": "thẳng tắp, không cong, không lệch.",
+    "meaningDesc": "\"Thẳng băng\" Là cách nói dân dã dùng để nhấn mạnh một vật hoặc đường đi rất thẳng. Trong giao tiếp, từ này tạo cảm giác tự nhiên, trực tiếp và có phần vui tai.",
+    "examples": [
+      "\"Cây tre này thẳng băng luôn!\"",
+      "\"Cái cây thước thẳng băng.\"",
+      "\"Cái hàng dừa này trồng thẳng băng đẹp ghê!\"",
+      "\"Chạy một mạch thẳng băng tới nhà luôn.\""
+    ],
+    "storyLines": [
+      "Một dáng vẻ ngay thẳng",
+      "Một kiểu thiệt tình, không vòng vo"
+    ]
+  },
+  {
+    "slug": "chot-let",
+    "color": "green",
+    "tag": "Sinh hoạt",
+    "hashtag": "#chotlet",
+    "title": "CHỌT LÉT",
+    "subtitle": "Chọc vào chỗ nhột làm người khác cười.",
+    "desc": "Chọc vào chỗ nhột làm người khác cười.<br/><br/>VD: Đừng có chọt lét tui, tui chịu không nổi!",
+    "meaningMain": "chọc vào chỗ nhột làm người khác cười.",
+    "meaningDesc": "Là cách nói gần gũi để chỉ hành động dùng tay chọc hoặc khều vào những chỗ nhột của cơ thể. Trò này thường xuất hiện trong những tình huống vui đùa giữa người thân, bạn bè.",
+    "examples": [
+      "\"Đừng có chọt lét tui, té xuống mương bây giờ!\"",
+      "\"Chọt lẹt quài nhột muốn xĩu!\"",
+      "\"Thôi nghen, chọt lét hoài coi chừng người ta giận á!\"",
+      "\"Nó chọt lét một cái, tui cười lăn cù mèo luôn.\""
+    ],
+    "storyLines": [
+      "Một trò nghịch ngợm",
+      "Một trận cười giòn tan"
+    ]
+  },
+  {
+    "slug": "loc-choc",
+    "color": "green",
+    "tag": "Con người",
+    "hashtag": "#locchoc",
+    "title": "LÓC CHÓC",
+    "subtitle": "Lanh chanh, hoạt bát và nhanh nhảu.",
+    "desc": "Lanh chanh, hoạt bát và nhanh nhảu.<br/><br/>VD: Đứa nhỏ lóc chóc chạy tới chạy lui.",
+    "meaningMain": "lanh chanh, hoạt bát và nhanh nhảu.",
+    "meaningDesc": "Là cách nói chỉ dáng vẻ hoạt bát, nhanh nhảu. Từ này tạo cảm giác sôi nổi, năng động và gợi hình ảnh một người luôn chạy tới chạy lui, không ngừng hoạt động.",
+    "examples": [
+      "\"Đứa nhỏ lóc chóc chạy tới chạy lui.\"",
+      "\"Mấy đứa cháu lóc chóc, cười nói um sùm.\"",
+      "\"Con chó lóc chóc chạy quanh nhà.\"",
+      "\"Ngồi im đi, đừng lóc chóc nữa.\""
+    ],
+    "storyLines": [
+      "Thoăn thoắt, chạy tới chạy lui không ngừng",
+      "Lúc nào cũng tạo cảm giác nhộn nhịp"
+    ]
+  },
+  {
+    "slug": "chu-u",
+    "color": "red",
+    "tag": "Cảm xúc",
+    "hashtag": "#chuu",
+    "title": "CHÙ Ụ",
+    "subtitle": "Một buồn bực, không vui, cau có.",
+    "desc": "Một buồn bực, không vui, cau có.<br/><br/>VD: Ai chọc mà mặt mày chù ụ vậy?",
+    "meaningMain": "mặt buồn bực, không vui, cau có.",
+    "meaningDesc": "Là cách nói để chỉ vẻ mặt khi đang buồn, giận hoặc không hài lòng. Từ này thường được dùng với sắc thái vui vẻ, trêu ghẹo người thân quen.",
+    "examples": [
+      "\"Ai chọc mà mặt mày chù ụ vậy?\"",
+      "\"Bị má la nên chù ụ nguyên ngày.\"",
+      "\"Ngồi chù ụ một góc.\"",
+      "\"Hong mua đồ chơi cho cái mặt chù ụ.\""
+    ],
+    "storyLines": [
+      "Một mày xị xuống, nhìn là biết đang không vui",
+      "Buồn một chút, giận một chút, cứ ngồi im thin thít"
+    ]
+  },
+  {
+    "slug": "banh-chanh",
+    "color": "green",
+    "tag": "Đời sống",
+    "hashtag": "#banhchanh",
+    "title": "BANH CHÀNH",
+    "subtitle": "Tan nát, hư hỏng, không còn nguyên vẹn.",
+    "desc": "Tan nát, hư hỏng, không còn nguyên vẹn.<br/><br/>VD: Quầy cái nhà banh chành hết trơn!",
+    "meaningMain": "tan nát, hư hỏng, không còn nguyên vẹn.",
+    "meaningDesc": "Là cách nói vui, dân dã để chỉ một vật bị đổ bể, hỏng hóc hoặc trở nên rất lộn xộn. Cách nói thường mang sắc thái hài hước, cường điệu.",
+    "examples": [
+      "\"Quậy cái nhà banh chành hết trơn!\"",
+      "\"Làm rớt cái bình bông bể banh chành.\"",
+      "\"Thằng nhỏ lục cái tủ đồ banh chành.\"",
+      "\"Ổng sữa cái máy tính banh chành hết trơn!\""
+    ],
+    "storyLines": [
+      "Tan tác và chẳng còn nguyên vẹn",
+      "Một mớ lộn xộn sau một phen quậy tưng bừng"
+    ]
   }
 ]

@@ -5,34 +5,7 @@ import wordsData from '../data/words.json';
 import useSEO from '../utils/useSEO';
 import { getWordSEO } from '../data/seoMetadata';
 
-import imgChaBa from '../assets/words/cha_ba.png';
-import imgXiXon from '../assets/words/xi_xon.png';
-import imgBanhTon from '../assets/words/banh_ton.png';
-import imgMungHum from '../assets/words/mung_hum.png';
-import imgBaChay from '../assets/words/ba_chay.png';
-import imgChangHang from '../assets/words/chang_hang.png';
-import imgTumHum from '../assets/words/tum_hum.png';
-import imgMitUot from '../assets/words/mit_uot.png';
-
-import audioChaBa from '../assets/record/cha_ba.mp3';
-import audioXiXon from '../assets/record/xi_xon.mp3';
-import audioBanhTon from '../assets/record/banh_ton.mp3';
-import audioMungHum from '../assets/record/mung_hum.mp3';
-import audioBaChay from '../assets/record/bao_chay.mp3';
-import audioChangHang from '../assets/record/chang_hang.mp3';
-import audioTumHum from '../assets/record/tun_hun.mp3';
-import audioMitUot from '../assets/record/mit_uot.mp3';
-
-const wordImages = {
-  "cha-ba": imgChaBa,
-  "xi-xon": imgXiXon,
-  "banh-ton": imgBanhTon,
-  "mung-hum": imgMungHum,
-  "ba-chay": imgBaChay,
-  "chang-hang": imgChangHang,
-  "tum-hum": imgTumHum,
-  "mit-uot": imgMitUot
-};
+import { wordImages } from '../utils/wordAssets';
 
 const wordAudios = {
   "cha-ba": audioChaBa,

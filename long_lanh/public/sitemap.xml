@@ -116,4 +116,52 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Từ vựng: No Nóc -->
+  <url>
+    <loc>https://www.tienglongmientay.com/tu-vung/no-noc</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Từ vựng: Thẳng Băng -->
+  <url>
+    <loc>https://www.tienglongmientay.com/tu-vung/thang-bang</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Từ vựng: Chọt Lét -->
+  <url>
+    <loc>https://www.tienglongmientay.com/tu-vung/chot-let</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Từ vựng: Lóc Chóc -->
+  <url>
+    <loc>https://www.tienglongmientay.com/tu-vung/loc-choc</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Từ vựng: Chù Ụ -->
+  <url>
+    <loc>https://www.tienglongmientay.com/tu-vung/chu-u</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Từ vựng: Banh Chành -->
+  <url>
+    <loc>https://www.tienglongmientay.com/tu-vung/banh-chanh</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

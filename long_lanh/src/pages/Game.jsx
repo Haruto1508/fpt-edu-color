@@ -21,6 +21,7 @@ export default function Game() {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
+  const [_userAnswers, setUserAnswers] = useState([]);
 
   const currentQ = questions[currentIndex] || questions[0];
 

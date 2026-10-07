@@ -8,7 +8,7 @@ import { pageMetaMap } from '../data/seoMetadata';
 
 import imgBoat from '../assets/game/start_game.png';
 import imgWinner from '../assets/game/winner_clean.png';
-import imgLoser from '../assets/game/loser_clean.png';
+import imgSaiBet from '../assets/game/sai_bet.png';
 
 export default function Game() {
   useSEO(pageMetaMap['/game']);
@@ -306,7 +306,7 @@ export default function Game() {
                       transition={{ duration: 0.5, type: 'spring' }}
                     >
                       <img 
-                        src={imgLoser} 
+                        src={imgSaiBet} 
                         alt="Sai bét! Bé gái đội nón lá khoanh tay" 
                         className="result-char-img"
                       />

@@ -6,7 +6,7 @@ import { playSound } from '../utils/gameAudio';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
 
-import imgBoat from '../assets/game/boat_final.png';
+import imgBoat from '../assets/game/start_game.png';
 import imgWinner from '../assets/game/winner_clean.png';
 import imgLoser from '../assets/game/loser_clean.png';
 

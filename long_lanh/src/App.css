@@ -1725,6 +1725,177 @@
   transform: none !important;
 }
 
+/* --- FULL-WIDTH RESULT HERO (WIN & LOST MOCKUP) --- */
+.game-result-mode {
+  padding: 0 !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  min-height: auto !important;
+}
+
+.game-main-result-full {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.game-result-hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 85px - 260px);
+  min-height: 580px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  border-bottom: 3.5px solid var(--blue);
+  display: flex;
+  align-items: center;
+  padding: 4.5rem 4rem 3.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.result-hero-win {
+  background-color: #f7fafc;
+}
+
+.result-hero-lost {
+  background-color: #f7fafc;
+}
+
+.game-result-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  cursor: default;
+}
+
+/* Win: Text on Left */
+.result-win-content {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.win-title-dela {
+  font-family: 'Dela Gothic One', cursive, sans-serif;
+  font-size: clamp(3.2rem, 6.2vw, 5.2rem);
+  color: #66b545;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+}
+
+/* Lost: Text on Right */
+.result-lost-content {
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.lost-title-dela {
+  font-family: 'Dela Gothic One', cursive, sans-serif;
+  font-size: clamp(3.5rem, 7.5vw, 6rem);
+  color: #fe7565;
+  line-height: 1;
+  letter-spacing: 0px;
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+}
+
+.lost-answer-chip {
+  background: #ffffff;
+  border: 3px solid var(--black);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0px var(--black);
+  padding: 0.9rem 1.4rem;
+  margin-bottom: 1.4rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.lost-hint-small {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.lost-correct-text {
+  font-size: 1.15rem;
+  color: #111;
+  font-weight: 600;
+  margin: 0;
+}
+
+.lost-correct-text strong {
+  color: #fe7565;
+  font-size: 1.3rem;
+  font-family: 'Dela Gothic One', cursive, sans-serif;
+}
+
+.result-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.btn-next-result {
+  background-color: #66b545;
+  color: #ffffff;
+  font-family: 'Dela Gothic One', cursive, sans-serif;
+  font-size: 1.1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 99px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn-next-result.btn-next-lost {
+  background-color: #fe7565;
+}
+
+.result-score-badge {
+  background-color: #ffffff;
+  color: #66b545;
+  font-family: 'Dela Gothic One', cursive, sans-serif;
+  font-size: 1.05rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 99px;
+}
+
+.result-dict-link {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: underline;
+  margin-top: 0.2rem;
+  display: inline-block;
+}
+
+.result-dict-link:hover {
+  color: #111;
+}
+
 /* --- MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI --- */
 .result-layout {
   display: grid;
@@ -1759,14 +1930,10 @@
 
 .character-box {
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.result-lose .character-box {
-  max-width: 480px;
 }
 
 .result-char-img {
@@ -2035,6 +2202,29 @@
   }
 
   .result-actions {
+    justify-content: center;
+  }
+
+  .game-result-hero {
+    min-height: 520px;
+    padding: 3rem 1.5rem 2rem;
+    align-items: flex-start;
+  }
+
+  .result-win-content,
+  .result-lost-content {
+    max-width: 100%;
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .win-title-dela,
+  .lost-title-dela {
+    text-align: center;
+  }
+
+  .result-action-row {
     justify-content: center;
   }
 }

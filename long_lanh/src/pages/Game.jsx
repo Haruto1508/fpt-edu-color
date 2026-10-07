@@ -7,8 +7,8 @@ import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
 
 import imgBoat from '../assets/game/start_game.png';
-import imgWinner from '../assets/game/winner_clean.png';
-import imgSaiBet from '../assets/game/sai_bet.png';
+import bgWin from '../assets/game/bg_win.png';
+import bgLost from '../assets/game/bg_lost.png';
 
 export default function Game() {
   useSEO(pageMetaMap['/game']);
@@ -87,24 +87,26 @@ export default function Game() {
   };
 
   return (
-    <div className="game-page-wrapper">
+    <div className={`game-page-wrapper ${gameState === 'result' ? 'game-result-mode' : ''}`}>
       {/* Top Floating Controls Bar */}
-      <div className="game-top-bar">
-        <Link to="/" className="game-back-link">
-          ← Về trang chủ
-        </Link>
-        <div className="game-bar-right">
-          <button 
-            className="sound-toggle-btn neo-border neo-shadow-hover"
-            onClick={() => setIsMuted(!isMuted)}
-            title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
-          >
-            {isMuted ? "🔇 Tắt âm" : "🔊 Âm thanh"}
-          </button>
+      {gameState !== 'result' && (
+        <div className="game-top-bar">
+          <Link to="/" className="game-back-link">
+            ← Về trang chủ
+          </Link>
+          <div className="game-bar-right">
+            <button 
+              className="sound-toggle-btn neo-border neo-shadow-hover"
+              onClick={() => setIsMuted(!isMuted)}
+              title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
+            >
+              {isMuted ? "🔇 Tắt âm" : "🔊 Âm thanh"}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
-      <div className="game-main-content">
+      <div className={`game-main-content ${gameState === 'result' ? 'game-main-result-full' : ''}`}>
         <AnimatePresence mode="wait">
           {/* MÀN HÌNH 1: INTRO / LOBBY (DEMO SCREEN 1) */}
           {gameState === 'intro' && (
@@ -227,131 +229,102 @@ export default function Game() {
             </motion.div>
           )}
 
-          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI (DEMO SCREEN 3 & 4) */}
+          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI (THEO MOCKUP FULL-WIDTH HERO) */}
           {gameState === 'result' && (
             <motion.div 
               key="result"
-              className="game-screen game-screen-result"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.3 }}
+              className={`game-result-hero ${isCorrect ? 'result-hero-win' : 'result-hero-lost'}`}
+              style={{ backgroundImage: `url(${isCorrect ? bgWin : bgLost})` }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+              onClick={handleNextQuestion}
             >
-              {isCorrect ? (
-                /* MÀN HÌNH 3: ĐÚNG - NGAY CHÓC LUÔN */
-                <div className="result-layout result-win">
-                  <div className="result-text-col">
-                    <h2 className="win-heading">
-                      NGAY<br />
-                      CHÓC<br />
-                      LUÔN
-                    </h2>
-                    <div className="result-info-box neo-border neo-shadow">
-                      <p className="result-point-badge">+10 ĐIỂM 🎉</p>
-                      <h4 className="word-reveal-title text-blue">
-                        {currentQ.correctWord}
-                      </h4>
-                      <p className="word-meaning-snippet">
-                        <strong>Nghĩa:</strong> {currentQ.meaning}
-                      </p>
-                      <p className="word-explanation-snippet">
-                        {currentQ.explanation}
-                      </p>
-                    </div>
+              <div className="game-result-inner" onClick={(e) => e.stopPropagation()}>
+                {isCorrect ? (
+                  /* MÀN HÌNH 3: ĐÚNG - NGAY CHÓC LUÔN (BÊN TRÁI) */
+                  <div className="result-win-content">
+                    <motion.div
+                      className="win-text-group"
+                      initial={{ scale: 0.9, x: -30, opacity: 0 }}
+                      animate={{ scale: 1, x: 0, opacity: 1 }}
+                      transition={{ type: 'spring', damping: 15, stiffness: 200 }}
+                    >
+                      <h1 className="win-title-dela">
+                        NGAY<br />
+                        CHÓC<br />
+                        LUÔN
+                      </h1>
 
-                    <div className="result-actions">
-                      <motion.button
-                        className="btn-next-question neo-border neo-shadow neo-shadow-hover neo-shadow-active"
-                        onClick={handleNextQuestion}
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
-                      >
-                        {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
-                      </motion.button>
+                      <div className="result-action-row">
+                        <motion.button
+                          className="btn-next-result btn-next-win neo-border neo-shadow neo-shadow-hover neo-shadow-active"
+                          onClick={handleNextQuestion}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
+                        </motion.button>
+                        <span className="result-score-badge neo-border neo-shadow-sm">+10 ĐIỂM 🎉</span>
+                      </div>
+
                       {currentQ.slug && (
                         <Link 
                           to={`/tu-vung/${currentQ.slug}`} 
                           target="_blank" 
-                          className="link-view-dict"
+                          className="result-dict-link"
+                          onClick={(e) => e.stopPropagation()}
                         >
-                          📖 Xem trong từ điển
+                          📖 Xem trong từ điển: <strong>{currentQ.correctWord}</strong>
                         </Link>
                       )}
-                    </div>
-                  </div>
-
-                  <div className="result-graphic-col">
-                    <motion.div 
-                      className="character-box"
-                      initial={{ scale: 0.8, rotate: -5 }}
-                      animate={{ scale: 1, rotate: [ -3, 3, 0 ] }}
-                      transition={{ duration: 0.5, type: 'spring' }}
-                    >
-                      <img 
-                        src={imgWinner} 
-                        alt="Đúng rồi! Cầm tiền vui mừng" 
-                        className="result-char-img"
-                      />
                     </motion.div>
                   </div>
-                </div>
-              ) : (
-                /* MÀN HÌNH 4: SAI - SAI BÉT */
-                <div className="result-layout result-lose">
-                  <div className="result-graphic-col">
-                    <motion.div 
-                      className="character-box"
-                      initial={{ scale: 0.8, rotate: 5 }}
-                      animate={{ scale: 1, rotate: [ 3, -3, 0 ] }}
-                      transition={{ duration: 0.5, type: 'spring' }}
+                ) : (
+                  /* MÀN HÌNH 4: SAI - SAI BÉT (BÊN PHẢI) */
+                  <div className="result-lost-content">
+                    <motion.div
+                      className="lost-text-group"
+                      initial={{ scale: 0.9, x: 30, opacity: 0 }}
+                      animate={{ scale: 1, x: 0, opacity: 1 }}
+                      transition={{ type: 'spring', damping: 15, stiffness: 200 }}
                     >
-                      <img 
-                        src={imgSaiBet} 
-                        alt="Sai bét! Bé gái đội nón lá khoanh tay" 
-                        className="result-char-img"
-                      />
-                    </motion.div>
-                  </div>
+                      <h1 className="lost-title-dela">
+                        SAI BÉT
+                      </h1>
 
-                  <div className="result-text-col">
-                    <h2 className="lose-heading">
-                      SAI BÉT
-                    </h2>
-                    <div className="result-info-box neo-border neo-shadow">
-                      <p className="result-wrong-hint">Hổng phải rồi đa! Gần đúng mà trật lất.</p>
-                      <h4 className="word-reveal-title text-red">
-                        Đáp án đúng: {currentQ.correctWord}
-                      </h4>
-                      <p className="word-meaning-snippet">
-                        <strong>Nghĩa:</strong> {currentQ.meaning}
-                      </p>
-                      <p className="word-explanation-snippet">
-                        {currentQ.explanation}
-                      </p>
-                    </div>
+                      <div className="lost-answer-chip neo-border neo-shadow">
+                        <p className="lost-hint-small">Hổng phải rồi đa! Gần đúng mà trật lất.</p>
+                        <p className="lost-correct-text">
+                          Đáp án đúng: <strong>{currentQ.correctWord}</strong>
+                        </p>
+                      </div>
 
-                    <div className="result-actions">
-                      <motion.button
-                        className="btn-next-question neo-border neo-shadow neo-shadow-hover neo-shadow-active"
-                        onClick={handleNextQuestion}
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
-                      >
-                        {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
-                      </motion.button>
-                      {currentQ.slug && (
-                        <Link 
-                          to={`/tu-vung/${currentQ.slug}`} 
-                          target="_blank" 
-                          className="link-view-dict"
+                      <div className="result-action-row">
+                        <motion.button
+                          className="btn-next-result btn-next-lost neo-border neo-shadow neo-shadow-hover neo-shadow-active"
+                          onClick={handleNextQuestion}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          📖 Xem trong từ điển
-                        </Link>
-                      )}
-                    </div>
+                          {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
+                        </motion.button>
+                        {currentQ.slug && (
+                          <Link 
+                            to={`/tu-vung/${currentQ.slug}`} 
+                            target="_blank" 
+                            className="result-dict-link"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            📖 Xem từ điển
+                          </Link>
+                        )}
+                      </div>
+                    </motion.div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </motion.div>
           )}
 

@@ -66,9 +66,9 @@ export default function Header() {
       <nav className="nav-links">
         <Link to="/" className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>TRANG CHỦ</Link>
         <Link to="/kham-pha" className={`nav-item ${currentPath === '/kham-pha' ? 'active' : ''}`}>KHÁM PHÁ</Link>
-        <Link to="/chuyen-phia-sau" className={`nav-item ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}>CHUYỆN PHÍA SAU</Link>
         <Link to="/game" className={`nav-item ${currentPath === '/game' || currentPath === '/noi-tu' ? 'active' : ''}`}>GAME</Link>
         <Link to="/gop-tu" className={`nav-item nav-item-pill ${currentPath === '/gop-tu' || currentPath === '/goc-gop-tu' ? 'active' : ''}`}>GÓC GÓP TỪ</Link>
+        <Link to="/chuyen-phia-sau" className={`nav-item ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}>CHUYỆN PHÍA SAU</Link>
       </nav>
 
       <form 

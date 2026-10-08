@@ -151,7 +151,7 @@ export default function ContributeWord() {
                       setStatusMessage(null);
                     }}
                   >
-                    ✏️ Góp thêm từ khác
+                    Góp thêm từ khác
                   </button>
                 </div>
               </div>

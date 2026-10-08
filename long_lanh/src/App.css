@@ -83,12 +83,11 @@
   color: var(--white) !important;
   padding: 0.4rem 1.2rem !important;
   border-radius: 99px !important;
-  transition: all 0.2s ease;
 }
 
 .nav-item-pill:hover {
-  background-color: #0d2259;
-  transform: translateY(-2px);
+  background-color: var(--blue);
+  transform: none;
 }
 
 .nav-item-pill.active {

@@ -72,6 +72,18 @@ const routes = [
         <p style="font-size: 1.05rem; line-height: 1.6;">Tiếng lóng không chỉ là cách nói. Nó là cách một vùng đất kể chuyện về chính mình.</p>
       </section>
     `
+  },
+  {
+    path: '/gop-tu',
+    title: 'Góc Góp Từ | Lóng Lánh - Đóng Góp Tiếng Lóng Miền Tây',
+    description: 'Cùng chung tay đóng góp và làm phong phú thêm kho tàng tiếng lóng miền Tây Nam Bộ tại Góc Góp Từ của dự án Lóng Lánh.',
+    h1: 'GÓC GÓP TỪ',
+    content: `
+      <section style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
+        <h1 style="font-size: 2.2rem; color: #111;">GÓC GÓP TỪ</h1>
+        <p style="font-size: 1.1rem; line-height: 1.6;">Cùng nhau lưu giữ và chia sẻ những câu nói, tiếng lóng mộc mạc và dí dỏm của người dân miền Tây sông nước.</p>
+      </section>
+    `
   }
 ];
 

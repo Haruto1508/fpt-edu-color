@@ -169,6 +169,24 @@ export const pageMetaMap = {
       'name': 'Chuyện Phía Sau Dự Án Lóng Lánh',
       'url': `${BASE_URL}/chuyen-phia-sau`
     }
+  },
+  '/gop-tu': {
+    title: 'Góc Góp Từ | Lóng Lánh - Đóng Góp Tiếng Lóng Miền Tây',
+    description: 'Cùng chung tay đóng góp và làm phong phú thêm kho tàng tiếng lóng miền Tây Nam Bộ tại Góc Góp Từ của dự án Lóng Lánh.',
+    canonicalPath: '/gop-tu',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Góc Góp Từ - Lóng Lánh',
+      'url': `${BASE_URL}/gop-tu`
+    }
+  },
+  '/goc-gop-tu': {
+    title: 'Góc Góp Từ | Lóng Lánh - Đóng Góp Tiếng Lóng Miền Tây',
+    description: 'Cùng chung tay đóng góp và làm phong phú thêm kho tàng tiếng lóng miền Tây Nam Bộ tại Góc Góp Từ của dự án Lóng Lánh.',
+    canonicalPath: '/gop-tu',
+    ogImage: DEFAULT_OG_IMAGE
   }
 };
 

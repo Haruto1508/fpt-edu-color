@@ -35,7 +35,7 @@ export default function Home() {
               Khám phá tiếng lóng ➔
             </Link>
             <Link to="/game" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{textDecoration: 'none'}}>
-              Chơi game Nối Từ 🎮
+              Chơi game Nối Từ
             </Link>
           </div>
         </ScrollReveal>

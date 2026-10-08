@@ -11,6 +11,7 @@ import BehindTheScenes from './pages/BehindTheScenes';
 import Game from './pages/Game';
 import NotFound from './pages/NotFound';
 import Maintenance from './pages/Maintenance';
+import ContributeWord from './pages/ContributeWord';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
 import { visitedPaths } from './utils/animationState';
@@ -40,6 +41,8 @@ function AppRoutes() {
       <Route path="/noi-tu" element={<Game />} />
       <Route path="/tu-vung/:word" element={<WordDetail />} />
       <Route path="/chuyen-phia-sau" element={<BehindTheScenes />} />
+      <Route path="/gop-tu" element={<ContributeWord />} />
+      <Route path="/goc-gop-tu" element={<ContributeWord />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

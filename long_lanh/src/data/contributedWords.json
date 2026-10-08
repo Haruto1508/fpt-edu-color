@@ -1,0 +1,37 @@
+[
+  {
+    "id": "mi-mi",
+    "word": "Mị mị",
+    "meaning": "Chỉ trạng thái biến mất, khuất dạng hoặc lẩn đi đâu mất",
+    "example": "Mới đây mà đi đâu mị mị đằng kia",
+    "createdAt": "2026-10-08T10:00:00.000Z"
+  },
+  {
+    "id": "vo-tuyen",
+    "word": "Vô tuyến",
+    "meaning": "Ti vi, máy thu hình phát sóng truyền hình",
+    "example": "Bật vô tuyến lên coi thời sự đặng biết tin tức nè",
+    "createdAt": "2026-10-08T10:05:00.000Z"
+  },
+  {
+    "id": "co-giang",
+    "word": "Cò giang",
+    "meaning": "Dùng dằng, kéo dài thời gian, không dứt khoát",
+    "example": "Tính chuyện gì thì mần liền, đừng có cò giang hoài",
+    "createdAt": "2026-10-08T10:10:00.000Z"
+  },
+  {
+    "id": "man-an",
+    "word": "Mần ăn",
+    "meaning": "Làm ăn, lao động buôn bán kiếm sống hàng ngày",
+    "example": "Bữa nay mần ăn khấm khá hông bà con chòm xóm?",
+    "createdAt": "2026-10-08T10:15:00.000Z"
+  },
+  {
+    "id": "huoc",
+    "word": "Huốc",
+    "meaning": "Lố qua, vượt quá đà hoặc trễ giờ hẹn",
+    "example": "Chạy xe huốc qua nhà rồi, quẹo đầu lại lẹ đi!",
+    "createdAt": "2026-10-08T10:20:00.000Z"
+  }
+]

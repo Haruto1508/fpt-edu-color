@@ -78,21 +78,7 @@
   border-radius: 99px;
 }
 
-.nav-item-pill {
-  background-color: var(--blue);
-  color: var(--white) !important;
-  padding: 0.4rem 1.2rem !important;
-  border-radius: 99px !important;
-}
 
-.nav-item-pill:hover {
-  background-color: var(--blue);
-  transform: none;
-}
-
-.nav-item-pill.active {
-  box-shadow: 0 0 0 2.5px var(--yellow);
-}
 
 .header-search {
   display: flex;

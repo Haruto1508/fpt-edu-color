@@ -184,7 +184,12 @@ export default function WordDetail() {
   return (
     <div className="page-content">
       {/* Word Header Section */}
-      <section className="word-hero">
+      <section
+        className={`word-hero ${wordImages[wordData.slug] ? 'word-hero--has-bg' : ''}`}
+        style={wordImages[wordData.slug] ? {
+          backgroundImage: `url(${wordImages[wordData.slug]})`
+        } : undefined}
+      >
         <div className="word-hero-nav">
           <Link to="/kham-pha" className="back-btn neo-border neo-shadow">
             <span>←</span> Quay lại trang khám phá
@@ -192,25 +197,20 @@ export default function WordDetail() {
           <div className="word-tag neo-border neo-shadow">{wordData.tag}</div>
         </div>
 
-        <ScrollReveal className="word-hero-center" delay={0.05} duration={0.35}>
-          <div className="graphic-placeholder">
-            {wordImages[wordData.slug] ? (
-              <img
-                key={wordData.slug}
-                src={wordImages[wordData.slug]}
-                alt={wordData.title}
-                className="word-hero-img"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            ) : (
-              <div className="graphic-text-3d" dangerouslySetInnerHTML={{ __html: wordData.title.replace(' ', '<br/>') }}></div>
-            )}
+        {wordImages[wordData.slug] ? (
+          <div className="word-hero-seo">
+            <h1 className="sr-only">{wordData.title}</h1>
+            <p className="sr-only">{wordData.subtitle}</p>
           </div>
-          <h1 className="word-title">{wordData.title}</h1>
-          <p className="word-subtitle">{wordData.subtitle}</p>
-        </ScrollReveal>
+        ) : (
+          <ScrollReveal className="word-hero-center" delay={0.05} duration={0.35}>
+            <div className="graphic-placeholder">
+              <div className="graphic-text-3d" dangerouslySetInnerHTML={{ __html: wordData.title.replace(' ', '<br/>') }}></div>
+            </div>
+            <h1 className="word-title">{wordData.title}</h1>
+            <p className="word-subtitle">{wordData.subtitle}</p>
+          </ScrollReveal>
+        )}
       </section>
 
       {/* Meaning Section */}

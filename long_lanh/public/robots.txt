@@ -13,6 +13,8 @@ Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.jpeg$
 Allow: /*.svg$
+Allow: /*.ico$
+Allow: /favicon.ico
 Allow: /*.mp3$
 Allow: /*.ttf$
 

@@ -1,4 +1,36 @@
 @font-face {
+  font-family: 'VL Grauna';
+  src: url('./assets/fonts/VL_Grauna/VL-Grauna.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VL Grauna VH';
+  src: url('./assets/fonts/VL_Grauna/VL-Grauna.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'iCielBCCubano-Normal';
+  src: url('./assets/fonts/iCiel_BC_Cubano/iCielBCCubano-Normal.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'iCiel BC Cubano';
+  src: url('./assets/fonts/iCiel_BC_Cubano/iCielBCCubano-Normal.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Dela Gothic One';
   src: url('./assets/fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf') format('truetype');
   font-weight: 400;
@@ -51,7 +83,7 @@
 
 :root {
   color-scheme: light only;
-  --font-display: 'Phudu', cursive;
+  --font-display: 'VL Grauna', 'VL Grauna VH', 'iCielBCCubano-Normal', 'Phudu', cursive;
   --font-body: 'Be Vietnam Pro', sans-serif;
   --blue: #2c4a9a;
   --green: #5eb23c;

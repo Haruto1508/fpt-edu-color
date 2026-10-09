@@ -7,8 +7,9 @@ import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
 
 import imgBoat from '../assets/game/start_game.png';
-import bgWin from '../assets/game/bg_win.png';
-import bgLost from '../assets/game/bg_lost.png';
+import imgTrue from '../assets/game/true.png';
+import imgWrong from '../assets/game/wrong.png';
+import heroBg from '../assets/hero_bg.png';
 
 export default function Game() {
   useSEO(pageMetaMap['/game']);
@@ -87,26 +88,24 @@ export default function Game() {
   };
 
   return (
-    <div className={`game-page-wrapper ${gameState === 'result' ? 'game-result-mode' : ''}`}>
+    <div className="game-page-wrapper" style={{ backgroundImage: `url(${heroBg})` }}>
       {/* Top Floating Controls Bar */}
-      {gameState !== 'result' && (
-        <div className="game-top-bar">
-          <Link to="/" className="game-back-link">
-            ← Về trang chủ
-          </Link>
-          <div className="game-bar-right">
-            <button 
-              className="sound-toggle-btn neo-border neo-shadow-hover"
-              onClick={() => setIsMuted(!isMuted)}
-              title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
-            >
-              {isMuted ? "🔇 Tắt âm" : "🔊 Âm thanh"}
-            </button>
-          </div>
+      <div className="game-top-bar">
+        <Link to="/" className="game-back-link">
+          ← Về trang chủ
+        </Link>
+        <div className="game-bar-right">
+          <button 
+            className="sound-toggle-btn neo-border neo-shadow-hover"
+            onClick={() => setIsMuted(!isMuted)}
+            title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
+          >
+            {isMuted ? "🔇 Tắt âm" : "🔊 Âm thanh"}
+          </button>
         </div>
-      )}
+      </div>
 
-      <div className={`game-main-content ${gameState === 'result' ? 'game-main-result-full' : ''}`}>
+      <div className="game-main-content">
         <AnimatePresence mode="wait">
           {/* MÀN HÌNH 1: INTRO / LOBBY (DEMO SCREEN 1) */}
           {gameState === 'intro' && (
@@ -175,11 +174,11 @@ export default function Game() {
                     Câu {currentIndex + 1} / {questions.length}
                   </span>
                   <span className="quiz-badge badge-score neo-border">
-                    🏆 {score} điểm
+                    {score} điểm
                   </span>
                   {streak > 1 && (
                     <span className="quiz-badge badge-streak neo-border">
-                      🔥 Chuỗi x{streak}
+                      Chuỗi x{streak}
                     </span>
                   )}
                 </div>
@@ -229,35 +228,50 @@ export default function Game() {
             </motion.div>
           )}
 
-          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI (THEO MOCKUP FULL-WIDTH HERO) */}
+          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI */}
           {gameState === 'result' && (
             <motion.div 
               key="result"
-              className={`game-result-hero ${isCorrect ? 'result-hero-win' : 'result-hero-lost'}`}
-              style={{ backgroundImage: `url(${isCorrect ? bgWin : bgLost})` }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35 }}
-              onClick={handleNextQuestion}
+              className="game-screen game-screen-result"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="game-result-inner" onClick={(e) => e.stopPropagation()}>
-                {isCorrect ? (
-                  /* MÀN HÌNH 3: ĐÚNG - NGAY CHÓC LUÔN (BÊN TRÁI) */
-                  <div className="result-win-content">
+              {isCorrect ? (
+                /* MÀN HÌNH 3: ĐÚNG - NGAY CHÓC LUÔN */
+                <div className="result-layout result-win">
+                  <div className="result-text-col">
                     <motion.div
                       className="win-text-group"
-                      initial={{ scale: 0.9, x: -30, opacity: 0 }}
+                      initial={{ scale: 0.9, x: -20, opacity: 0 }}
                       animate={{ scale: 1, x: 0, opacity: 1 }}
                       transition={{ type: 'spring', damping: 15, stiffness: 200 }}
                     >
-                      <h1 className="win-title-dela">
+                      <h2 className="win-heading">
                         NGAY<br />
                         CHÓC<br />
                         LUÔN
-                      </h1>
+                      </h2>
 
-                      <div className="result-action-row">
+                      <div className="result-info-box neo-border neo-shadow">
+                        <div className="result-point-badge">+10 ĐIỂM 🎉</div>
+                        <h4 className="word-reveal-title text-blue">
+                          {currentQ.correctWord}
+                        </h4>
+                        {currentQ.meaning && (
+                          <p className="word-meaning-snippet">
+                            <strong>Nghĩa:</strong> {currentQ.meaning}
+                          </p>
+                        )}
+                        {currentQ.explanation && (
+                          <p className="word-explanation-snippet">
+                            {currentQ.explanation}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="result-actions">
                         <motion.button
                           className="btn-next-result btn-next-win neo-border neo-shadow neo-shadow-hover neo-shadow-active"
                           onClick={handleNextQuestion}
@@ -266,42 +280,78 @@ export default function Game() {
                         >
                           {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
                         </motion.button>
-                        <span className="result-score-badge neo-border neo-shadow-sm">+10 ĐIỂM 🎉</span>
                       </div>
-
-                      {currentQ.slug && (
-                        <Link 
-                          to={`/tu-vung/${currentQ.slug}`} 
-                          target="_blank" 
-                          className="result-dict-link"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          📖 Xem trong từ điển: <strong>{currentQ.correctWord}</strong>
-                        </Link>
-                      )}
                     </motion.div>
                   </div>
-                ) : (
-                  /* MÀN HÌNH 4: SAI - SAI BÉT (BÊN PHẢI) */
-                  <div className="result-lost-content">
+
+                  <div className="result-graphic-col">
+                    <motion.div 
+                      className="character-box"
+                      initial={{ scale: 0.85, rotate: -3 }}
+                      animate={{ scale: 1, rotate: [ -2, 2, 0 ], y: [-4, 4, -4] }}
+                      transition={{ 
+                        scale: { duration: 0.4, type: 'spring' },
+                        y: { repeat: Infinity, duration: 3, ease: "easeInOut" }
+                      }}
+                    >
+                      <img 
+                        src={imgTrue} 
+                        alt="Đúng rồi! Cầm tiền vui mừng" 
+                        className="result-char-img"
+                      />
+                    </motion.div>
+                  </div>
+                </div>
+              ) : (
+                /* MÀN HÌNH 4: SAI - SAI BÉT */
+                <div className="result-layout result-lose">
+                  <div className="result-graphic-col">
+                    <motion.div 
+                      className="character-box"
+                      initial={{ scale: 0.85, rotate: 3 }}
+                      animate={{ scale: 1, rotate: [ 2, -2, 0 ], y: [-3, 3, -3] }}
+                      transition={{ 
+                        scale: { duration: 0.4, type: 'spring' },
+                        y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" }
+                      }}
+                    >
+                      <img 
+                        src={imgWrong} 
+                        alt="Sai bét! Bé gái đội nón lá khoanh tay" 
+                        className="result-char-img"
+                      />
+                    </motion.div>
+                  </div>
+
+                  <div className="result-text-col">
                     <motion.div
                       className="lost-text-group"
-                      initial={{ scale: 0.9, x: 30, opacity: 0 }}
+                      initial={{ scale: 0.9, x: 20, opacity: 0 }}
                       animate={{ scale: 1, x: 0, opacity: 1 }}
                       transition={{ type: 'spring', damping: 15, stiffness: 200 }}
                     >
-                      <h1 className="lost-title-dela">
+                      <h2 className="lose-heading">
                         SAI BÉT
-                      </h1>
+                      </h2>
 
-                      <div className="lost-answer-chip neo-border neo-shadow">
-                        <p className="lost-hint-small">Hổng phải rồi đa! Gần đúng mà trật lất.</p>
-                        <p className="lost-correct-text">
+                      <div className="result-info-box neo-border neo-shadow">
+                        <p className="result-wrong-hint">Hổng phải rồi đa! Gần đúng mà trật lất.</p>
+                        <h4 className="word-reveal-title text-red">
                           Đáp án đúng: <strong>{currentQ.correctWord}</strong>
-                        </p>
+                        </h4>
+                        {currentQ.meaning && (
+                          <p className="word-meaning-snippet">
+                            <strong>Nghĩa:</strong> {currentQ.meaning}
+                          </p>
+                        )}
+                        {currentQ.explanation && (
+                          <p className="word-explanation-snippet">
+                            {currentQ.explanation}
+                          </p>
+                        )}
                       </div>
 
-                      <div className="result-action-row">
+                      <div className="result-actions">
                         <motion.button
                           className="btn-next-result btn-next-lost neo-border neo-shadow neo-shadow-hover neo-shadow-active"
                           onClick={handleNextQuestion}
@@ -310,21 +360,11 @@ export default function Game() {
                         >
                           {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
                         </motion.button>
-                        {currentQ.slug && (
-                          <Link 
-                            to={`/tu-vung/${currentQ.slug}`} 
-                            target="_blank" 
-                            className="result-dict-link"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            📖 Xem từ điển
-                          </Link>
-                        )}
                       </div>
                     </motion.div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </motion.div>
           )}
 

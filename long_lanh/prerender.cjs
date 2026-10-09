@@ -87,17 +87,28 @@ const routes = [
   }
 ];
 
+// Helper lấy ảnh đại diện đã build của từ vựng
+const distAssets = fs.existsSync(path.join(distDir, 'assets')) ? fs.readdirSync(path.join(distDir, 'assets')) : [];
+function getWordAssetImage(slug) {
+  const cleanName = slug.replace(/-/g, '_');
+  const matched = distAssets.find(f => f.startsWith(`${cleanName}-`) && f.endsWith('.png'));
+  return matched ? `${BASE_URL}/assets/${matched}` : `${BASE_URL}/logo.jpeg`;
+}
+
 // Thêm các trang chi tiết từ vựng
 wordsData.forEach(word => {
+  const wordImageUrl = getWordAssetImage(word.slug);
   routes.push({
     path: `/tu-vung/${word.slug}`,
     title: `${word.title} là gì? Ý nghĩa từ điển tiếng lóng miền Tây | Lóng Lánh`,
     description: `Giải nghĩa từ lóng "${word.title}": ${word.meaningMain} ${word.subtitle}. Nghe audio phát âm giọng miền Tây chuẩn và ví dụ minh họa dí dỏm.`,
+    image: wordImageUrl,
     schema: {
       "@context": "https://schema.org",
       "@type": "DefinedTerm",
       "name": word.title,
       "description": `${word.meaningMain} - ${word.subtitle}`,
+      "image": wordImageUrl,
       "inDefinedTermSet": {
         "@type": "DefinedTermSet",
         "name": "Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây",
@@ -108,6 +119,9 @@ wordsData.forEach(word => {
       <article style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
         <h1 style="font-size: 2.5rem; color: #111; margin-bottom: 0.5rem;">${word.title}</h1>
         <p style="font-size: 1.2rem; color: #555; margin-bottom: 1.5rem;">${word.subtitle}</p>
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <img src="${wordImageUrl}" alt="${word.title} - Tiếng Lóng Miền Tây" width="400" height="400" style="max-width: 100%; height: auto; border-radius: 12px; border: 2.5px solid #111;" />
+        </div>
         <div style="background: #fdf6d8; border: 2px solid #111; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
           <h2 style="font-size: 1.3rem; margin-top: 0;">Ý nghĩa tiếng lóng:</h2>
           <p style="font-size: 1.1rem; line-height: 1.6;"><strong>${word.title}</strong> nghĩa là <strong>${word.meaningMain}</strong></p>
@@ -157,7 +171,14 @@ routes.forEach(route => {
   html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${fullUrl}" />`);
   html = html.replace(/<meta property="twitter:url" content=".*?" \/>/, `<meta property="twitter:url" content="${fullUrl}" />`);
 
-  // 4. Schema if provided
+  // 4. Image
+  if (route.image) {
+    const safeImg = escapeAttr(route.image);
+    html = html.replace(/<meta property="og:image" content=".*?" \/>/, `<meta property="og:image" content="${safeImg}" />`);
+    html = html.replace(/<meta property="twitter:image" content=".*?" \/>/, `<meta property="twitter:image" content="${safeImg}" />`);
+  }
+
+  // 5. Schema if provided
   if (route.schema) {
     const schemaTag = `<script id="page-structured-data" type="application/ld+json">${JSON.stringify(route.schema)}</script>`;
     html = html.replace('</head>', `  ${schemaTag}\n</head>`);

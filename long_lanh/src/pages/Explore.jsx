@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import WordCard from '../components/WordCard';
 import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
@@ -179,42 +179,6 @@ export default function Explore() {
       </ScrollReveal>
 
       <div ref={resultsRef} style={{ paddingBottom: '6rem' }}>
-        {/* Game Banner */}
-        <ScrollReveal delay={0.25} style={{ marginBottom: '3rem' }}>
-          <div className="neo-border neo-shadow" style={{
-            backgroundColor: 'var(--yellow)',
-            padding: '1.4rem 2.2rem',
-            borderRadius: '24px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '1.2rem',
-            borderWidth: '3.5px'
-          }}>
-            <div>
-              <h3 style={{ fontFamily: 'var(--font-display, Phudu, cursive)', fontSize: '1.3rem', color: 'var(--black)', margin: 0 }}>
-                🎮 THỬ TÀI ĐỐ VUI: TRẮC NGHIỆM NỐI TỪ!
-              </h3>
-              <p style={{ margin: '0.4rem 0 0', fontWeight: 600, color: '#222', fontSize: '0.98rem' }}>
-                Chọn đúng từ tiếng lóng miền Tây trong từ điển Lóng Lánh và nhận ngay danh hiệu độc lạ!
-              </p>
-            </div>
-            <Link to="/game" className="neo-border neo-shadow-hover neo-shadow-active" style={{
-              backgroundColor: 'var(--green)',
-              color: 'var(--white)',
-              padding: '0.75rem 2rem',
-              borderRadius: '99px',
-              fontWeight: 800,
-              textDecoration: 'none',
-              fontFamily: 'var(--font-display, Phudu, cursive)',
-              fontSize: '1rem',
-              borderWidth: '3px'
-            }}>
-              CHƠI THÔI ➔
-            </Link>
-          </div>
-        </ScrollReveal>
 
         {isDefaultView ? (
           <ScrollReveal className="explore-cards" delay={0.3} style={{ marginBottom: '2rem' }}>

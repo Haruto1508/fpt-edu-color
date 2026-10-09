@@ -1784,185 +1784,20 @@
   transform: none !important;
 }
 
-/* --- FULL-WIDTH RESULT HERO (WIN & LOST MOCKUP) --- */
-.game-result-mode {
-  padding: 0 !important;
-  background-image: none !important;
-  background-color: transparent !important;
-  min-height: auto !important;
-}
-
-.game-main-result-full {
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.game-result-hero {
-  position: relative;
-  width: 100%;
-  min-height: calc(100vh - 85px - 260px);
-  min-height: 580px;
-  box-sizing: border-box;
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  border-bottom: 3.5px solid var(--blue);
-  display: flex;
-  align-items: center;
-  padding: 4.5rem 4rem 3.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.result-hero-win {
-  background-color: #f7fafc;
-}
-
-.result-hero-lost {
-  background-color: #f7fafc;
-}
-
-.game-result-inner {
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  cursor: default;
-}
-
-/* Win: Text on Left */
-.result-win-content {
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.win-title-dela {
-  font-family: 'Dela Gothic One', cursive, sans-serif;
-  font-size: clamp(3.2rem, 6.2vw, 5.2rem);
-  color: #66b545;
-  line-height: 1.08;
-  letter-spacing: -1.5px;
-  margin: 0 0 1.5rem 0;
-  text-align: left;
-  user-select: none;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-}
-
-/* Lost: Text on Right */
-.result-lost-content {
-  width: 100%;
-  max-width: 520px;
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.lost-title-dela {
-  font-family: 'Dela Gothic One', cursive, sans-serif;
-  font-size: clamp(3.5rem, 7.5vw, 6rem);
-  color: #fe7565;
-  line-height: 1;
-  letter-spacing: 0px;
-  margin: 0 0 1.5rem 0;
-  text-align: left;
-  user-select: none;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-}
-
-.lost-answer-chip {
-  background: #ffffff;
-  border: 3px solid var(--black);
-  border-radius: 16px;
-  box-shadow: 4px 4px 0px var(--black);
-  padding: 0.9rem 1.4rem;
-  margin-bottom: 1.4rem;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.lost-hint-small {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #888;
-  margin-bottom: 0.25rem;
-}
-
-.lost-correct-text {
-  font-size: 1.15rem;
-  color: #111;
-  font-weight: 600;
-  margin: 0;
-}
-
-.lost-correct-text strong {
-  color: #fe7565;
-  font-size: 1.3rem;
-  font-family: 'Dela Gothic One', cursive, sans-serif;
-}
-
-.result-action-row {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-
-.btn-next-result {
-  background-color: #66b545;
-  color: #ffffff;
-  font-family: 'Dela Gothic One', cursive, sans-serif;
-  font-size: 1.1rem;
-  padding: 0.85rem 2rem;
-  border-radius: 99px;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.btn-next-result.btn-next-lost {
-  background-color: #fe7565;
-}
-
-.result-score-badge {
-  background-color: #ffffff;
-  color: #66b545;
-  font-family: 'Dela Gothic One', cursive, sans-serif;
-  font-size: 1.05rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 99px;
-}
-
-.result-dict-link {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--blue);
-  text-decoration: underline;
-  margin-top: 0.2rem;
-  display: inline-block;
-}
-
-.result-dict-link:hover {
-  color: #111;
-}
-
 /* --- MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI --- */
+.game-screen-result {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 .result-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: 3.5rem;
   min-height: 480px;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .result-win .result-text-col {
@@ -1974,12 +1809,14 @@
   order: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .result-lose .result-graphic-col {
   order: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .result-lose .result-text-col {
@@ -1989,7 +1826,7 @@
 
 .character-box {
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1997,29 +1834,33 @@
 
 .result-char-img {
   width: 100%;
-  max-height: 380px;
+  max-height: 420px;
   object-fit: contain;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
 }
 
 .win-heading {
-  font-family: var(--font-display, 'Phudu', cursive);
-  font-size: clamp(3rem, 5.5vw, 4.4rem);
+  font-family: var(--font-display, 'iCielBCCubano-Normal', cursive, sans-serif);
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
   color: #27ae60;
   line-height: 1.08;
   letter-spacing: -1px;
   margin-bottom: 1.2rem;
   text-align: left;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
 }
 
 .lose-heading {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display, 'iCielBCCubano-Normal', cursive, sans-serif);
   font-size: clamp(3.2rem, 6vw, 4.8rem);
-  color: #d63031;
-  line-height: 1.1;
-  letter-spacing: -1px;
+  color: #fe7565;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
   margin-bottom: 1.2rem;
   text-align: left;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
 }
 
 .result-info-box {
@@ -2033,8 +1874,8 @@
 }
 
 .result-point-badge {
-  font-family: var(--font-display, 'Phudu', cursive);
-  font-size: 1.25rem;
+  font-family: var(--font-display, 'iCielBCCubano-Normal', cursive, sans-serif);
+  font-size: 1.15rem;
   color: #27ae60;
   margin-bottom: 0.5rem;
   text-align: left;
@@ -2042,8 +1883,8 @@
 
 .result-wrong-hint {
   font-weight: 800;
-  font-size: 1.15rem;
-  color: #d63031;
+  font-size: 1.1rem;
+  color: #fe7565;
   margin-bottom: 0.5rem;
   text-align: left;
 }
@@ -2078,16 +1919,27 @@
   justify-content: flex-start;
 }
 
-.btn-next-question {
-  background-color: var(--blue);
-  color: var(--white);
+.btn-next-result {
   font-family: var(--font-display, 'Phudu', cursive);
   font-size: 1.15rem;
-  padding: 0.85rem 2.4rem;
-  border: 3px solid var(--black);
+  padding: 0.85rem 2.2rem;
   border-radius: 99px;
+  border: 3.5px solid var(--black);
   box-shadow: 5px 5px 0px var(--black);
   cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-next-win {
+  background-color: #27ae60;
+}
+
+.btn-next-lost {
+  background-color: #fe7565;
 }
 
 .link-view-dict {
@@ -2096,11 +1948,12 @@
   padding: 0.6rem 1.2rem;
   border-bottom: 2px dashed var(--black);
   transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
 }
 
 .link-view-dict:hover {
   color: var(--blue);
-  border-bottom-color: var(--blue);
 }
 
 /* --- MÀN HÌNH TỔNG KẾT (SUMMARY) --- */
@@ -2380,7 +2233,7 @@
 }
 
 .maintenance-heading {
-  font-family: 'Dela Gothic One', cursive, sans-serif;
+  font-family: var(--font-display, 'iCielBCCubano-Normal', cursive, sans-serif);
   font-size: clamp(2rem, 4.2vw, 3.2rem);
   color: var(--blue);
   line-height: 1.18;

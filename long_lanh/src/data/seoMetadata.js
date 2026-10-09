@@ -98,8 +98,8 @@ export const websiteSchema = {
       'logo': {
         '@type': 'ImageObject',
         'url': DEFAULT_OG_IMAGE,
-        'width': 1200,
-        'height': 630
+        'width': 512,
+        'height': 512
       },
       'description': 'Dự án văn hóa số gìn giữ và lan tỏa tiếng lóng, khẩu ngữ Nam Bộ.',
       'slogan': 'Giữ chữ, giữ hồn quê'
@@ -151,11 +151,23 @@ export const pageMetaMap = {
     ogImage: DEFAULT_OG_IMAGE,
     schema: {
       '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      'name': 'Game Nối Từ Miền Tây - Lóng Lánh',
-      'applicationCategory': 'GameApplication',
-      'browserRequirements': 'Requires JavaScript',
-      'operatingSystem': 'All'
+      '@graph': [
+        {
+          '@type': 'WebApplication',
+          'name': 'Game Nối Từ Miền Tây - Lóng Lánh',
+          'applicationCategory': 'GameApplication',
+          'browserRequirements': 'Requires JavaScript',
+          'operatingSystem': 'All',
+          'url': `${BASE_URL}/game`
+        },
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': `${BASE_URL}/` },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Game nối từ', 'item': `${BASE_URL}/game` }
+          ]
+        }
+      ]
     }
   },
   '/chuyen-phia-sau': {
@@ -165,9 +177,20 @@ export const pageMetaMap = {
     ogImage: DEFAULT_OG_IMAGE,
     schema: {
       '@context': 'https://schema.org',
-      '@type': 'AboutPage',
-      'name': 'Chuyện Phía Sau Dự Án Lóng Lánh',
-      'url': `${BASE_URL}/chuyen-phia-sau`
+      '@graph': [
+        {
+          '@type': 'AboutPage',
+          'name': 'Chuyện Phía Sau Dự Án Lóng Lánh',
+          'url': `${BASE_URL}/chuyen-phia-sau`
+        },
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': `${BASE_URL}/` },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Chuyện phía sau', 'item': `${BASE_URL}/chuyen-phia-sau` }
+          ]
+        }
+      ]
     }
   },
   '/gop-tu': {
@@ -177,9 +200,20 @@ export const pageMetaMap = {
     ogImage: DEFAULT_OG_IMAGE,
     schema: {
       '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      'name': 'Góc Góp Từ - Lóng Lánh',
-      'url': `${BASE_URL}/gop-tu`
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          'name': 'Góc Góp Từ - Lóng Lánh',
+          'url': `${BASE_URL}/gop-tu`
+        },
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': `${BASE_URL}/` },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Góc góp từ', 'item': `${BASE_URL}/gop-tu` }
+          ]
+        }
+      ]
     }
   },
   '/goc-gop-tu': {

@@ -44,9 +44,9 @@ export default function Dictionary() {
       {/* Dictionary Categories */}
       <div style={{ paddingBottom: '6rem' }}>
         {categories.map((category, index) => (
-          <ScrollReveal key={index} delay={0.1} className="neo-border-top" style={{ paddingTop: '3rem', paddingLeft: '4rem', paddingRight: '4rem', marginBottom: '7rem' }}>
+          <ScrollReveal key={index} delay={0.1} className="neo-border-top dict-category-section">
             <div 
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', cursor: 'pointer' }}
+              className="dict-category-header"
               onClick={() => toggleCategory(category)}
             >
               <h2 className="text-blue" style={{ fontSize: '1.8rem', fontWeight: 900, textTransform: 'uppercase', margin: 0 }}>

@@ -186,8 +186,8 @@ export default function WordDetail() {
       {/* Word Header Section */}
       <section className="word-hero">
         <div className="word-hero-nav">
-          <Link to="/kham-pha" className="back-btn neo-border neo-shadow">
-            <span>←</span> Quay lại trang khám phá
+          <Link to="/kham-pha" className="back-btn neo-border neo-shadow" aria-label="Quay lại trang khám phá">
+            <span>←</span> <span className="back-btn-text-full">Quay lại trang khám phá</span><span className="back-btn-text-short">Khám phá</span>
           </Link>
           <div className="word-tag neo-border neo-shadow">{wordData.tag}</div>
         </div>

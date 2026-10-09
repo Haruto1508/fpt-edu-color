@@ -92,7 +92,7 @@ const distAssets = fs.existsSync(path.join(distDir, 'assets')) ? fs.readdirSync(
 function getWordAssetImage(slug) {
   const cleanName = slug.replace(/-/g, '_');
   const matched = distAssets.find(f => f.startsWith(`${cleanName}-`) && f.endsWith('.png'));
-  return matched ? `${BASE_URL}/assets/${matched}` : `${BASE_URL}/logo.jpeg`;
+  return matched ? `${BASE_URL}/assets/${matched}` : `${BASE_URL}/logo.png`;
 }
 
 // Thêm các trang chi tiết từ vựng
@@ -102,18 +102,32 @@ wordsData.forEach(word => {
     path: `/tu-vung/${word.slug}`,
     title: `${word.title} là gì? Ý nghĩa từ điển tiếng lóng miền Tây | Lóng Lánh`,
     description: `Giải nghĩa từ lóng "${word.title}": ${word.meaningMain} ${word.subtitle}. Nghe audio phát âm giọng miền Tây chuẩn và ví dụ minh họa dí dỏm.`,
+    keywords: `${word.title}, ${word.title} là gì, nghĩa của ${word.title}, từ điển ${word.title}, tiếng lóng ${word.title}, ${word.hashtag}, khẩu ngữ nam bộ, tiếng miền tây`,
     image: wordImageUrl,
     schema: {
       "@context": "https://schema.org",
-      "@type": "DefinedTerm",
-      "name": word.title,
-      "description": `${word.meaningMain} - ${word.subtitle}`,
-      "image": wordImageUrl,
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây",
-        "url": BASE_URL
-      }
+      "@graph": [
+        {
+          "@type": "DefinedTerm",
+          "@id": `${BASE_URL}/tu-vung/${word.slug}#term`,
+          "name": word.title,
+          "description": `${word.meaningMain} - ${word.subtitle}`,
+          "image": wordImageUrl,
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây",
+            "url": `${BASE_URL}/tu-dien`
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Từ điển", "item": `${BASE_URL}/tu-dien` },
+            { "@type": "ListItem", "position": 3, "name": word.title, "item": `${BASE_URL}/tu-vung/${word.slug}` }
+          ]
+        }
+      ]
     },
     content: `
       <article style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
@@ -161,10 +175,14 @@ routes.forEach(route => {
   html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${safeTitle}" />`);
   html = html.replace(/<meta property="twitter:title" content=".*?" \/>/, `<meta property="twitter:title" content="${safeTitle}" />`);
 
-  // 2. Description
+  // 2. Description & Keywords
   html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${safeDesc}" />`);
   html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${safeDesc}" />`);
   html = html.replace(/<meta property="twitter:description" content=".*?" \/>/, `<meta property="twitter:description" content="${safeDesc}" />`);
+  if (route.keywords) {
+    const safeKeywords = escapeAttr(route.keywords);
+    html = html.replace(/<meta name="keywords" content=".*?" \/>/, `<meta name="keywords" content="${safeKeywords}" />`);
+  }
 
   // 3. Canonical & OG URL
   html = html.replace(/<link rel="canonical" id="canonical-url" href=".*?" \/>/, `<link rel="canonical" id="canonical-url" href="${fullUrl}" />`);

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build && node prerender.cjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "index:bing": "node scripts/index_now.cjs"
   },
   "dependencies": {
     "framer-motion": "^12.43.0",

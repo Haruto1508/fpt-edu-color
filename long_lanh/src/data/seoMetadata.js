@@ -5,7 +5,7 @@
 
 export const BASE_URL = 'https://www.tienglongmientay.com';
 export const SITE_NAME = 'Lóng Lánh - Tiếng Lóng Miền Tây';
-export const DEFAULT_OG_IMAGE = 'https://www.tienglongmientay.com/logo.jpeg';
+export const DEFAULT_OG_IMAGE = 'https://www.tienglongmientay.com/logo.png';
 
 export const primaryKeywords = [
   'tiếng lóng miền tây',

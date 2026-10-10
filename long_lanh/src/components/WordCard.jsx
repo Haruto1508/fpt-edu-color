@@ -7,10 +7,10 @@ const MotionLink = motion.create(Link);
 export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSrc: _imgSrc, isMore }) {
   const location = useLocation();
   const animProps = {
-    initial: visitedPaths.has(location.pathname) ? false : { opacity: 0, y: 40 },
+    initial: visitedPaths.has(location.pathname) ? false : { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-20px" },
-    transition: { duration: 0.5, ease: "easeOut" }
+    viewport: { once: true, amount: "some" },
+    transition: { duration: 0.45, ease: "easeOut" }
   };
 
   if (isMore) {
@@ -21,7 +21,8 @@ export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSr
     );
   }
 
-  const bgClass = `card-bg-${color}`;
+  const cardColor = (color === 'green' || color === 'blue') ? color : 'blue';
+  const bgClass = `card-bg-${cardColor}`;
   const cardSlug = slug || title.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
   
   return (

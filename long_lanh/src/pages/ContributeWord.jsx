@@ -4,6 +4,16 @@ import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
 import initialWords from '../data/contributedWords.json';
 import nonImg from '../assets/non.png';
+import { 
+  isGoogleSheetConfigured, 
+  getContributedWordsFromSheet, 
+  addContributedWordToSheet 
+} from '../services/googleSheet';
+import { 
+  isFirebaseConfigured, 
+  getContributedWordsFromFirestore, 
+  addContributedWordToFirestore 
+} from '../services/firebase';
 
 export default function ContributeWord() {
   useSEO(pageMetaMap['/gop-tu']);
@@ -33,26 +43,78 @@ export default function ContributeWord() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
+  const [isLoadingWords, setIsLoadingWords] = useState(false);
 
-  // Sync from server API on mount if available
+  // Sync words: Ưu tiên Google Sheets -> Firestore -> Fallback sang local API / JSON
   useEffect(() => {
     let isMounted = true;
-    fetch('/api/contribute-word')
-      .then(res => {
-        if (res.ok) return res.json();
-        throw new Error('API not available');
-      })
-      .then(data => {
-        if (isMounted && Array.isArray(data) && data.length > 0) {
-          setWords(data);
-          try {
-            localStorage.setItem('ll_contributed_words', JSON.stringify(data));
-          } catch {}
+
+    async function fetchWords() {
+      // 1. Thử tải từ Google Sheets nếu đã cấu hình
+      if (isGoogleSheetConfigured) {
+        setIsLoadingWords(true);
+        try {
+          const sheetWords = await getContributedWordsFromSheet();
+          if (isMounted && Array.isArray(sheetWords)) {
+            const sheetWordsSet = new Set(sheetWords.map(w => w.word?.trim().toLowerCase()));
+            const merged = [
+              ...sheetWords,
+              ...initialWords.filter(w => !sheetWordsSet.has(w.word?.trim().toLowerCase()))
+            ];
+            setWords(merged);
+            try {
+              localStorage.setItem('ll_contributed_words', JSON.stringify(merged));
+            } catch {}
+          }
+        } catch (err) {
+          console.warn('Lỗi kết nối Google Sheets:', err);
+        } finally {
+          if (isMounted) setIsLoadingWords(false);
         }
-      })
-      .catch(() => {
-        // Fallback to local data
-      });
+        return;
+      }
+
+      // 2. Thử tải từ Firebase Firestore nếu đã cấu hình
+      if (isFirebaseConfigured) {
+        try {
+          const firestoreWords = await getContributedWordsFromFirestore();
+          if (isMounted && Array.isArray(firestoreWords)) {
+            const firestoreWordsSet = new Set(firestoreWords.map(w => w.word?.trim().toLowerCase()));
+            const merged = [
+              ...firestoreWords,
+              ...initialWords.filter(w => !firestoreWordsSet.has(w.word?.trim().toLowerCase()))
+            ];
+            setWords(merged);
+            try {
+              localStorage.setItem('ll_contributed_words', JSON.stringify(merged));
+            } catch {}
+            return;
+          }
+        } catch (err) {
+          console.warn('Lỗi kết nối Firebase Firestore:', err);
+        }
+      }
+
+      // 3. Fallback sang local API (khi chạy npm run dev)
+      fetch('/api/contribute-word')
+        .then(res => {
+          if (res.ok) return res.json();
+          throw new Error('API not available');
+        })
+        .then(data => {
+          if (isMounted && Array.isArray(data) && data.length > 0) {
+            setWords(data);
+            try {
+              localStorage.setItem('ll_contributed_words', JSON.stringify(data));
+            } catch {}
+          }
+        })
+        .catch(() => {
+          // Fallback to local initialWords (already in state)
+        });
+    }
+
+    fetchWords();
     return () => { isMounted = false; };
   }, []);
 
@@ -89,27 +151,47 @@ export default function ContributeWord() {
       createdAt: new Date().toISOString()
     };
 
+    // 1. Gửi lên Google Sheets nếu đã cấu hình
+    if (isGoogleSheetConfigured) {
+      try {
+        await addContributedWordToSheet(newEntry);
+      } catch (err) {
+        console.error('Không thể lưu lên Google Sheets:', err);
+      }
+    } else if (isFirebaseConfigured) {
+      // 2. Gửi lên Firebase Firestore nếu đã cấu hình
+      try {
+        const firestoreResult = await addContributedWordToFirestore(newEntry);
+        if (firestoreResult && firestoreResult.id) {
+          newEntry.id = firestoreResult.id;
+        }
+      } catch (err) {
+        console.error('Không thể lưu lên Firebase:', err);
+      }
+    } else {
+      // 3. Fallback ghi vào local file nếu đang chạy Vite dev
+      try {
+        await fetch('/api/contribute-word', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newEntry)
+        });
+      } catch (err) {
+        console.warn('API sync warning:', err);
+      }
+    }
+
+    // 3. Cập nhật state và localStorage ngay lập tức
     const updatedWords = [newEntry, ...words];
     setWords(updatedWords);
     try {
       localStorage.setItem('ll_contributed_words', JSON.stringify(updatedWords));
     } catch {}
 
-    // Send to API to write to src/data/contributedWords.json
-    try {
-      await fetch('/api/contribute-word', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newEntry)
-      });
-    } catch (err) {
-      console.warn('API sync warning:', err);
-    }
-
     setIsSubmitting(false);
     setStatusMessage({ type: 'success', text: 'Đã góp từ thành công! Cảm ơn bạn nhiều nghen 🎉' });
     setFormData({ word: '', meaning: '', example: '' });
-    // Switch to viewing the newly created card
+    // Chuyển sang màn hình xem thẻ chi tiết vừa tạo
     setActiveWordId(newEntry.id);
   };
 
@@ -240,7 +322,14 @@ export default function ContributeWord() {
           {/* History Section */}
           <div className="contribute-history-section">
             <div className="history-header">
-              <h3 className="history-title">LỊCH SỬ</h3>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h3 className="history-title">LỊCH SỬ</h3>
+                {isLoadingWords && (
+                  <span style={{ fontSize: '0.8rem', color: '#666', fontStyle: 'italic' }}>
+                    (Đang đồng bộ...)
+                  </span>
+                )}
+              </div>
               {activeWordId && (
                 <button
                   type="button"

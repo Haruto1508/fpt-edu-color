@@ -27,6 +27,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Dela+Gothic+One&family=Phudu:wght@700;800;900&family=Titan+One&display=swap" rel="stylesheet" />
 
+    <!-- Render-blocking CSS in Head: Ngăn chặn triệt để hiện HTML DOM trước khi có CSS -->
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+
     <!-- Prevent Dark Mode Overrides & Extensions -->
     <meta name="color-scheme" content="light only" />
     <meta name="supported-color-schemes" content="light" />
@@ -122,7 +126,7 @@
       }
     </script>
   </head>
-  <body>
+  <body style="background-color: #fef8e7; margin: 0; min-height: 100vh;">
     <noscript>
       <div style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
         <h1>Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây</h1>
@@ -151,7 +155,13 @@
         </nav>
       </div>
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height: 100vh; background-color: #fef8e7; display: flex; align-items: center; justify-content: center;">
+        <div style="font-family: 'Be Vietnam Pro', system-ui, sans-serif; font-weight: 800; font-size: 1.25rem; color: #111; letter-spacing: 2px;">
+          LÓNG LÁNH...
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

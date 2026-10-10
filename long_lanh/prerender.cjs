@@ -202,9 +202,9 @@ routes.forEach(route => {
     html = html.replace('</head>', `  ${schemaTag}\n</head>`);
   }
 
-  // 5. Injected pre-rendered fallback in root div
+  // 5. Injected pre-rendered fallback in <noscript> for SEO crawlers (tránh hiện DOM thô và chớp CSS cho người dùng)
   if (route.content) {
-    html = html.replace('<div id="root"></div>', `<div id="root">${route.content}</div>`);
+    html = html.replace('</noscript>', `  <div id="seo-prerender-content">${route.content}</div>\n    </noscript>`);
   }
 
   // Write target index.html

@@ -396,13 +396,13 @@ export default function Game() {
                     className="btn-restart neo-border neo-shadow neo-shadow-hover neo-shadow-active"
                     onClick={handleStartGame}
                   >
-                    🔄 CHƠI LẠI VÒNG MỚI
+                    CHƠI LẠI VÒNG MỚI
                   </button>
                   <Link 
                     to="/kham-pha" 
                     className="btn-explore-dict neo-border neo-shadow neo-shadow-hover neo-shadow-active"
                   >
-                    📖 KHÁM PHÁ TỪ ĐIỂN
+                    KHÁM PHÁ TỪ ĐIỂN
                   </Link>
                 </div>
               </div>

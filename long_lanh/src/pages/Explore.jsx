@@ -188,7 +188,7 @@ export default function Explore() {
                 <WordCard
                   key={idx}
                   slug={word.slug}
-                  color={word.color}
+                  color={idx % 2 === 0 ? 'blue' : 'green'}
                   tag={word.tag}
                   hashtag={word.hashtag}
                   title={word.title}
@@ -206,7 +206,7 @@ export default function Explore() {
                 <WordCard
                   key={idx}
                   slug={word.slug}
-                  color={word.color}
+                  color={idx % 2 === 0 ? 'blue' : 'green'}
                   tag={word.tag}
                   hashtag={word.hashtag}
                   title={word.title}

@@ -1,7 +1,7 @@
 [
   {
     "slug": "cha-ba",
-    "color": "red",
+    "color": "blue",
     "tag": "Đời sống",
     "hashtag": "#chaba",
     "title": "CHÀ BÁ",
@@ -23,7 +23,7 @@
   },
   {
     "slug": "chang-hang",
-    "color": "blue",
+    "color": "green",
     "tag": "Đời sống",
     "hashtag": "#changhang",
     "title": "CHÀNG HẢNG",
@@ -45,7 +45,7 @@
   },
   {
     "slug": "tum-hum",
-    "color": "green",
+    "color": "blue",
     "tag": "Đời sống",
     "hashtag": "#tumhum",
     "title": "TÚM HÚM",
@@ -67,7 +67,7 @@
   },
   {
     "slug": "mit-uot",
-    "color": "red",
+    "color": "green",
     "tag": "Cảm xúc",
     "hashtag": "#mituot",
     "title": "MÍT ƯỚT",
@@ -89,7 +89,7 @@
   },
   {
     "slug": "xi-xon",
-    "color": "green",
+    "color": "blue",
     "tag": "Con người",
     "hashtag": "#xixon",
     "title": "XÍ XỌN",
@@ -112,7 +112,7 @@
   },
   {
     "slug": "mung-hum",
-    "color": "blue",
+    "color": "green",
     "tag": "Cảm xúc",
     "hashtag": "#munghum",
     "title": "MỪNG HÚM",
@@ -155,7 +155,7 @@
   },
   {
     "slug": "banh-ton",
-    "color": "yellow",
+    "color": "green",
     "tag": "Con người",
     "hashtag": "#banhton",
     "title": "BẢNH TỎN",
@@ -178,7 +178,7 @@
   },
   {
     "slug": "no-noc",
-    "color": "yellow",
+    "color": "blue",
     "tag": "Ăn uống",
     "hashtag": "#nonoc",
     "title": "NO NÓC",
@@ -199,7 +199,7 @@
   },
   {
     "slug": "thang-bang",
-    "color": "yellow",
+    "color": "green",
     "tag": "Đời sống",
     "hashtag": "#thangbang",
     "title": "THẲNG BĂNG",
@@ -220,7 +220,7 @@
   },
   {
     "slug": "chot-let",
-    "color": "green",
+    "color": "blue",
     "tag": "Sinh hoạt",
     "hashtag": "#chotlet",
     "title": "CHỌT LÉT",
@@ -262,7 +262,7 @@
   },
   {
     "slug": "chu-u",
-    "color": "red",
+    "color": "blue",
     "tag": "Cảm xúc",
     "hashtag": "#chuu",
     "title": "CHÙ Ụ",

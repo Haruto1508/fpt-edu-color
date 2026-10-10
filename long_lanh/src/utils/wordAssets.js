@@ -30,11 +30,19 @@ export const wordImages = {
   "banh-chanh": imgBanhChanh
 };
 
-// Hàm preload toàn bộ ảnh từ vựng vào cache trình duyệt
+// Hàm preload ảnh từ vựng khi trình duyệt đã rảnh rỗi (idle) để không chặn CSS và Fonts của trang
 export function preloadWordImages() {
   if (typeof window === 'undefined') return;
-  Object.values(wordImages).forEach((src) => {
-    const img = new Image();
-    img.src = src;
-  });
+  const loadImages = () => {
+    Object.values(wordImages).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => setTimeout(loadImages, 1200));
+  } else {
+    setTimeout(loadImages, 2000);
+  }
 }

@@ -46,7 +46,7 @@ export default function BehindTheScenes() {
           <span className="text-blue" style={{ display: 'inline-block', marginTop: '1rem' }}>PHÁT TRIỂN CỦA TIẾNG LÓNG</span>
         </ScrollReveal>
         
-        <div className="process-timeline">
+        <ScrollReveal className="process-timeline">
           <div className="timeline-line"></div>
           
           {[
@@ -56,16 +56,16 @@ export default function BehindTheScenes() {
             { id: 4, title: 'Lan tỏa', text: 'Nhờ internet và mạng xã hội, tiếng lóng miền Tây được nhiều người biết đến hơn.' },
             { id: 5, title: 'Ghi dấu', text: 'Xuất hiện trong nội dung sáng tạo, giải trí và trở thành một nét riêng của văn hóa đại chúng.' },
             { id: 6, title: 'Tiếp nối', text: 'Xuất hiện trong nội dung sáng tạo, giải trí và trở thành một nét riêng của văn hóa đại chúng.' }
-          ].map((step, index) => (
-            <ScrollReveal key={step.id} className="timeline-item" delay={index * 0.1}>
+          ].map((step) => (
+            <div key={step.id} className="timeline-item">
               <div className="timeline-number neo-border">{step.id}</div>
               <div className="timeline-content neo-border neo-shadow">
                 <h3 className="text-blue">{step.title}</h3>
                 <p>{step.text}</p>
               </div>
-            </ScrollReveal>
+            </div>
           ))}
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Team Section */}

@@ -61,7 +61,7 @@
 }
 
 .header-logo-img {
-  height: 70px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
@@ -567,26 +567,25 @@
 }
 
 .hero-word-sticker {
-  width: 225px;
-  max-width: 82%;
+  width: clamp(340px, 30vw, 440px);
+  max-width: 95%;
   height: auto;
-  aspect-ratio: 1 / 1;
   object-fit: contain;
-  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(5px 6px 0px rgba(0, 0, 0, 0.16));
   will-change: transform, opacity;
   transform: translateZ(0);
 }
 
 .hero-word-title {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: clamp(2.8rem, 3.8vw, 3.8rem);
   color: var(--blue);
-  margin: 0.6rem 0 0.15rem;
+  margin: 0.8rem 0 0.2rem;
   letter-spacing: 1px;
 }
 
 .hero-word-sub {
-  font-size: 0.98rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #222;
   margin: 0;
@@ -595,10 +594,10 @@
 
 @keyframes floatCharacter {
   0%, 100% {
-    transform: translateY(0);
+    transform: rotate(var(--char-rotate, -45deg)) translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: rotate(var(--char-rotate, -45deg)) translateY(-12px);
   }
 }
 
@@ -608,23 +607,28 @@
   padding: 3.5rem 4rem 4rem;
   border-bottom: 3.5px solid var(--blue);
   position: relative;
+  overflow: visible;
 }
 
 .trending-corner-character {
+  --char-rotate: -45deg;
   position: absolute;
-  top: -55px;
-  left: 2.2rem;
-  width: 165px;
+  top: -140px;
+  right: 2rem;
+  left: auto;
+  width: clamp(240px, 18vw, 280px);
   height: auto;
   z-index: 10;
   pointer-events: none;
   filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.12));
+  transform: rotate(var(--char-rotate)) translateY(0);
+  transform-origin: center center;
   animation: floatCharacter 4s ease-in-out infinite;
 }
 
 .trending-header {
   margin-bottom: 2.2rem;
-  padding-left: 150px;
+  padding-left: 0;
 }
 
 .trending-subtitle {
@@ -2114,17 +2118,17 @@
 
   .hero-graphic {
     width: 100%;
-    max-width: 340px;
+    max-width: 440px;
     margin: 1.5rem auto 0;
     min-height: auto;
   }
 
   .hero-word-sticker {
-    width: 200px;
+    width: clamp(260px, 55vw, 340px);
   }
 
   .hero-word-title {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
   }
 
   .quote-section {
@@ -2156,13 +2160,14 @@
   }
 
   .trending-corner-character {
-    width: 125px;
-    top: -45px;
-    left: 1rem;
+    width: clamp(160px, 22vw, 220px);
+    top: -80px;
+    right: 0.5rem;
+    left: auto;
   }
 
   .trending-header {
-    padding-left: 105px;
+    padding-left: 0;
     margin-bottom: 2rem;
   }
 
@@ -2466,13 +2471,14 @@
   }
 
   .trending-corner-character {
-    width: 100px;
-    top: -36px;
-    left: 0.65rem;
+    width: 130px;
+    top: -55px;
+    right: 0.25rem;
+    left: auto;
   }
 
   .trending-header {
-    padding-left: 85px;
+    padding-left: 0;
   }
 
   .game-page-wrapper {

@@ -7,7 +7,7 @@ import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
 
 import imgBoat from '../assets/game/start_game.png';
-import imgTrue from '../assets/game/true.png';
+import imgWin from '../assets/game/win.png';
 import imgWrong from '../assets/game/wrong.png';
 import heroBg from '../assets/hero_bg.png';
 
@@ -25,6 +25,19 @@ export default function Game() {
   const [_userAnswers, setUserAnswers] = useState([]);
 
   const currentQ = questions[currentIndex] || questions[0];
+
+  // Lắng nghe phím Enter hoặc Space khi ở màn hình kết quả để chuyển tiếp nhanh
+  React.useEffect(() => {
+    if (gameState !== 'result') return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNextQuestion();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [gameState, currentIndex, questions.length]);
 
   // Bắt đầu game
   const handleStartGame = () => {
@@ -88,22 +101,24 @@ export default function Game() {
   };
 
   return (
-    <div className="game-page-wrapper" style={{ backgroundImage: `url(${heroBg})` }}>
+    <div className={`game-page-wrapper ${gameState === 'result' ? 'game-page-wrapper-result' : ''}`} style={{ backgroundImage: `url(${heroBg})` }}>
       {/* Top Floating Controls Bar */}
-      <div className="game-top-bar">
-        <Link to="/" className="game-back-link">
-          ← Về trang chủ
-        </Link>
-        <div className="game-bar-right">
-          <button 
-            className="sound-toggle-btn neo-border neo-shadow-hover"
-            onClick={() => setIsMuted(!isMuted)}
-            title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
-          >
-            {isMuted ? "🔇 Tắt âm" : "🔊 Âm thanh"}
-          </button>
+      {gameState !== 'result' && (
+        <div className="game-top-bar">
+          <Link to="/" className="game-back-link">
+            ← Về trang chủ
+          </Link>
+          <div className="game-bar-right">
+            <button 
+              className="sound-toggle-btn neo-border neo-shadow-hover"
+              onClick={() => setIsMuted(!isMuted)}
+              title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
+            >
+              {isMuted ? "🔇 Tắt âm" : "🔊 Âm thanh"}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="game-main-content">
         <AnimatePresence mode="wait">
@@ -228,143 +243,103 @@ export default function Game() {
             </motion.div>
           )}
 
-          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI */}
+          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI - CHUẨN DESIGN FIGMA */}
           {gameState === 'result' && (
             <motion.div 
               key="result"
               className="game-screen game-screen-result"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
             >
-              {isCorrect ? (
-                /* MÀN HÌNH 3: ĐÚNG - NGAY CHÓC LUÔN */
-                <div className="result-layout result-win">
-                  <div className="result-text-col">
-                    <motion.div
-                      className="win-text-group"
-                      initial={{ scale: 0.9, x: -20, opacity: 0 }}
-                      animate={{ scale: 1, x: 0, opacity: 1 }}
-                      transition={{ type: 'spring', damping: 15, stiffness: 200 }}
-                    >
-                      <h2 className="win-heading">
-                        NGAY<br />
-                        CHÓC<br />
-                        LUÔN
-                      </h2>
+              <div 
+                className={`result-stage-layout ${isCorrect ? 'layout-win' : 'layout-wrong'}`}
+                onClick={handleNextQuestion}
+                title="Nhấn bất kỳ đâu để chuyển câu tiếp theo"
+              >
+                {isCorrect ? (
+                  <>
+                    {/* CỘT TRÁI: CHỮ "NGAY CHÓC LUÔN" MÀU XANH LÁ (FIGMA) */}
+                    <div className="result-text-col result-text-col-win">
+                      <motion.div 
+                        className="result-typography-win"
+                        initial={{ opacity: 0, x: -35, scale: 0.9 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ type: 'spring', damping: 14, stiffness: 220 }}
+                      >
+                        <span className="result-win-line">NGAY</span>
+                        <span className="result-win-line">CHÓC</span>
+                        <span className="result-win-line">LUÔN</span>
+                      </motion.div>
+                    </div>
 
-                      <div className="result-info-box neo-border neo-shadow">
-                        <div className="result-point-badge">+10 ĐIỂM 🎉</div>
-                        <h4 className="word-reveal-title text-blue">
-                          {currentQ.correctWord}
-                        </h4>
-                        {currentQ.meaning && (
-                          <p className="word-meaning-snippet">
-                            <strong>Nghĩa:</strong> {currentQ.meaning}
-                          </p>
-                        )}
-                        {currentQ.explanation && (
-                          <p className="word-explanation-snippet">
-                            {currentQ.explanation}
-                          </p>
-                        )}
-                      </div>
-
-                      <div className="result-actions">
-                        <motion.button
-                          className="btn-next-result btn-next-win neo-border neo-shadow neo-shadow-hover neo-shadow-active"
-                          onClick={handleNextQuestion}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
-                        </motion.button>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  <div className="result-graphic-col">
-                    <motion.div 
-                      className="character-box"
-                      initial={{ scale: 0.85, rotate: -3 }}
-                      animate={{ scale: 1, rotate: [ -2, 2, 0 ], y: [-4, 4, -4] }}
-                      transition={{ 
-                        scale: { duration: 0.4, type: 'spring' },
-                        y: { repeat: Infinity, duration: 3, ease: "easeInOut" }
-                      }}
-                    >
-                      <img 
-                        src={imgTrue} 
-                        alt="Đúng rồi! Cầm tiền vui mừng" 
-                        className="result-char-img"
+                    {/* CỘT PHẢI: NHÂN VẬT CẦM TIỀN (WIN.PNG) CHẠM SÁT VIỀN ĐÁY */}
+                    <div className="result-char-col result-char-col-win">
+                      <motion.img 
+                        src={imgWin} 
+                        alt="Ngay chóc luôn!" 
+                        className="result-character-hero result-char-win"
+                        initial={{ opacity: 0, y: 70, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ type: 'spring', damping: 15, stiffness: 200 }}
                       />
-                    </motion.div>
-                  </div>
-                </div>
-              ) : (
-                /* MÀN HÌNH 4: SAI - SAI BÉT */
-                <div className="result-layout result-lose">
-                  <div className="result-graphic-col">
-                    <motion.div 
-                      className="character-box"
-                      initial={{ scale: 0.85, rotate: 3 }}
-                      animate={{ scale: 1, rotate: [ 2, -2, 0 ], y: [-3, 3, -3] }}
-                      transition={{ 
-                        scale: { duration: 0.4, type: 'spring' },
-                        y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" }
-                      }}
-                    >
-                      <img 
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* CỘT TRÁI: NHÂN VẬT BÉ GÁI ĐỘI NÓN LÁ (WRONG.PNG) CHẠM SÁT VIỀN ĐÁY */}
+                    <div className="result-char-col result-char-col-wrong">
+                      <motion.img 
                         src={imgWrong} 
-                        alt="Sai bét! Bé gái đội nón lá khoanh tay" 
-                        className="result-char-img"
+                        alt="Sai bét!" 
+                        className="result-character-hero result-char-wrong"
+                        initial={{ opacity: 0, y: 70, scale: 0.95 }}
+                        animate={{ 
+                          opacity: 1, 
+                          y: 0, 
+                          scale: 1,
+                          rotate: [0, -3, 3, -2, 2, 0]
+                        }}
+                        transition={{ 
+                          y: { type: 'spring', damping: 15, stiffness: 200 },
+                          rotate: { delay: 0.2, duration: 0.55 }
+                        }}
                       />
-                    </motion.div>
-                  </div>
+                    </div>
 
-                  <div className="result-text-col">
-                    <motion.div
-                      className="lost-text-group"
-                      initial={{ scale: 0.9, x: 20, opacity: 0 }}
-                      animate={{ scale: 1, x: 0, opacity: 1 }}
-                      transition={{ type: 'spring', damping: 15, stiffness: 200 }}
-                    >
-                      <h2 className="lose-heading">
-                        SAI BÉT
-                      </h2>
+                    {/* CỘT PHẢI: CHỮ "SAI BÉT" MÀU CAM ĐỎ (FIGMA) */}
+                    <div className="result-text-col result-text-col-wrong">
+                      <motion.div 
+                        className="result-typography-wrong"
+                        initial={{ opacity: 0, x: 35, scale: 0.9 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ type: 'spring', damping: 14, stiffness: 220 }}
+                      >
+                        <h2 className="result-wrong-title">SAI BÉT</h2>
+                      </motion.div>
+                    </div>
+                  </>
+                )}
 
-                      <div className="result-info-box neo-border neo-shadow">
-                        <p className="result-wrong-hint">Hổng phải rồi đa! Gần đúng mà trật lất.</p>
-                        <h4 className="word-reveal-title text-red">
-                          Đáp án đúng: <strong>{currentQ.correctWord}</strong>
-                        </h4>
-                        {currentQ.meaning && (
-                          <p className="word-meaning-snippet">
-                            <strong>Nghĩa:</strong> {currentQ.meaning}
-                          </p>
-                        )}
-                        {currentQ.explanation && (
-                          <p className="word-explanation-snippet">
-                            {currentQ.explanation}
-                          </p>
-                        )}
-                      </div>
-
-                      <div className="result-actions">
-                        <motion.button
-                          className="btn-next-result btn-next-lost neo-border neo-shadow neo-shadow-hover neo-shadow-active"
-                          onClick={handleNextQuestion}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM TỔNG KẾT ➔"}
-                        </motion.button>
-                      </div>
-                    </motion.div>
-                  </div>
+                {/* NÚT TIẾP TỤC ĐẶT Ở PHÍA TRÊN GÓC PHẢI */}
+                <div className="result-floating-action">
+                  <motion.button
+                    className="btn-result-next neo-border neo-shadow neo-shadow-hover neo-shadow-active"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextQuestion();
+                    }}
+                    initial={{ opacity: 0, y: -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.3 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM KẾT QUẢ ➔"}
+                  </motion.button>
                 </div>
-              )}
+              </div>
             </motion.div>
           )}
 

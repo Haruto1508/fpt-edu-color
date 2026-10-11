@@ -1,23 +1,15 @@
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { visitedPaths } from '../utils/animationState';
-
-const MotionLink = motion.create(Link);
+import { Link } from 'react-router-dom';
 
 export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSrc: _imgSrc, isMore }) {
-  const location = useLocation();
-  const animProps = {
-    initial: visitedPaths.has(location.pathname) ? false : { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: "some" },
-    transition: { duration: 0.45, ease: "easeOut" }
-  };
-
   if (isMore) {
     return (
-      <motion.div className="word-card card-bg-white neo-border neo-shadow neo-shadow-hover" style={{cursor: 'pointer'}} {...animProps}>
-        <Link className="card-more" to="/tu-dien" style={{textDecoration: 'none', color: 'inherit'}}>Xem Thêm ➔</Link>
-      </motion.div>
+      <Link
+        to="/kham-pha"
+        className="word-card card-bg-white neo-border neo-shadow neo-shadow-hover card-more-card"
+        style={{ textDecoration: 'none', color: 'var(--blue)' }}
+      >
+        <span className="card-more">Xem Thêm ➔</span>
+      </Link>
     );
   }
 
@@ -26,13 +18,13 @@ export default function WordCard({ slug, color, tag, hashtag, title, desc, imgSr
   const cardSlug = slug || title.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
   
   return (
-    <MotionLink to={`/tu-vung/${cardSlug}`} className={`word-card ${bgClass} neo-border neo-shadow neo-shadow-hover`} {...animProps}>
+    <Link to={`/tu-vung/${cardSlug}`} className={`word-card ${bgClass} neo-border neo-shadow neo-shadow-hover`}>
       <div className="card-header">
         <span className="card-tag neo-border">{tag}</span>
-        <span className="card-hashtag">{hashtag}</span>
+        {hashtag && <span className="card-hashtag">{hashtag}</span>}
       </div>
       <h3 className="card-title">{title}</h3>
-      <p className="card-desc" dangerouslySetInnerHTML={{ __html: desc }}></p>
-    </MotionLink>
+      <p className="card-desc" dangerouslySetInnerHTML={{ __html: desc || '' }}></p>
+    </Link>
   );
 }

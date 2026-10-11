@@ -81,81 +81,83 @@ export default function Header() {
 
   return (
     <header className="header">
-      {/* Brand Logo */}
-      <Link to="/" className="logo header-logo-link" aria-label="Trang chủ Lóng Lánh">
-        <img src={logoImg} alt="Lóng Lánh Logo" className="header-logo-img" />
-      </Link>
-      
-      {/* Desktop Navigation Links */}
-      <nav className="nav-links desktop-nav" aria-label="Menu chính">
-        <Link to="/" className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>TRANG CHỦ</Link>
-        <Link to="/kham-pha" className={`nav-item ${currentPath === '/kham-pha' ? 'active' : ''}`}>KHÁM PHÁ</Link>
-        <Link to="/game" className={`nav-item ${currentPath === '/game' || currentPath === '/noi-tu' ? 'active' : ''}`}>GAME</Link>
-        <Link to="/gop-tu" className={`nav-item ${currentPath === '/gop-tu' || currentPath === '/goc-gop-tu' ? 'active' : ''}`}>GÓC GÓP TỪ</Link>
-        <Link to="/chuyen-phia-sau" className={`nav-item ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}>CHUYỆN PHÍA SAU</Link>
-      </nav>
+      <div className="header-container">
+        {/* Brand Logo */}
+        <Link to="/" className="logo header-logo-link" aria-label="Trang chủ Lóng Lánh">
+          <img src={logoImg} alt="Lóng Lánh Logo" className="header-logo-img" />
+        </Link>
+        
+        {/* Desktop Navigation Links */}
+        <nav className="nav-links desktop-nav" aria-label="Menu chính">
+          <Link to="/" className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>TRANG CHỦ</Link>
+          <Link to="/kham-pha" className={`nav-item ${currentPath === '/kham-pha' ? 'active' : ''}`}>KHÁM PHÁ</Link>
+          <Link to="/game" className={`nav-item ${currentPath === '/game' || currentPath === '/noi-tu' ? 'active' : ''}`}>GAME</Link>
+          <Link to="/gop-tu" className={`nav-item ${currentPath === '/gop-tu' || currentPath === '/goc-gop-tu' ? 'active' : ''}`}>GÓC GÓP TỪ</Link>
+          <Link to="/chuyen-phia-sau" className={`nav-item ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}>CHUYỆN PHÍA SAU</Link>
+        </nav>
 
-      {/* Desktop Search */}
-      <form 
-        ref={searchContainerRef}
-        className="header-search desktop-search neo-border neo-shadow-hover" 
-        onSubmit={handleSearch}
-        role="search"
-      >
-        <button type="submit" aria-label="Tìm kiếm" className="header-search-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-        <input 
-          type="text" 
-          placeholder="Tìm Tiếng Lóng" 
-          aria-label="Nhập từ lóng cần tìm"
-          value={searchTerm}
-          onFocus={() => setIsDropdownVisible(true)}
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-            setIsDropdownVisible(true);
-          }}
-        />
-        {isDropdownVisible && searchTerm && dropdownWords.length > 0 && (
-          <div className="search-dropdown neo-border neo-shadow">
-            {dropdownWords.slice(0, 5).map((word, idx) => (
-              <div 
-                key={idx} 
-                className="dropdown-item"
-                onClick={() => handleSuggestionClick(word.slug)}
-              >
-                <span className="dropdown-word-title" style={{ color: `var(--${word.color})` }}>{word.title}</span>
-                <span className="dropdown-word-desc">{word.subtitle}</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </form>
-
-      {/* Mobile Actions: Hamburger Toggle */}
-      <div className="mobile-header-actions">
-        <button 
-          className="mobile-menu-toggle neo-border neo-shadow"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Đóng menu" : "Mở menu"}
-          aria-expanded={isMobileMenuOpen}
+        {/* Desktop Search */}
+        <form 
+          ref={searchContainerRef}
+          className="header-search desktop-search neo-border neo-shadow-hover" 
+          onSubmit={handleSearch}
+          role="search"
         >
-          {isMobileMenuOpen ? (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+          <button type="submit" aria-label="Tìm kiếm" className="header-search-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-          ) : (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+          </button>
+          <input 
+            type="text" 
+            placeholder="Tìm Tiếng Lóng" 
+            aria-label="Nhập từ lóng cần tìm"
+            value={searchTerm}
+            onFocus={() => setIsDropdownVisible(true)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setIsDropdownVisible(true);
+            }}
+          />
+          {isDropdownVisible && searchTerm && dropdownWords.length > 0 && (
+            <div className="search-dropdown neo-border neo-shadow">
+              {dropdownWords.slice(0, 5).map((word, idx) => (
+                <div 
+                  key={idx} 
+                  className="dropdown-item"
+                  onClick={() => handleSuggestionClick(word.slug)}
+                >
+                  <span className="dropdown-word-title" style={{ color: `var(--${word.color})` }}>{word.title}</span>
+                  <span className="dropdown-word-desc">{word.subtitle}</span>
+                </div>
+              ))}
+            </div>
           )}
-        </button>
+        </form>
+
+        {/* Mobile Actions: Hamburger Toggle */}
+        <div className="mobile-header-actions">
+          <button 
+            className="mobile-menu-toggle neo-border neo-shadow"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Đóng menu" : "Mở menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu Overlay */}

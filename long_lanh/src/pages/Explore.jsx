@@ -1,12 +1,15 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import WordCard from '../components/WordCard';
-import ScrollReveal from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
-
 import { wordImages } from '../utils/wordAssets';
+import imgNon from '../assets/non.png';
+import imgBoy from '../assets/explore_character_clean.png';
+
+const CATEGORIES = ['Đời Sống', 'Con người', 'Cảm xúc', 'Sinh hoạt', 'Ăn uống', 'Giao tiếp'];
+const FEATURED_SLUGS = ['cha-ba', 'xi-xon', 'mung-hum', 'ba-chay', 'banh-ton'];
 
 export default function Explore() {
   useSEO(pageMetaMap['/kham-pha']);
@@ -15,20 +18,19 @@ export default function Explore() {
   const queryParam = searchParams.get('q') || '';
   const resultsRef = useRef(null);
 
-  const allWordsData = useMemo(() => {
-    return wordsData.map(word => ({
+  const orderedAllWords = useMemo(() => {
+    const featured = FEATURED_SLUGS.map(slug => wordsData.find(w => w.slug === slug)).filter(Boolean);
+    const remaining = wordsData.filter(w => !FEATURED_SLUGS.includes(w.slug));
+    return [...featured, ...remaining].map(word => ({
       ...word,
       imgSrc: wordImages[word.slug]
     }));
   }, []);
 
-  const filters = useMemo(() => {
-    const tags = new Set(wordsData.map(word => word.tag));
-    return ["Tất cả", ...tags];
-  }, []);
   const [searchTerm, setSearchTerm] = useState(queryParam);
   const [submittedSearchTerm, setSubmittedSearchTerm] = useState(queryParam);
   const [activeFilter, setActiveFilter] = useState("Tất cả");
+  const [showAll, setShowAll] = useState(false);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const searchContainerRef = useRef(null);
 
@@ -50,21 +52,30 @@ export default function Explore() {
     }
   }, [searchParams]);
 
-  const dropdownWords = allWordsData.filter(word => {
-    return word.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      word.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      word.hashtag.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  const dropdownWords = useMemo(() => {
+    if (!searchTerm.trim()) return [];
+    const term = searchTerm.toLowerCase();
+    return orderedAllWords.filter(word => {
+      return word.title.toLowerCase().includes(term) ||
+        word.desc.toLowerCase().includes(term) ||
+        word.hashtag.toLowerCase().includes(term);
+    });
+  }, [orderedAllWords, searchTerm]);
 
-  const filteredWords = allWordsData.filter(word => {
-    const matchesSearch = word.title.toLowerCase().includes(submittedSearchTerm.toLowerCase()) ||
-      word.desc.toLowerCase().includes(submittedSearchTerm.toLowerCase()) ||
-      word.hashtag.toLowerCase().includes(submittedSearchTerm.toLowerCase());
+  const filteredWords = useMemo(() => {
+    return orderedAllWords.filter(word => {
+      const term = submittedSearchTerm.toLowerCase().trim();
+      const matchesSearch = !term ||
+        word.title.toLowerCase().includes(term) ||
+        word.desc.toLowerCase().includes(term) ||
+        word.hashtag.toLowerCase().includes(term);
 
-    const matchesFilter = activeFilter === "Tất cả" || word.tag === activeFilter;
+      const matchesFilter = activeFilter === "Tất cả" || 
+        word.tag.toLowerCase() === activeFilter.toLowerCase();
 
-    return matchesSearch && matchesFilter;
-  });
+      return matchesSearch && matchesFilter;
+    });
+  }, [orderedAllWords, submittedSearchTerm, activeFilter]);
 
   const isDefaultView = submittedSearchTerm === "" && activeFilter === "Tất cả";
 
@@ -87,141 +98,160 @@ export default function Explore() {
   };
 
   return (
-    <div className="page-content">
-      <ScrollReveal className="explore-hero" style={{ position: 'relative', zIndex: 50 }}>
-        <p className="explore-subtitle">Đi một vòng coi miền Tây nói chuyện sao</p>
-        <h1 className="explore-title">
-          <span className="title-red">KHO TÀNG</span><br />
-          <span className="title-blue">TIẾNG LÓNG</span>
-        </h1>
-        <form 
-          ref={searchContainerRef}
-          className="explore-search neo-border neo-shadow" 
-          onSubmit={handleSearchSubmit} 
-          style={{ position: 'relative', zIndex: 60 }}
-        >
-          <svg style={{ marginRight: '0.5rem' }} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            className="main-search-input"
-            type="text"
-            placeholder="Nhập tiếng lóng vô đây..."
-            style={{ padding: '0.5rem', flex: 1 }}
-            value={searchTerm}
-            onFocus={() => setIsDropdownVisible(true)}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setIsDropdownVisible(true);
-            }}
-          />
-          {isDropdownVisible && searchTerm && dropdownWords.length > 0 && (
-            <div className="search-dropdown neo-border neo-shadow" style={{
-              position: 'absolute',
-              top: 'calc(100% + 12px)',
-              left: 0,
-              right: 0,
-              backgroundColor: 'var(--white)',
-              zIndex: 9999,
-              display: 'flex',
-              flexDirection: 'column',
-              maxHeight: '280px',
-              overflowY: 'auto',
-              border: '3.5px solid var(--black)',
-              borderRadius: '16px',
-              boxShadow: '6px 6px 0px var(--black)',
-              textAlign: 'left'
-            }}>
-              {dropdownWords.slice(0, 5).map((word, idx) => (
-                <div
-                  key={idx}
-                  className="dropdown-item"
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--yellow)'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--white)'}
-                  style={{
-                    padding: '0.85rem 1.2rem',
-                    borderBottom: idx < Math.min(dropdownWords.length, 5) - 1 ? '2px solid var(--black)' : 'none',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    transition: 'background-color 0.2s'
-                  }}
-                  onClick={() => handleSuggestionClick(word.title)}
-                >
-                  <span style={{ color: `var(--${word.color})`, marginRight: '10px' }}>{word.title}</span>
-                  <span style={{ fontWeight: 'normal', color: '#333', fontSize: '0.9rem' }}>{word.subtitle}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </form>
-      </ScrollReveal>
+    <div className="page-content explore-page">
+      {/* Hero Section */}
+      <div className="explore-hero bg-dots">
+        <div className="explore-hero-inner">
+          {/* Conical hat decoration */}
+          <div className="decor-non">
+            <img src={imgNon} alt="Nón lá" className="hero-non-img" />
+          </div>
 
-      <ScrollReveal className="filters-section" delay={0.2}>
-        <button className="filter-main-btn">
-          Chủ đề ➔
-        </button>
-        <div className="filter-tags">
-          {filters.map((filter, idx) => (
-            <button
-              key={idx}
-              className="filter-tag neo-border"
-              style={{
-                backgroundColor: activeFilter === filter ? 'var(--blue)' : 'var(--white)',
-                color: activeFilter === filter ? 'var(--white)' : 'var(--blue)'
-              }}
-              onClick={() => setActiveFilter(filter)}
+          {/* Centered title & search */}
+          <div className="explore-hero-center">
+            <p className="explore-subtitle">Đi một vòng coi miền Tây nói chuyện sao</p>
+            <h1 className="explore-title">
+              KHO TÀNG<br />
+              TIẾNG LÓNG
+            </h1>
+
+            <form 
+              ref={searchContainerRef}
+              className="explore-search" 
+              onSubmit={handleSearchSubmit} 
             >
-              {filter}
-            </button>
-          ))}
-        </div>
-      </ScrollReveal>
-
-      <div ref={resultsRef} style={{ paddingBottom: '6rem' }}>
-
-        {isDefaultView ? (
-          <ScrollReveal className="explore-cards" delay={0.3} style={{ marginBottom: '2rem' }}>
-            <h3 className="explore-cards-title" style={{ textTransform: 'uppercase', color: 'var(--black)' }}>SẮP XẾP THEO BỘ SƯU TẬP</h3>
-            <div className="cards-grid">
-              {allWordsData.map((word, idx) => (
-                <WordCard
-                  key={idx}
-                  slug={word.slug}
-                  color={idx % 2 === 0 ? 'blue' : 'green'}
-                  tag={word.tag}
-                  hashtag={word.hashtag}
-                  title={word.title}
-                  desc={word.desc}
-                  imgSrc={word.imgSrc}
-                />
-              ))}
-            </div>
-          </ScrollReveal>
-        ) : (
-          <ScrollReveal className="explore-cards" delay={0.3}>
-            <h3 className="explore-cards-title">KẾT QUẢ TÌM KIẾM</h3>
-            <div className="cards-grid">
-              {filteredWords.map((word, idx) => (
-                <WordCard
-                  key={idx}
-                  slug={word.slug}
-                  color={idx % 2 === 0 ? 'blue' : 'green'}
-                  tag={word.tag}
-                  hashtag={word.hashtag}
-                  title={word.title}
-                  desc={word.desc}
-                  imgSrc={word.imgSrc}
-                />
-              ))}
-              {filteredWords.length === 0 && (
-                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', fontSize: '1.2rem' }}>
-                  Không tìm thấy tiếng lóng nào phù hợp. Bạn thử từ khóa khác xem sao nha!
+              <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                className="main-search-input"
+                type="text"
+                placeholder="Nhập tiếng lóng vô đây...."
+                value={searchTerm}
+                onFocus={() => setIsDropdownVisible(true)}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setIsDropdownVisible(true);
+                }}
+              />
+              {isDropdownVisible && searchTerm && dropdownWords.length > 0 && (
+                <div className="search-dropdown neo-border neo-shadow">
+                  {dropdownWords.slice(0, 5).map((word, idx) => (
+                    <div
+                      key={idx}
+                      className="dropdown-item"
+                      onClick={() => handleSuggestionClick(word.title)}
+                    >
+                      <span style={{ color: 'var(--blue)', marginRight: '10px', fontWeight: 800 }}>{word.title}</span>
+                      <span style={{ fontWeight: 'normal', color: '#555', fontSize: '0.9rem' }}>{word.subtitle}</span>
+                    </div>
+                  ))}
                 </div>
               )}
-            </div>
-          </ScrollReveal>
-        )}
+            </form>
+          </div>
+
+          {/* Boy character decoration */}
+          <div className="decor-boy">
+            <img src={imgBoy} alt="Nhân vật Lóng Lánh" className="hero-boy-img" />
+          </div>
+        </div>
+      </div>
+
+      {/* Yellow Filter Bar */}
+      <div className="filters-section">
+        <div className="filters-container">
+          <button 
+            type="button"
+            className="filter-main-btn"
+            onClick={() => {
+              setActiveFilter("Tất cả");
+              setSearchTerm("");
+              setSubmittedSearchTerm("");
+              setShowAll(false);
+            }}
+          >
+            Chủ đề ➔
+          </button>
+          <div className="filter-tags">
+            {CATEGORIES.map((cat, idx) => {
+              const isActive = activeFilter.toLowerCase() === cat.toLowerCase();
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  className={`filter-tag ${isActive ? 'active' : ''}`}
+                  onClick={() => {
+                    setActiveFilter(prev => prev.toLowerCase() === cat.toLowerCase() ? "Tất cả" : cat);
+                    setShowAll(false);
+                  }}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Cards Collection Grid */}
+      <div ref={resultsRef} className="explore-cards bg-dots">
+        <div className="explore-cards-inner">
+          {isDefaultView ? (
+            <>
+              <h3 className="explore-cards-title">SẮP XẾP THEO BỘ SƯU TẬP</h3>
+              <div className="cards-grid">
+                {(showAll ? orderedAllWords : orderedAllWords.slice(0, 5)).map((word, idx) => (
+                  <WordCard
+                    key={word.slug || idx}
+                    slug={word.slug}
+                    color={idx % 2 === 0 ? 'green' : 'blue'}
+                    tag={word.tag}
+                    hashtag={word.hashtag}
+                    title={word.title}
+                    desc={word.desc}
+                    imgSrc={word.imgSrc}
+                  />
+                ))}
+                {!showAll && (
+                  <div className="card-more-slot">
+                    <button 
+                      type="button"
+                      className="btn-explore-more-text"
+                      onClick={() => setShowAll(true)}
+                    >
+                      Xem Thêm ➔
+                    </button>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <h3 className="explore-cards-title">KẾT QUẢ TÌM KIẾM ({filteredWords.length})</h3>
+              <div className="cards-grid">
+                {filteredWords.map((word, idx) => (
+                  <WordCard
+                    key={word.slug || idx}
+                    slug={word.slug}
+                    color={idx % 2 === 0 ? 'green' : 'blue'}
+                    tag={word.tag}
+                    hashtag={word.hashtag}
+                    title={word.title}
+                    desc={word.desc}
+                    imgSrc={word.imgSrc}
+                  />
+                ))}
+                {filteredWords.length === 0 && (
+                  <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', fontSize: '1.2rem' }}>
+                    Không tìm thấy tiếng lóng nào phù hợp. Bạn thử từ khóa khác xem sao nha!
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

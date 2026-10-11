@@ -34,8 +34,8 @@
 
 :root {
   color-scheme: light only;
-  --font-display: 'VL Grauna', 'VL Grauna VH', 'iCielBCCubano-Normal', 'Phudu', cursive;
-  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-display: 'iCiel BC Cubano', 'iCielBCCubano-Normal', 'VL Grauna', 'VL Grauna VH', 'Phudu', 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --blue: #2c4a9a;
   --green: #5eb23c;
   --yellow: #f5d657;
@@ -52,6 +52,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -60,19 +62,32 @@ html {
   color: var(--black);
   width: 100%;
   max-width: 100vw;
+  min-height: 100%;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--white);
   color: var(--black);
   width: 100%;
   max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
 }
 
 /* Khóa giao diện màu sáng, ngăn OS và trình duyệt tự động đảo màu (Force Dark Mode) */
@@ -110,20 +125,26 @@ button {
 }
 
 .neo-shadow-hover {
-  transition: all 0.2s ease;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .neo-shadow-hover:hover {
-  transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px) translateZ(0);
   box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0px var(--border-color);
 }
 
 .neo-shadow-active:active {
-  transform: translate(var(--shadow-offset), var(--shadow-offset));
+  transform: translate(var(--shadow-offset), var(--shadow-offset)) translateZ(0);
   box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .hero-title, .sticky-note-text, .trending-title, .card-title, .quote-text, .explore-title, .graphic-text-3d, .word-title, .meaning-main, .examples-title, .example-box, .story-title, .mission-title, .process-title, .team-title, .logo {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-weight: 800; /* Nét đậm chắc chắn, khoảng cách dấu tiếng Việt thoáng đẹp */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }

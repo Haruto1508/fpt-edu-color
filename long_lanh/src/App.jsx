@@ -14,7 +14,7 @@ import Maintenance from './pages/Maintenance';
 import ContributeWord from './pages/ContributeWord';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
-import { visitedPaths } from './utils/animationState';
+import { markPathVisited } from './utils/animationState';
 import { preloadWordImages } from './utils/wordAssets';
 
 // Check if maintenance mode is enabled via environment variable
@@ -26,10 +26,7 @@ function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      visitedPaths.add(location.pathname);
-    }, 2000);
-    return () => clearTimeout(timer);
+    markPathVisited(location.pathname);
   }, [location.pathname]);
 
   return (

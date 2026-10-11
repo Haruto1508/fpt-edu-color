@@ -137,7 +137,7 @@ export default function Home() {
                 Khám phá tiếng lóng ➔
               </Link>
               <button type="submit" className="btn btn-secondary neo-border neo-shadow-hover neo-shadow-active" style={{ cursor: 'pointer' }}>
-                Thử tra một từ
+                Thử tìm một từ
               </button>
             </div>
           </form>

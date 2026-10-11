@@ -123,9 +123,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
+  padding: 0.45rem 1.2rem;
   border-radius: 99px;
-  background: var(--white);
+  background: var(--green);
   position: relative;
   justify-self: end;
 }
@@ -136,8 +136,13 @@
   font-family: inherit;
   font-weight: 600;
   font-size: 0.9rem;
-  width: 140px;
+  width: 130px;
   background: none;
+  color: var(--white);
+}
+
+.desktop-search input::placeholder {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .header-search-btn {
@@ -147,7 +152,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: var(--black);
+  color: var(--white);
 }
 
 .search-dropdown {
@@ -530,6 +535,11 @@
 
 .btn-green {
   background: var(--green);
+  color: var(--white);
+}
+
+.btn-red {
+  background: var(--red);
   color: var(--white);
 }
 
@@ -1029,7 +1039,7 @@
   align-items: center;
   width: 100%;
   max-width: 520px;
-  background: var(--white);
+  background: var(--green);
   border-radius: 9999px;
   padding: 0.65rem 1.4rem;
   border: 3.5px solid var(--black);
@@ -1040,6 +1050,7 @@
 .explore-search .search-icon {
   flex-shrink: 0;
   margin-right: 0.5rem;
+  color: var(--white);
 }
 
 .explore-search .main-search-input {
@@ -1050,11 +1061,11 @@
   font-size: 1rem;
   font-family: var(--font-body);
   font-weight: 600;
-  color: var(--black);
+  color: var(--white);
 }
 
 .explore-search .main-search-input::placeholder {
-  color: #888;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 
@@ -1292,7 +1303,7 @@
 }
 
 .word-hero-img {
-  max-height: 320px;
+  max-height: 500px;
   width: auto;
   max-width: 95%;
   object-fit: contain;
@@ -3712,7 +3723,7 @@
 }
 
 .input-pill-wrapper {
-  background-color: var(--white);
+  background-color: var(--green);
   border: 3px solid var(--black);
   border-radius: 99px;
   padding: 0.7rem 1.4rem;
@@ -3732,7 +3743,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--black);
+  color: var(--white);
   flex-shrink: 0;
 }
 
@@ -3742,13 +3753,13 @@
   background: transparent;
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--black);
+  color: var(--white);
   font-family: inherit;
   outline: none;
 }
 
 .form-input::placeholder {
-  color: #777;
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 500;
 }
 

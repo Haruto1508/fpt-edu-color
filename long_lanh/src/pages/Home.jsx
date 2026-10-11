@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import WordCard from '../components/WordCard';
-import ScrollReveal from '../components/ScrollReveal';
+import ScrollReveal, { StaggerContainer, StaggerItem } from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
@@ -101,7 +101,7 @@ export default function Home() {
     <div className="page-content">
       {/* Hero Section */}
       <section className="hero">
-        <ScrollReveal className="hero-content">
+        <ScrollReveal className="hero-content" variant="fade-right" duration={0.5}>
           <div className="badge neo-border neo-shadow">Dự án văn hóa số 2026</div>
 
           <h1 className="hero-title">
@@ -143,7 +143,7 @@ export default function Home() {
           </form>
         </ScrollReveal>
 
-        <ScrollReveal className="hero-graphic" delay={0.2}>
+        <ScrollReveal className="hero-graphic" variant="fade-left" delay={0.15} duration={0.5}>
           <div className="hero-word-feature">
             <img 
               src={backupWordImages[featuredWord.slug] || wordImages[featuredWord.slug] || chaBaImg} 
@@ -173,30 +173,33 @@ export default function Home() {
           fetchPriority="high"
           decoding="async"
         />
-        <ScrollReveal className="trending-header">
+        <ScrollReveal className="trending-header" variant="fade-up">
           <p className="trending-subtitle">Tuần này ai cũng nói</p>
           <h2 className="trending-title">ĐANG RẦN RẦN</h2>
         </ScrollReveal>
 
-        <div className="cards-grid">
+        <StaggerContainer className="cards-grid" staggerDelay={0.09} delayStart={0.1}>
           {trendingWords.map((word, idx) => (
-            <WordCard 
-              key={word.slug} 
-              slug={word.slug}
-              color={idx % 2 === 0 ? 'green' : 'blue'} 
-              tag={word.tag} 
-              hashtag={word.hashtag} 
-              title={word.title} 
-              desc={word.desc}
-              imgSrc={wordImages[word.slug]}
-            />
+            <StaggerItem key={word.slug} variant="scale-up">
+              <WordCard 
+                slug={word.slug}
+                color={idx % 2 === 0 ? 'green' : 'blue'} 
+                tag={word.tag} 
+                hashtag={word.hashtag} 
+                title={word.title} 
+                desc={word.desc}
+                imgSrc={wordImages[word.slug]}
+              />
+            </StaggerItem>
           ))}
-          <WordCard isMore={true} />
-        </div>
+          <StaggerItem variant="scale-up">
+            <WordCard isMore={true} />
+          </StaggerItem>
+        </StaggerContainer>
       </section>
 
       {/* Quote Section */}
-      <ScrollReveal className="quote-section">
+      <ScrollReveal className="quote-section" variant="scale" duration={0.5}>
         <img src={quotePersonImg} alt="Minh họa Lóng Lánh" className="quote-illustration-left" />
         <img src={quoteHatImg} alt="Nón lá miền Tây" className="quote-illustration-right" />
         <div className="quote-content">

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import WordCard from '../components/WordCard';
+import ScrollReveal, { StaggerContainer, StaggerItem } from '../components/ScrollReveal';
 import wordsData from '../data/words.json';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
@@ -215,54 +216,58 @@ export default function Explore() {
           {isDefaultView ? (
             <>
               <h3 className="explore-cards-title">SẮP XẾP THEO BỘ SƯU TẬP</h3>
-              <div className="cards-grid">
+              <StaggerContainer className="cards-grid" staggerDelay={0.07} delayStart={0.05}>
                 {(showAll ? orderedAllWords : orderedAllWords.slice(0, 5)).map((word, idx) => (
-                  <WordCard
-                    key={word.slug || idx}
-                    slug={word.slug}
-                    color={idx % 2 === 0 ? 'green' : 'blue'}
-                    tag={word.tag}
-                    hashtag={word.hashtag}
-                    title={word.title}
-                    desc={word.desc}
-                    imgSrc={word.imgSrc}
-                  />
+                  <StaggerItem key={word.slug || idx} variant="scale-up">
+                    <WordCard
+                      slug={word.slug}
+                      color={idx % 2 === 0 ? 'green' : 'blue'}
+                      tag={word.tag}
+                      hashtag={word.hashtag}
+                      title={word.title}
+                      desc={word.desc}
+                      imgSrc={word.imgSrc}
+                    />
+                  </StaggerItem>
                 ))}
                 {!showAll && (
-                  <div className="card-more-slot">
-                    <button 
-                      type="button"
-                      className="btn-explore-more-text"
-                      onClick={() => setShowAll(true)}
-                    >
-                      Xem Thêm ➔
-                    </button>
-                  </div>
+                  <StaggerItem variant="scale-up">
+                    <div className="card-more-slot">
+                      <button 
+                        type="button"
+                        className="btn-explore-more-text"
+                        onClick={() => setShowAll(true)}
+                      >
+                        Xem Thêm ➔
+                      </button>
+                    </div>
+                  </StaggerItem>
                 )}
-              </div>
+              </StaggerContainer>
             </>
           ) : (
             <>
               <h3 className="explore-cards-title">KẾT QUẢ TÌM KIẾM ({filteredWords.length})</h3>
-              <div className="cards-grid">
+              <StaggerContainer className="cards-grid" staggerDelay={0.07}>
                 {filteredWords.map((word, idx) => (
-                  <WordCard
-                    key={word.slug || idx}
-                    slug={word.slug}
-                    color={idx % 2 === 0 ? 'green' : 'blue'}
-                    tag={word.tag}
-                    hashtag={word.hashtag}
-                    title={word.title}
-                    desc={word.desc}
-                    imgSrc={word.imgSrc}
-                  />
+                  <StaggerItem key={word.slug || idx} variant="scale-up">
+                    <WordCard
+                      slug={word.slug}
+                      color={idx % 2 === 0 ? 'green' : 'blue'}
+                      tag={word.tag}
+                      hashtag={word.hashtag}
+                      title={word.title}
+                      desc={word.desc}
+                      imgSrc={word.imgSrc}
+                    />
+                  </StaggerItem>
                 ))}
                 {filteredWords.length === 0 && (
                   <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', fontSize: '1.2rem' }}>
                     Không tìm thấy tiếng lóng nào phù hợp. Bạn thử từ khóa khác xem sao nha!
                   </div>
                 )}
-              </div>
+              </StaggerContainer>
             </>
           )}
         </div>

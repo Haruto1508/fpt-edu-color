@@ -293,3 +293,38 @@ blockquote,
 .main-search-input {
   font-family: var(--font-body);
 }
+
+/* ========================================================================== */
+/* 4. ANIMATION PERFORMANCE & SCROLL REVEAL                                    */
+/* ========================================================================== */
+
+/* Optimize GPU compositing for animated elements */
+.page-transition-wrapper {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+/* Prevent layout shift during scroll animations */
+[data-scroll-reveal],
+[class*="scroll-reveal"] {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-wrapper {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

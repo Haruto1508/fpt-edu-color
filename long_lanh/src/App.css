@@ -2613,7 +2613,7 @@
 }
 
 .game-title-huge {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 4.6rem);
   color: var(--blue);
   line-height: 1.05;
@@ -2632,7 +2632,7 @@
 .game-play-btn {
   background-color: var(--green);
   color: var(--white);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.35rem;
   padding: 0.85rem 3rem;
   border-radius: 99px;
@@ -2654,7 +2654,7 @@
 }
 
 .quiz-top-title {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   color: var(--blue);
   font-size: 2.4rem;
   margin-bottom: 0.75rem;
@@ -2793,7 +2793,7 @@
 .quiz-submit-btn {
   background-color: #27ae60;
   color: var(--white);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.35rem;
   padding: 0.75rem 3.4rem;
   border: 3.5px solid var(--black);
@@ -2978,7 +2978,7 @@
 }
 
 .btn-result-next {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -3058,7 +3058,7 @@
 }
 
 .summary-title {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 2.2rem;
   margin: 0;
 }
@@ -3077,7 +3077,7 @@
 }
 
 .score-num {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 2.6rem;
   line-height: 1;
   color: var(--black);
@@ -3100,7 +3100,7 @@
 }
 
 .badge-name {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--blue);
   margin-bottom: 0.5rem;
@@ -3127,7 +3127,7 @@
 .btn-restart {
   background-color: var(--green);
   color: var(--white);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   padding: 0.85rem 1.8rem;
   border: 3px solid var(--black);
@@ -3139,7 +3139,7 @@
 .btn-explore-dict {
   background-color: var(--blue);
   color: var(--white);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   padding: 0.85rem 1.8rem;
   border: 3px solid var(--black);
@@ -3657,7 +3657,7 @@
   color: var(--blue);
   text-align: center;
   margin: 0 0 1.8rem 0;
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
@@ -3703,7 +3703,7 @@
 }
 
 .form-label {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--white);
@@ -3761,7 +3761,7 @@
 .btn-submit-word {
   background-color: var(--yellow);
   color: var(--black);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 800;
   border: 3px solid var(--black);
@@ -3792,7 +3792,7 @@
 }
 
 .detail-word-heading {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 4.2rem;
   font-weight: 900;
   color: var(--white);
@@ -3810,7 +3810,7 @@
 }
 
 .detail-field-label {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--white);
@@ -3839,7 +3839,7 @@
 .btn-switch-form {
   background-color: var(--yellow);
   color: var(--black);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 800;
   border: 3px solid var(--black);
@@ -3866,7 +3866,7 @@
 }
 
 .history-title {
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--black);
@@ -3877,7 +3877,7 @@
 .history-new-btn {
   background-color: var(--yellow);
   color: var(--black);
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 800;
   padding: 0.4rem 1.2rem;
@@ -3909,7 +3909,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--font-display, 'Phudu', cursive);
+  font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 800;
   cursor: pointer;

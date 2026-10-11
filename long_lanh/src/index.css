@@ -34,8 +34,10 @@
 
 :root {
   color-scheme: light only;
-  --font-display: 'VL Grauna', 'VL Grauna VH', 'Be Vietnam Pro', system-ui, sans-serif;
-  --font-body: 'VL Grauna', 'VL Grauna VH', 'Be Vietnam Pro', system-ui, sans-serif;
+  /* Font VL Grauna: Chỉ sử dụng cho Tiêu đề (Headings), Thẻ (Cards), Badges, Tags, Pills, Nút (Buttons) */
+  --font-display: 'VL Grauna', 'VL Grauna VH', system-ui, sans-serif;
+  /* Font chữ Việt Nam bình thường: Tối ưu đọc nội dung văn bản, nghĩa từ, câu chuyện, ví dụ */
+  --font-body: 'Be Vietnam Pro', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --blue: #2c4a9a;
   --green: #5eb23c;
   --yellow: #f5d657;
@@ -52,7 +54,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'VL Grauna', 'VL Grauna VH', 'Be Vietnam Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -67,11 +68,11 @@ html {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  font-family: 'VL Grauna', 'VL Grauna VH', 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-body);
 }
 
 body {
-  font-family: 'VL Grauna', 'VL Grauna VH', 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--white);
   color: var(--black);
   width: 100%;
@@ -82,6 +83,7 @@ body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
+  line-height: 1.6;
 }
 
 #root {
@@ -104,18 +106,19 @@ body {
   }
 }
 
-input, textarea, select, button {
+input, textarea, select {
   color-scheme: light only;
+  font-family: var(--font-body);
+}
+
+button {
+  cursor: pointer;
   font-family: inherit;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-button {
-  cursor: pointer;
 }
 
 .neo-border {
@@ -144,9 +147,149 @@ button {
   box-shadow: 0px 0px 0px var(--border-color);
 }
 
-.hero-title, .sticky-note-text, .trending-title, .card-title, .quote-text, .explore-title, .graphic-text-3d, .word-title, .meaning-main, .examples-title, .example-box, .story-title, .mission-title, .process-title, .team-title, .logo {
+/* ========================================================================== */
+/* 1. TIÊU ĐỀ: CHỈ SỬ DỤNG FONT VL GRAUNA                                      */
+/* ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.hero-title-main,
+.hero-word-title,
+.trending-title,
+.explore-title,
+.explore-hero-title,
+.collection-title,
+.category-title,
+.page-title,
+.bts-hero-title,
+.bts-title,
+.mission-title,
+.process-title,
+.team-title,
+.quote-title,
+.examples-title,
+.story-title,
+.modal-title,
+.game-title,
+.game-title-huge,
+.quiz-title,
+.quiz-top-title,
+.summary-title,
+.contribute-title,
+.history-title,
+.detail-word-heading,
+.maintenance-heading,
+.result-win-line,
+.result-wrong-title,
+.audio-title,
+.meaning-main {
   font-family: var(--font-display);
-  font-weight: 800; /* Nét đậm chắc chắn, khoảng cách dấu tiếng Việt thoáng đẹp */
+  font-weight: 800;
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+/* ========================================================================== */
+/* 2. THẺ, BADGES, TAGS, PILLS, NÚT, NAV: CHỈ SỬ DỤNG FONT VL GRAUNA           */
+/* ========================================================================== */
+.logo,
+.brand-logo,
+.nav-item,
+.word-title,
+.card-title,
+.word-card-title,
+.explore-card-title,
+.collection-card-word,
+.trending-word,
+.quote-author,
+.category-pill,
+.filter-pill,
+.tag-pill,
+.topic-pill,
+.word-tag,
+.card-tag,
+.collection-card-tag,
+.history-pill,
+.badge,
+.neo-badge,
+.stamp-badge,
+.sticky-note-text,
+.graphic-text-3d,
+.badge-name,
+.score-num,
+.stat-number,
+.btn,
+.neo-btn,
+.btn-primary,
+.btn-secondary,
+.see-more-btn,
+.card-more,
+.collection-expand-btn,
+.game-play-btn,
+.quiz-submit-btn,
+.btn-result-next,
+.btn-restart,
+.btn-explore-dict,
+.btn-submit-word,
+.btn-switch-form,
+.history-new-btn,
+.form-label,
+.detail-field-label,
+.share-btn,
+.play-btn {
+  font-family: var(--font-display);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ========================================================================== */
+/* 3. NỘI DUNG ĐỌC: SỬ DỤNG FONT TIẾNG VIỆT BÌNH THƯỜNG (BE VIETNAM PRO)     */
+/* ========================================================================== */
+p,
+article,
+section p,
+li,
+blockquote,
+.card-desc,
+.meaning-desc,
+.meaning-text,
+.story-content,
+.story-line,
+.story-text,
+.story-p,
+.examples-content,
+.example-box,
+.example-item,
+.example-meaning,
+.example-context,
+.example-quote,
+.bts-desc,
+.bts-text,
+.mission-desc,
+.mission-text,
+.quote-text,
+.quote-desc,
+.quote-subtitle,
+.section-subtitle,
+.audio-subtitle,
+.quiz-question-text,
+.quiz-option-btn,
+.badge-desc,
+.maintenance-desc,
+.detail-pill-box,
+.footer-desc,
+.footer-copy,
+.footer-link,
+.copyright,
+.hero-desc,
+.hero-tagline,
+.hero-word-sub,
+.trending-desc,
+.explore-desc,
+.collection-card-subtitle,
+.game-tagline,
+.about-text,
+.input-pill-wrapper input,
+.form-input,
+.main-search-input {
+  font-family: var(--font-body);
 }

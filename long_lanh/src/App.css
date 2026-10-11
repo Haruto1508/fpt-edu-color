@@ -1951,6 +1951,42 @@
    RESPONSIVE DESIGN SYSTEM: DESKTOP, TABLET, MOBILE, SMALL SCREENS
    ========================================================================== */
 
+/* LAPTOPS & SMALL DESKTOPS (1025px - 1240px) */
+@media (max-width: 1240px) {
+  .header-container {
+    padding: 0.6rem 2rem;
+    gap: 1rem;
+  }
+
+  .desktop-nav {
+    gap: 0.55rem;
+  }
+
+  .nav-item {
+    font-size: 0.96rem;
+    padding: 0.44rem 0.95rem;
+  }
+
+  .desktop-search {
+    padding: 0.42rem 1rem;
+  }
+
+  .desktop-search input {
+    width: 110px;
+    font-size: 0.92rem;
+  }
+
+  .trending-corner-character {
+    right: -2rem;
+    width: clamp(210px, 18vw, 250px);
+    top: -110px;
+  }
+
+  .hero-word-sticker {
+    width: clamp(280px, 26vw, 360px);
+  }
+}
+
 /* TABLET & SMALL LAPTOPS (max-width: 1024px) */
 @media (max-width: 1024px) {
   .header {
@@ -1993,27 +2029,36 @@
     margin: 0 auto;
   }
 
+  .hero-search-form {
+    margin: 0 auto;
+  }
+
   .hero-buttons {
     justify-content: center;
   }
 
   .hero-graphic {
-    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 440px;
+    margin: 1.5rem auto 0;
   }
 
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
+  .hero-word-sticker {
+    width: clamp(260px, 45vw, 340px);
   }
 
-  .explore-cards .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
-  }
-
+  .cards-grid,
+  .trending .cards-grid,
+  .explore-cards .cards-grid,
   .dict-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
+    gap: 1.5rem;
+  }
+
+  .trending-corner-character {
+    right: 0.5rem;
+    width: clamp(180px, 20vw, 230px);
+    top: -95px;
   }
 
   .title {
@@ -2182,18 +2227,11 @@
     font-size: clamp(2rem, 6.5vw, 3rem);
   }
 
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .explore-cards .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
+  .cards-grid,
+  .trending .cards-grid,
+  .explore-cards .cards-grid,
   .dict-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
 
@@ -2432,6 +2470,17 @@
   }
 }
 
+/* MOBILE PORTRAIT CARDS & GRIDS (max-width: 580px) */
+@media (max-width: 580px) {
+  .cards-grid,
+  .trending .cards-grid,
+  .explore-cards .cards-grid,
+  .dict-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+}
+
 /* PHONES & NARROW SCREENS (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-buttons {
@@ -2477,15 +2526,34 @@
     box-sizing: border-box;
   }
 
+  .hero-word-sticker {
+    width: clamp(190px, 60vw, 250px);
+  }
+
+  .hero-word-title {
+    font-size: clamp(2.1rem, 7.5vw, 2.6rem);
+  }
+
+  .hero-word-sub {
+    font-size: 1rem;
+  }
+
   .trending-corner-character {
-    width: 130px;
-    top: -55px;
-    right: 0.25rem;
+    width: 120px;
+    top: -50px;
+    right: 0;
     left: auto;
   }
 
   .trending-header {
     padding-left: 0;
+  }
+
+  .btn-submit-word {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    box-sizing: border-box;
   }
 
   .game-page-wrapper {

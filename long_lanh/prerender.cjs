@@ -3,6 +3,7 @@ const path = require('path');
 
 const distDir = path.resolve(__dirname, 'dist');
 const templatePath = path.join(distDir, 'index.html');
+const publicDir = path.resolve(__dirname, 'public');
 
 if (!fs.existsSync(templatePath)) {
   console.error('Template dist/index.html not found! Run vite build first.');
@@ -13,15 +14,53 @@ const template = fs.readFileSync(templatePath, 'utf8');
 const wordsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'src/data/words.json'), 'utf8'));
 
 const BASE_URL = 'https://www.tienglongmientay.com';
+const TODAY = new Date().toISOString().split('T')[0];
+
+// Helper lấy ảnh đại diện đã build của từ vựng trong dist/assets/
+const distAssets = fs.existsSync(path.join(distDir, 'assets')) ? fs.readdirSync(path.join(distDir, 'assets')) : [];
+function getWordAssetImage(slug) {
+  const cleanName = slug.replace(/-/g, '_');
+  const matched = distAssets.find(f => f.startsWith(`${cleanName}-`) && f.endsWith('.png'));
+  return matched ? `${BASE_URL}/assets/${matched}` : `${BASE_URL}/logo.png`;
+}
 
 const routes = [
   {
     path: '/kham-pha',
     title: 'Khám Phá Tiếng Lóng Miền Tây | Lóng Lánh',
     description: 'Khám phá và tra cứu kho tàng tiếng lóng miền Tây Nam Bộ theo các chủ đề đời sống, con người, cảm xúc, tính cách với phát âm thực tế và hình ảnh sinh động.',
+    image: `${BASE_URL}/og-image.png`,
     h1: 'KHÁM PHÁ TIẾNG LÓNG MIỀN TÂY',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/kham-pha#webpage`,
+          "url": `${BASE_URL}/kham-pha`,
+          "name": "Khám Phá Tiếng Lóng Miền Tây | Lóng Lánh",
+          "description": "Tra cứu và khám phá kho tàng tiếng lóng miền Tây Nam Bộ",
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": `${BASE_URL}/og-image.png`
+          },
+          "publisher": { "@id": `${BASE_URL}/#organization` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Khám phá", "item": `${BASE_URL}/kham-pha` }
+          ]
+        }
+      ]
+    },
     content: `
       <section style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <img src="${BASE_URL}/logo.png" alt="Logo Lóng Lánh" width="160" height="160" style="max-width: 160px; height: auto;" />
+        </div>
         <h1 style="font-size: 2.2rem; color: #111;">KHÁM PHÁ TIẾNG LÓNG MIỀN TÂY</h1>
         <p style="font-size: 1.1rem; line-height: 1.6;">Tra cứu và khám phá những tiếng lóng độc đáo, mộc mạc và chân chất của miền sông nước Nam Bộ.</p>
         <div style="margin-top: 2rem;">
@@ -37,7 +76,32 @@ const routes = [
     path: '/tu-dien',
     title: 'Từ Điển Tiếng Lóng Theo Chủ Đề | Lóng Lánh',
     description: 'Tổng hợp từ điển tiếng lóng miền Tây Nam Bộ phân loại theo chủ đề: Đời sống, Con người, Cảm xúc, Hành động... dễ dàng tra cứu và ghi nhớ.',
+    image: `${BASE_URL}/og-image.png`,
     h1: 'TỪ ĐIỂN TIẾNG LÓNG THEO CHỦ ĐỀ',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/tu-dien#webpage`,
+          "url": `${BASE_URL}/tu-dien`,
+          "name": "Từ Điển Tiếng Lóng Theo Chủ Đề | Lóng Lánh",
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": `${BASE_URL}/og-image.png`
+          },
+          "publisher": { "@id": `${BASE_URL}/#organization` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Từ điển", "item": `${BASE_URL}/tu-dien` }
+          ]
+        }
+      ]
+    },
     content: `
       <section style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
         <h1 style="font-size: 2.2rem; color: #111;">TỪ ĐIỂN TIẾNG LÓNG THEO CHỦ ĐỀ</h1>
@@ -52,7 +116,32 @@ const routes = [
     path: '/game',
     title: 'Thử Thách Nối Từ Miền Tây - Game Lóng Lánh',
     description: 'Thử tài đoán và nối từ tiếng lóng miền Tây cực vui và hấp dẫn. Xem bạn hiểu khẩu ngữ Nam Bộ đến mức nào cùng Lóng Lánh!',
+    image: `${BASE_URL}/og-image.png`,
     h1: 'TRÒ CHƠI THỬ THÁCH NỐI TỪ MIỀN TÂY',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/game#webpage`,
+          "url": `${BASE_URL}/game`,
+          "name": "Thử Thách Nối Từ Miền Tây - Game Lóng Lánh",
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": `${BASE_URL}/og-image.png`
+          },
+          "publisher": { "@id": `${BASE_URL}/#organization` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Trò chơi nối từ", "item": `${BASE_URL}/game` }
+          ]
+        }
+      ]
+    },
     content: `
       <section style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
         <h1 style="font-size: 2.2rem; color: #111;">TRÒ CHƠI NỐI TỪ MIỀN TÂY</h1>
@@ -64,7 +153,32 @@ const routes = [
     path: '/chuyen-phia-sau',
     title: 'Chuyện Phía Sau Dự Án | Lóng Lánh - Tiếng Lóng Miền Tây',
     description: 'Tìm hiểu câu chuyện, hành trình phát triển và sứ mệnh "Giữ chữ, giữ hồn quê" của dự án văn hóa số Lóng Lánh - Tiếng Lóng Miền Tây.',
+    image: `${BASE_URL}/og-image.png`,
     h1: 'CHUYỆN PHÍA SAU DỰ ÁN LÓNG LÁNH',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/chuyen-phia-sau#webpage`,
+          "url": `${BASE_URL}/chuyen-phia-sau`,
+          "name": "Chuyện Phía Sau Dự Án | Lóng Lánh",
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": `${BASE_URL}/og-image.png`
+          },
+          "publisher": { "@id": `${BASE_URL}/#organization` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Chuyện phía sau", "item": `${BASE_URL}/chuyen-phia-sau` }
+          ]
+        }
+      ]
+    },
     content: `
       <section style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
         <h1 style="font-size: 2.2rem; color: #111;">CHUYỆN PHÍA SAU DỰ ÁN LÓNG LÁNH</h1>
@@ -77,7 +191,32 @@ const routes = [
     path: '/gop-tu',
     title: 'Góc Góp Từ | Lóng Lánh - Đóng Góp Tiếng Lóng Miền Tây',
     description: 'Cùng chung tay đóng góp và làm phong phú thêm kho tàng tiếng lóng miền Tây Nam Bộ tại Góc Góp Từ của dự án Lóng Lánh.',
+    image: `${BASE_URL}/og-image.png`,
     h1: 'GÓC GÓP TỪ',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/gop-tu#webpage`,
+          "url": `${BASE_URL}/gop-tu`,
+          "name": "Góc Góp Từ | Lóng Lánh",
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": `${BASE_URL}/og-image.png`
+          },
+          "publisher": { "@id": `${BASE_URL}/#organization` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": `${BASE_URL}/` },
+            { "@type": "ListItem", "position": 2, "name": "Góc góp từ", "item": `${BASE_URL}/gop-tu` }
+          ]
+        }
+      ]
+    },
     content: `
       <section style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif;">
         <h1 style="font-size: 2.2rem; color: #111;">GÓC GÓP TỪ</h1>
@@ -86,14 +225,6 @@ const routes = [
     `
   }
 ];
-
-// Helper lấy ảnh đại diện đã build của từ vựng
-const distAssets = fs.existsSync(path.join(distDir, 'assets')) ? fs.readdirSync(path.join(distDir, 'assets')) : [];
-function getWordAssetImage(slug) {
-  const cleanName = slug.replace(/-/g, '_');
-  const matched = distAssets.find(f => f.startsWith(`${cleanName}-`) && f.endsWith('.png'));
-  return matched ? `${BASE_URL}/assets/${matched}` : `${BASE_URL}/logo.png`;
-}
 
 // Thêm các trang chi tiết từ vựng
 wordsData.forEach(word => {
@@ -116,8 +247,22 @@ wordsData.forEach(word => {
           "inDefinedTermSet": {
             "@type": "DefinedTermSet",
             "name": "Lóng Lánh - Từ Điển Tiếng Lóng Miền Tây",
-            "url": `${BASE_URL}/tu-dien`
+            "url": `${BASE_URL}/tu-dien`,
+            "publisher": { "@id": `${BASE_URL}/#organization` }
           }
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${BASE_URL}/tu-vung/${word.slug}#webpage`,
+          "url": `${BASE_URL}/tu-vung/${word.slug}`,
+          "name": `${word.title} là gì? Ý nghĩa từ điển tiếng lóng miền Tây | Lóng Lánh`,
+          "description": `${word.meaningMain} - ${word.subtitle}`,
+          "isPartOf": { "@id": `${BASE_URL}/#website` },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": wordImageUrl
+          },
+          "publisher": { "@id": `${BASE_URL}/#organization` }
         },
         {
           "@type": "BreadcrumbList",
@@ -192,7 +337,9 @@ routes.forEach(route => {
   // 4. Image
   if (route.image) {
     const safeImg = escapeAttr(route.image);
-    html = html.replace(/<meta property="og:image" content=".*?" \/>/, `<meta property="og:image" content="${safeImg}" />`);
+    // Thay thế ảnh OG chính
+    html = html.replace(/<meta property="og:image" content="https:\/\/www\.tienglongmientay\.com\/og-image\.png" \/>/, `<meta property="og:image" content="${safeImg}" />`);
+    html = html.replace(/<meta property="og:image:secure_url" content="https:\/\/www\.tienglongmientay\.com\/og-image\.png" \/>/, `<meta property="og:image:secure_url" content="${safeImg}" />`);
     html = html.replace(/<meta property="twitter:image" content=".*?" \/>/, `<meta property="twitter:image" content="${safeImg}" />`);
   }
 
@@ -202,7 +349,7 @@ routes.forEach(route => {
     html = html.replace('</head>', `  ${schemaTag}\n</head>`);
   }
 
-  // 5. Injected pre-rendered fallback in <noscript> for SEO crawlers (tránh hiện DOM thô và chớp CSS cho người dùng)
+  // 6. Injected pre-rendered fallback in <noscript> for SEO crawlers
   if (route.content) {
     html = html.replace('</noscript>', `  <div id="seo-prerender-content">${route.content}</div>\n    </noscript>`);
   }
@@ -266,4 +413,139 @@ if (!rootHtml.includes('home-faq-structured-data')) {
   console.log('✓ Injected FAQPage schema into root dist/index.html');
 }
 
-console.log('Pre-rendering completed successfully!');
+// ====================================================================
+// TỰ ĐỘNG TẠO SITEMAP.XML CHUẨN GOOGLE IMAGE SITEMAP
+// ====================================================================
+console.log('Generating dynamic Google Image Sitemap (sitemap.xml)...');
+
+function escapeXml(unsafe) {
+  return String(unsafe || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+const sitemapEntries = [
+  // 1. Trang chủ
+  `  <!-- Trang chủ -->
+  <url>
+    <loc>${BASE_URL}/</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>${BASE_URL}/logo.png</image:loc>
+      <image:title>Logo Lóng Lánh - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>Dự án văn hóa số lưu giữ và tôn vinh tiếng lóng Nam Bộ</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>${BASE_URL}/og-image.png</image:loc>
+      <image:title>Lóng Lánh - Tiếng Lóng Miền Tây Banner</image:title>
+      <image:caption>Kho tàng khẩu ngữ Nam Bộ kèm phát âm và game nối từ</image:caption>
+    </image:image>
+  </url>`,
+
+  // 2. Trang Khám phá
+  `  <!-- Trang Khám Phá Từ Điển -->
+  <url>
+    <loc>${BASE_URL}/kham-pha</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>${BASE_URL}/logo.png</image:loc>
+      <image:title>Khám Phá Tiếng Lóng Miền Tây</image:title>
+    </image:image>
+  </url>`,
+
+  // 3. Trang Từ điển
+  `  <!-- Trang Từ Điển Theo Chủ Đề -->
+  <url>
+    <loc>${BASE_URL}/tu-dien</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>${BASE_URL}/logo.png</image:loc>
+      <image:title>Từ Điển Tiếng Lóng Theo Chủ Đề</image:title>
+    </image:image>
+  </url>`,
+
+  // 4. Trang Game
+  `  <!-- Trò chơi nối từ miền Tây -->
+  <url>
+    <loc>${BASE_URL}/game</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>${BASE_URL}/logo.png</image:loc>
+      <image:title>Trò Chơi Nối Từ Miền Tây - Lóng Lánh</image:title>
+    </image:image>
+  </url>`,
+
+  // 5. Trang Chuyện phía sau
+  `  <!-- Trang Chuyện Phía Sau Dự Án -->
+  <url>
+    <loc>${BASE_URL}/chuyen-phia-sau</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>${BASE_URL}/logo.png</image:loc>
+      <image:title>Chuyện Phía Sau Dự Án Lóng Lánh</image:title>
+    </image:image>
+  </url>`,
+
+  // 6. Trang Góc góp từ
+  `  <!-- Trang Góc Góp Từ -->
+  <url>
+    <loc>${BASE_URL}/gop-tu</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>${BASE_URL}/logo.png</image:loc>
+      <image:title>Góc Góp Từ Tiếng Lóng Miền Tây</image:title>
+    </image:image>
+  </url>`
+];
+
+// Thêm 14 từ vựng chi tiết kèm ảnh minh họa chuẩn xác
+wordsData.forEach(w => {
+  const wordImg = getWordAssetImage(w.slug);
+  sitemapEntries.push(`  <!-- Từ vựng: ${w.title} -->
+  <url>
+    <loc>${BASE_URL}/tu-vung/${w.slug}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>${escapeXml(wordImg)}</image:loc>
+      <image:title>${escapeXml(w.title)} - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>${escapeXml(w.title)}: ${escapeXml(w.meaningMain)}</image:caption>
+    </image:image>
+  </url>`);
+});
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+${sitemapEntries.join('\n\n')}
+
+</urlset>
+`;
+
+fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf8');
+fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf8');
+console.log(`✓ Generated sitemap.xml with ${sitemapEntries.length} URLs (including Google Image extensions) in dist/ and public/!`);
+
+console.log('Pre-rendering & SEO optimization completed successfully!');

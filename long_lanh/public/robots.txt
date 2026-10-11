@@ -3,7 +3,7 @@
 # Website: https://www.tienglongmientay.com
 # ===================================================
 
-# Cho phép tất cả các công cụ tìm kiếm cào dữ liệu toàn bộ website
+# Cho phép tất cả các công cụ tìm kiếm cào dữ liệu toàn bộ website và tài nguyên ảnh
 User-agent: *
 Allow: /
 Allow: /assets/
@@ -15,16 +15,27 @@ Allow: /*.jpeg$
 Allow: /*.svg$
 Allow: /*.ico$
 Allow: /favicon.ico
+Allow: /favicon-*.png
+Allow: /logo.png
+Allow: /logo.jpeg
+Allow: /og-image.png
+Allow: /site.webmanifest
 Allow: /*.mp3$
+Allow: /*.otf$
 Allow: /*.ttf$
 
-# Cấu hình tối ưu thu thập dữ liệu cho Google
+# Cấu hình tối ưu thu thập dữ liệu cho Googlebot
 User-agent: Googlebot
 Allow: /
 
+# Cấu hình tối ưu thu thập dữ liệu ảnh & logo cho Googlebot-Image
 User-agent: Googlebot-Image
 Allow: /
 Allow: /assets/
+Allow: /logo.png
+Allow: /logo.jpeg
+Allow: /og-image.png
+Allow: /favicon*.png
 Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.jpeg$

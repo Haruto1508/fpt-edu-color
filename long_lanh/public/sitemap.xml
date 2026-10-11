@@ -1,175 +1,270 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
-  <!-- ============================================== -->
-  <!-- TRANG CHÍNH: LÓNG LÁNH - TIẾNG LÓNG MIỀN TÂY   -->
-  <!-- ============================================== -->
-
-  <!-- Trang chủ (Home) -->
+  <!-- Trang chủ -->
   <url>
     <loc>https://www.tienglongmientay.com/</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/logo.png</image:loc>
+      <image:title>Logo Lóng Lánh - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>Dự án văn hóa số lưu giữ và tôn vinh tiếng lóng Nam Bộ</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/og-image.png</image:loc>
+      <image:title>Lóng Lánh - Tiếng Lóng Miền Tây Banner</image:title>
+      <image:caption>Kho tàng khẩu ngữ Nam Bộ kèm phát âm và game nối từ</image:caption>
+    </image:image>
   </url>
 
-  <!-- Trang Khám Phá Từ Điển (Explore) -->
+  <!-- Trang Khám Phá Từ Điển -->
   <url>
     <loc>https://www.tienglongmientay.com/kham-pha</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/logo.png</image:loc>
+      <image:title>Khám Phá Tiếng Lóng Miền Tây</image:title>
+    </image:image>
   </url>
 
-  <!-- Trang Từ Điển Theo Chủ Đề (Dictionary) -->
+  <!-- Trang Từ Điển Theo Chủ Đề -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-dien</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/logo.png</image:loc>
+      <image:title>Từ Điển Tiếng Lóng Theo Chủ Đề</image:title>
+    </image:image>
   </url>
 
-  <!-- Trò chơi nối từ miền Tây (Game) -->
+  <!-- Trò chơi nối từ miền Tây -->
   <url>
     <loc>https://www.tienglongmientay.com/game</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/logo.png</image:loc>
+      <image:title>Trò Chơi Nối Từ Miền Tây - Lóng Lánh</image:title>
+    </image:image>
   </url>
 
-  <!-- Trang Chuyện Phía Sau Dự Án (Behind The Scenes) -->
+  <!-- Trang Chuyện Phía Sau Dự Án -->
   <url>
     <loc>https://www.tienglongmientay.com/chuyen-phia-sau</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/logo.png</image:loc>
+      <image:title>Chuyện Phía Sau Dự Án Lóng Lánh</image:title>
+    </image:image>
   </url>
 
-  <!-- Trang Góc Góp Từ (Contribute Word) -->
+  <!-- Trang Góc Góp Từ -->
   <url>
     <loc>https://www.tienglongmientay.com/gop-tu</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/logo.png</image:loc>
+      <image:title>Góc Góp Từ Tiếng Lóng Miền Tây</image:title>
+    </image:image>
   </url>
 
-  <!-- ============================================== -->
-  <!-- CHI TIẾT TỪ VỰNG TIẾNG LÓNG MIỀN TÂY           -->
-  <!-- ============================================== -->
-
-  <!-- Từ vựng: Chà Bá -->
+  <!-- Từ vựng: CHÀ BÁ -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/cha-ba</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/cha_ba-DNwpgznR.png</image:loc>
+      <image:title>CHÀ BÁ - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>CHÀ BÁ: rất to, rất lớn, khổng lồ.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Chàng Hảng -->
+  <!-- Từ vựng: CHÀNG HẢNG -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/chang-hang</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/chang_hang-B9pmnJCg.png</image:loc>
+      <image:title>CHÀNG HẢNG - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>CHÀNG HẢNG: Giạng chân, dang rộng hai chân.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Túm Húm -->
+  <!-- Từ vựng: TÚM HÚM -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/tum-hum</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/tum_hum-B2V6aSlL.png</image:loc>
+      <image:title>TÚM HÚM - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>TÚM HÚM: nhỏ hẹp, chật chội, co cụm.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Mít Ướt -->
+  <!-- Từ vựng: MÍT ƯỚT -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/mit-uot</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/mit_uot-C6H2ipH9.png</image:loc>
+      <image:title>MÍT ƯỚT - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>MÍT ƯỚT: dễ xúc động, hay khóc, mau nước mắt.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Xí Xọn -->
+  <!-- Từ vựng: XÍ XỌN -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/xi-xon</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/xi_xon-DrjpS3RO.png</image:loc>
+      <image:title>XÍ XỌN - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>XÍ XỌN: thích làm đẹp, thích ăn diện, chăm chút ngoại hình.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Mừng Húm -->
+  <!-- Từ vựng: MỪNG HÚM -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/mung-hum</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/mung_hum-C9cqZfph.png</image:loc>
+      <image:title>MỪNG HÚM - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>MỪNG HÚM: rất vui, rất mừng, mừng rỡ bất ngờ.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Bá Cháy -->
+  <!-- Từ vựng: BÁ CHÁY -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/ba-chay</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/ba_chay-APMcz3-m.png</image:loc>
+      <image:title>BÁ CHÁY - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>BÁ CHÁY: rất ngon, xuất sắc, không còn gì bằng.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Bảnh Tỏn -->
+  <!-- Từ vựng: BẢNH TỎN -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/banh-ton</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/banh_ton-B7HwP7xI.png</image:loc>
+      <image:title>BẢNH TỎN - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>BẢNH TỎN: ăn mặc đẹp, chỉn chu, sáng sủa, phong độ.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: No Nóc -->
+  <!-- Từ vựng: NO NÓC -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/no-noc</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/no_noc-Tmd1sUCu.png</image:loc>
+      <image:title>NO NÓC - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>NO NÓC: Rất no, no căng bụng.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Thẳng Băng -->
+  <!-- Từ vựng: THẲNG BĂNG -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/thang-bang</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/thang_bang-BM9AOsHH.png</image:loc>
+      <image:title>THẲNG BĂNG - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>THẲNG BĂNG: thẳng tắp, không cong, không lệch.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Chọt Lét -->
+  <!-- Từ vựng: CHỌT LÉT -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/chot-let</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/chot_let-B3dGrGUC.png</image:loc>
+      <image:title>CHỌT LÉT - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>CHỌT LÉT: chọc vào chỗ nhột làm người khác cười.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Lóc Chóc -->
+  <!-- Từ vựng: LÓC CHÓC -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/loc-choc</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/loc_choc-tTPaigHb.png</image:loc>
+      <image:title>LÓC CHÓC - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>LÓC CHÓC: lanh chanh, hoạt bát và nhanh nhảu.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Chù Ụ -->
+  <!-- Từ vựng: CHÙ Ụ -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/chu-u</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/chu_u-kclbj7a8.png</image:loc>
+      <image:title>CHÙ Ụ - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>CHÙ Ụ: mặt buồn bực, không vui, cau có.</image:caption>
+    </image:image>
   </url>
 
-  <!-- Từ vựng: Banh Chành -->
+  <!-- Từ vựng: BANH CHÀNH -->
   <url>
     <loc>https://www.tienglongmientay.com/tu-vung/banh-chanh</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.tienglongmientay.com/assets/banh_chanh-BVs9OYR0.png</image:loc>
+      <image:title>BANH CHÀNH - Tiếng Lóng Miền Tây</image:title>
+      <image:caption>BANH CHÀNH: tan nát, hư hỏng, không còn nguyên vẹn.</image:caption>
+    </image:image>
   </url>
 
 </urlset>

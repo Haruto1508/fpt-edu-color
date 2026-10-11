@@ -84,7 +84,16 @@ export default function Header() {
       <div className="header-container">
         {/* Brand Logo */}
         <Link to="/" className="logo header-logo-link" aria-label="Trang chủ Lóng Lánh">
-          <img src={logoImg} alt="Lóng Lánh Logo" className="header-logo-img" />
+          <img 
+            src={logoImg} 
+            alt="Lóng Lánh - Tiếng Lóng Miền Tây Logo" 
+            className="header-logo-img" 
+            width="91" 
+            height="70" 
+            loading="eager" 
+            fetchPriority="high" 
+            decoding="async" 
+          />
         </Link>
         
         {/* Desktop Navigation Links */}

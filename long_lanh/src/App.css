@@ -2571,12 +2571,6 @@
     padding: 1.5rem 1rem;
   }
 
-  .contribute-hat-sticker {
-    width: 70px;
-    top: -25px;
-    right: -8px;
-  }
-
   .form-input {
     font-size: 16px;
   }
@@ -3767,18 +3761,6 @@
   margin-bottom: 2.5rem;
 }
 
-.contribute-hat-sticker {
-  position: absolute;
-  top: -42px;
-  right: -24px;
-  width: 115px;
-  height: auto;
-  transform: rotate(14deg);
-  pointer-events: none;
-  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.25));
-  z-index: 10;
-}
-
 /* Form Submission Mode (Screen 1) */
 .contribute-form {
   display: flex;
@@ -4066,12 +4048,6 @@
     padding: 2rem 1.25rem;
     border-radius: 26px;
     box-shadow: 6px 6px 0px var(--black);
-  }
-
-  .contribute-hat-sticker {
-    top: -35px;
-    right: -15px;
-    width: 95px;
   }
 
   .detail-word-heading {

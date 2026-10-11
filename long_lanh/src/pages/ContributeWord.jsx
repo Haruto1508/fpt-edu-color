@@ -3,17 +3,11 @@ import ScrollReveal from '../components/ScrollReveal';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
 import initialWords from '../data/contributedWords.json';
-import nonImg from '../assets/non.png';
 import { 
   isGoogleSheetConfigured, 
   getContributedWordsFromSheet, 
   addContributedWordToSheet 
 } from '../services/googleSheet';
-import { 
-  isFirebaseConfigured, 
-  getContributedWordsFromFirestore, 
-  addContributedWordToFirestore 
-} from '../services/firebase';
 
 export default function ContributeWord() {
   useSEO(pageMetaMap['/gop-tu']);
@@ -45,7 +39,7 @@ export default function ContributeWord() {
   const [statusMessage, setStatusMessage] = useState(null);
   const [isLoadingWords, setIsLoadingWords] = useState(false);
 
-  // Sync words: Ưu tiên Google Sheets -> Firestore -> Fallback sang local API / JSON
+  // Sync words: Ưu tiên Google Sheets -> Fallback sang local API / JSON
   useEffect(() => {
     let isMounted = true;
 
@@ -74,28 +68,7 @@ export default function ContributeWord() {
         return;
       }
 
-      // 2. Thử tải từ Firebase Firestore nếu đã cấu hình
-      if (isFirebaseConfigured) {
-        try {
-          const firestoreWords = await getContributedWordsFromFirestore();
-          if (isMounted && Array.isArray(firestoreWords)) {
-            const firestoreWordsSet = new Set(firestoreWords.map(w => w.word?.trim().toLowerCase()));
-            const merged = [
-              ...firestoreWords,
-              ...initialWords.filter(w => !firestoreWordsSet.has(w.word?.trim().toLowerCase()))
-            ];
-            setWords(merged);
-            try {
-              localStorage.setItem('ll_contributed_words', JSON.stringify(merged));
-            } catch {}
-            return;
-          }
-        } catch (err) {
-          console.warn('Lỗi kết nối Firebase Firestore:', err);
-        }
-      }
-
-      // 3. Fallback sang local API (khi chạy npm run dev)
+      // 2. Fallback sang local API (khi chạy npm run dev)
       fetch('/api/contribute-word')
         .then(res => {
           if (res.ok) return res.json();
@@ -158,18 +131,8 @@ export default function ContributeWord() {
       } catch (err) {
         console.error('Không thể lưu lên Google Sheets:', err);
       }
-    } else if (isFirebaseConfigured) {
-      // 2. Gửi lên Firebase Firestore nếu đã cấu hình
-      try {
-        const firestoreResult = await addContributedWordToFirestore(newEntry);
-        if (firestoreResult && firestoreResult.id) {
-          newEntry.id = firestoreResult.id;
-        }
-      } catch (err) {
-        console.error('Không thể lưu lên Firebase:', err);
-      }
     } else {
-      // 3. Fallback ghi vào local file nếu đang chạy Vite dev
+      // 2. Fallback ghi vào local file nếu đang chạy Vite dev
       try {
         await fetch('/api/contribute-word', {
           method: 'POST',
@@ -203,7 +166,6 @@ export default function ContributeWord() {
 
           {/* Green Neo-brutalist Card */}
           <div className="contribute-card neo-border">
-            <img src={nonImg} alt="Nón lá miền Tây" className="contribute-hat-sticker" />
 
             {activeWord ? (
               /* CARD DETAIL VIEW (SCREEN 2) */

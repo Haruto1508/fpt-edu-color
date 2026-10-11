@@ -6,6 +6,17 @@
   width: 100%;
 }
 
+.page-transition-wrapper {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 /* Accessible Screen Reader Only utility */
 .sr-only {
   position: absolute;
@@ -549,12 +560,15 @@
   width: 225px;
   max-width: 82%;
   height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.15));
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .hero-word-title {
-  font-family: 'Dela Gothic One', sans-serif;
+  font-family: var(--font-display);
   font-size: 2.4rem;
   color: var(--blue);
   margin: 0.6rem 0 0.15rem;
@@ -817,7 +831,7 @@
 }
 
 .card-more {
-  font-family: 'Dela Gothic One', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.3rem, 2vw, 1.6rem);
   font-weight: 900;
   color: var(--blue);
@@ -945,8 +959,11 @@
 .hero-non-img {
   width: 100%;
   height: auto;
+  aspect-ratio: 1 / 1;
   display: block;
   filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.08));
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 /* Boy character decoration (standing right) */
@@ -962,8 +979,11 @@
 .hero-boy-img {
   height: 100%;
   width: auto;
+  aspect-ratio: 291 / 683;
   display: block;
   object-fit: contain;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .explore-hero-center {
@@ -1849,7 +1869,7 @@
 }
 
 .footer-heading {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: var(--blue);
   font-size: 1.15rem;
@@ -2679,7 +2699,7 @@
 }
 
 .quiz-question-text {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: clamp(1.35rem, 2.4vw, 1.75rem);
   text-align: left;
@@ -2701,7 +2721,7 @@
   border-radius: 99px;
   box-shadow: 4px 4px 0px #111111;
   padding: 0.85rem 1.6rem;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 800;
   color: #111111;
@@ -2875,7 +2895,7 @@
 }
 
 .result-win-line {
-  font-family: 'iCielBCCubano-Normal', 'iCiel BC Cubano', 'Phudu', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3.2rem, 7vw, 6.2rem);
   font-weight: 900;
   color: #5eb23c;
@@ -2893,7 +2913,7 @@
 }
 
 .result-wrong-title {
-  font-family: 'iCielBCCubano-Normal', 'iCiel BC Cubano', 'Phudu', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3.6rem, 8vw, 6.6rem);
   font-weight: 900;
   color: #ff6d5d;
@@ -3291,7 +3311,7 @@
 }
 
 .maintenance-heading {
-  font-family: var(--font-display, 'iCielBCCubano-Normal', cursive, sans-serif);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4.2vw, 3.2rem);
   color: var(--blue);
   line-height: 1.18;
@@ -3360,7 +3380,7 @@
 }
 
 .m-feature-info h4 {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.02rem;
   font-weight: 800;
   color: var(--blue);
@@ -3513,7 +3533,7 @@
 }
 
 .modal-header h3 {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 900;
   color: var(--blue);

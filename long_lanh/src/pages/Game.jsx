@@ -144,6 +144,9 @@ export default function Game() {
                       src={imgBoat} 
                       alt="Ba bạn trẻ chèo thuyền miền Tây" 
                       className="boat-img"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
                     />
                   </div>
                 </motion.div>

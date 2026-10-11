@@ -17,6 +17,8 @@ import BackToTop from './components/BackToTop';
 import { markPathVisited } from './utils/animationState';
 import { preloadWordImages } from './utils/wordAssets';
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 // Check if maintenance mode is enabled via environment variable
 const isMaintenanceConfigured = 
   import.meta.env.VITE_MAINTENANCE_MODE === 'true' || 
@@ -30,18 +32,29 @@ function AppRoutes() {
   }, [location.pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/kham-pha" element={<Explore />} />
-      <Route path="/tu-dien" element={<Dictionary />} />
-      <Route path="/game" element={<Game />} />
-      <Route path="/noi-tu" element={<Game />} />
-      <Route path="/tu-vung/:word" element={<WordDetail />} />
-      <Route path="/chuyen-phia-sau" element={<BehindTheScenes />} />
-      <Route path="/gop-tu" element={<ContributeWord />} />
-      <Route path="/goc-gop-tu" element={<ContributeWord />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <AnimatePresence mode="wait" initial={true}>
+      <motion.div
+        key={location.pathname}
+        className="page-transition-wrapper"
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/kham-pha" element={<Explore />} />
+          <Route path="/tu-dien" element={<Dictionary />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/noi-tu" element={<Game />} />
+          <Route path="/tu-vung/:word" element={<WordDetail />} />
+          <Route path="/chuyen-phia-sau" element={<BehindTheScenes />} />
+          <Route path="/gop-tu" element={<ContributeWord />} />
+          <Route path="/goc-gop-tu" element={<ContributeWord />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

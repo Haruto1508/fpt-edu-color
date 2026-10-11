@@ -149,6 +149,9 @@ export default function Home() {
               src={backupWordImages[featuredWord.slug] || wordImages[featuredWord.slug] || chaBaImg} 
               alt={featuredWord.title} 
               className="hero-word-sticker" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="hero-word-info">
               <h2 className="hero-word-title">{featuredWord.title}</h2>
@@ -166,6 +169,9 @@ export default function Home() {
           src={heroCharacterImg} 
           alt="Nhân vật Lóng Lánh" 
           className="trending-corner-character" 
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <ScrollReveal className="trending-header">
           <p className="trending-subtitle">Tuần này ai cũng nói</p>

@@ -104,7 +104,14 @@ export default function Explore() {
         <div className="explore-hero-inner">
           {/* Conical hat decoration */}
           <div className="decor-non">
-            <img src={imgNon} alt="Nón lá" className="hero-non-img" />
+            <img 
+              src={imgNon} 
+              alt="Nón lá" 
+              className="hero-non-img" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
 
           {/* Centered title & search */}
@@ -154,7 +161,14 @@ export default function Explore() {
 
           {/* Boy character decoration */}
           <div className="decor-boy">
-            <img src={imgBoy} alt="Nhân vật Lóng Lánh" className="hero-boy-img" />
+            <img 
+              src={imgBoy} 
+              alt="Nhân vật Lóng Lánh" 
+              className="hero-boy-img" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

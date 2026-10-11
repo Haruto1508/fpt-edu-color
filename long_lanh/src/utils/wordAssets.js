@@ -13,6 +13,24 @@ import imgLocChoc from '../assets/words/loc_choc.png';
 import imgChuU from '../assets/words/chu_u.png';
 import imgBanhChanh from '../assets/words/banh_chanh.png';
 
+// Critical UI & Hero Images
+import imgNon from '../assets/non.png';
+import imgBoy from '../assets/explore_character_clean.png';
+import imgHeroChar from '../assets/hero_character.png';
+import imgQuotePerson from '../assets/quote_person_clean.png';
+import imgQuoteHat from '../assets/quote_hat_clean.png';
+import imgBoat from '../assets/game/start_game.png';
+
+// Backup stickers
+import imgBkpBaChay from '../assets/words_backup/ba_chay.png';
+import imgBkpBanhTon from '../assets/words_backup/banh_ton.png';
+import imgBkpChaBa from '../assets/words_backup/cha_ba.png';
+import imgBkpChangHang from '../assets/words_backup/chang_hang.png';
+import imgBkpMitUot from '../assets/words_backup/mit_uot.png';
+import imgBkpMungHum from '../assets/words_backup/mung_hum.png';
+import imgBkpTumHum from '../assets/words_backup/tum_hum.png';
+import imgBkpXiXon from '../assets/words_backup/xi_xon.png';
+
 export const wordImages = {
   "cha-ba": imgChaBa,
   "xi-xon": imgXiXon,
@@ -30,19 +48,47 @@ export const wordImages = {
   "banh-chanh": imgBanhChanh
 };
 
-// Hàm preload ảnh từ vựng khi trình duyệt đã rảnh rỗi (idle) để không chặn CSS và Fonts của trang
+export const allCriticalImages = [
+  imgChaBa,
+  imgBkpChaBa,
+  imgHeroChar,
+  imgNon,
+  imgBoy,
+  imgBoat,
+  imgQuotePerson,
+  imgQuoteHat,
+  imgBkpBaChay,
+  imgBkpBanhTon,
+  imgBkpChangHang,
+  imgBkpMitUot,
+  imgBkpMungHum,
+  imgBkpTumHum,
+  imgBkpXiXon,
+  ...Object.values(wordImages)
+];
+
+// Preload ngay lập tức khi ứng dụng khởi động để ảnh hiển thị đồng bộ với hiệu ứng
 export function preloadWordImages() {
   if (typeof window === 'undefined') return;
-  const loadImages = () => {
-    Object.values(wordImages).forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
+
+  const preloadSingle = (src) => {
+    if (!src) return;
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
   };
 
+  // Preload các ảnh hero quan trọng nhất ngay tức thì
+  allCriticalImages.slice(0, 10).forEach(preloadSingle);
+
+  // Các ảnh còn lại tải tiếp nối sau vài mili-giây
   if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(() => setTimeout(loadImages, 1200));
+    window.requestIdleCallback(() => {
+      allCriticalImages.slice(10).forEach(preloadSingle);
+    });
   } else {
-    setTimeout(loadImages, 2000);
+    setTimeout(() => {
+      allCriticalImages.slice(10).forEach(preloadSingle);
+    }, 150);
   }
 }

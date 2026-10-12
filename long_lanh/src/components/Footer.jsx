@@ -5,6 +5,21 @@ import luaTrenImg from '../assets/lua_tren.png';
 import luaDuoiImg from '../assets/lua_duoi.png';
 
 export default function Footer() {
+  const emailAddress = 'longlanhfptcantho03@gmail.com';
+  const emailSubject = encodeURIComponent('[Lóng Lánh] Liên hệ dự án');
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${emailSubject}`;
+  const mailtoUrl = `mailto:${emailAddress}?subject=${emailSubject}`;
+
+  const handleEmailClick = (e) => {
+    // Trên máy tính: mở trực tiếp tab soạn thư của Gmail Web
+    // Trên điện thoại: để link mailto: mở ứng dụng Mail/Gmail có sẵn
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (!isMobile) {
+      e.preventDefault();
+      window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-box">
@@ -37,7 +52,7 @@ export default function Footer() {
               </Link>
               <Link to="/game" className="footer-link-item">
                 <span className="footer-arrow">➔</span>
-                <span>Trò chơi Nối từ</span>
+                <span>Trò chơi Đoán từ</span>
               </Link>
               <Link to="/chuyen-phia-sau" className="footer-link-item">
                 <span className="footer-arrow">➔</span>
@@ -50,8 +65,13 @@ export default function Footer() {
           <div className="footer-col footer-contact-col">
             <h4 className="footer-heading">Liên hệ</h4>
             <div className="footer-contact-info">
-              <a href="mailto:longlanhfptcantho03@gmail.com" className="footer-contact-email">
-                longlanhfptcantho03@gmail.com
+              <a
+                href={mailtoUrl}
+                onClick={handleEmailClick}
+                className="footer-contact-email"
+                title="Gửi thư đến longlanhfptcantho03@gmail.com"
+              >
+                {emailAddress}
               </a>
               <p className="footer-copyright">
                 © 2026 Trạm Dừng Lóng Lánh

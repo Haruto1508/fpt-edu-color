@@ -257,7 +257,7 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="mobile-nav-icon">🎮</span>
-                <span>TRÒ CHƠI NỐI TỪ</span>
+                <span>TRÒ CHƠI ĐOÁN TỪ</span>
               </Link>
 
               <Link 

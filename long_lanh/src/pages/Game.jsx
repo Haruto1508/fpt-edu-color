@@ -157,7 +157,7 @@ export default function Game() {
                 {/* Cột phải: Tiêu đề NỐI TỪ & Nút CHƠI THÔI */}
                 <div className="intro-action-col">
                   <h1 className="game-title-huge">
-                    NỐI TỪ
+                    ĐOÁN TỪ
                   </h1>
                   <p className="game-tagline">
                     Đố bạn biết đâu là tiếng lóng miền Tây chuẩn chỉnh trong từ điển Lóng Lánh!
@@ -187,7 +187,7 @@ export default function Game() {
             >
               <div className="quiz-container">
                 {/* Tiêu đề trên cùng */}
-                <h2 className="quiz-top-title">NỐI TỪ</h2>
+                <h2 className="quiz-top-title">ĐOÁN TỪ</h2>
 
                 {/* Thanh trạng thái / tiến độ */}
                 <div className="quiz-status-bar">

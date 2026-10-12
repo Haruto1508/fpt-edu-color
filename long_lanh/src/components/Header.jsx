@@ -238,7 +238,6 @@ export default function Header() {
                 className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/' ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-nav-icon">🏠</span>
                 <span>TRANG CHỦ</span>
               </Link>
 
@@ -247,7 +246,6 @@ export default function Header() {
                 className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/kham-pha' ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-nav-icon">🔍</span>
                 <span>KHÁM PHÁ</span>
               </Link>
 
@@ -256,7 +254,6 @@ export default function Header() {
                 className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/game' || currentPath === '/noi-tu' ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-nav-icon">🎮</span>
                 <span>TRÒ CHƠI ĐOÁN TỪ</span>
               </Link>
 
@@ -265,7 +262,6 @@ export default function Header() {
                 className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/gop-tu' || currentPath === '/goc-gop-tu' ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-nav-icon">✍️</span>
                 <span>GÓC GÓP TỪ</span>
               </Link>
 
@@ -274,7 +270,6 @@ export default function Header() {
                 className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span className="mobile-nav-icon">📖</span>
                 <span>CHUYỆN PHÍA SAU</span>
               </Link>
             </nav>

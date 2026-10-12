@@ -316,30 +316,6 @@ export default function Game() {
                               </p>
                             </div>
                           )}
-
-                          <div className="expl-actions">
-                            {hasWordDetail && (
-                              <Link
-                                to={`/tu-vung/${currentQ.slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-expl-dict neo-border neo-shadow-hover neo-shadow-active"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                📖 Tra từ điển
-                              </Link>
-                            )}
-                            <button
-                              type="button"
-                              className="btn-expl-next neo-border neo-shadow-hover neo-shadow-active"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleNextQuestion();
-                              }}
-                            >
-                              {currentIndex + 1 < questions.length ? "Câu tiếp theo ➔" : "Xem kết quả ➔"}
-                            </button>
-                          </div>
                         </motion.div>
                       </div>
 
@@ -400,11 +376,6 @@ export default function Game() {
                             <span className="expl-badge expl-badge-wrong neo-border">
                               ✕ CHƯA ĐÚNG NÈ
                             </span>
-                            {chosenOpt && (
-                              <span className="expl-chosen-tag">
-                                Bạn đã chọn: <strong className="strike-text">{chosenOpt.key}. {chosenOpt.text}</strong>
-                              </span>
-                            )}
                           </div>
 
                           <div className="expl-answer-callout neo-border">
@@ -424,30 +395,6 @@ export default function Game() {
                               </p>
                             </div>
                           )}
-
-                          <div className="expl-actions">
-                            {hasWordDetail && (
-                              <Link
-                                to={`/tu-vung/${currentQ.slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-expl-dict neo-border neo-shadow-hover neo-shadow-active"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                📖 Tra từ điển
-                              </Link>
-                            )}
-                            <button
-                              type="button"
-                              className="btn-expl-next btn-expl-next-wrong neo-border neo-shadow-hover neo-shadow-active"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleNextQuestion();
-                              }}
-                            >
-                              {currentIndex + 1 < questions.length ? "Câu tiếp theo ➔" : "Xem kết quả ➔"}
-                            </button>
-                          </div>
                         </motion.div>
                       </div>
                     </>

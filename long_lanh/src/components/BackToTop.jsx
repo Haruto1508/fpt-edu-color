@@ -4,47 +4,51 @@ export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+    let lastScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop);
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop);
+          const scrollDiff = lastScrollY - currentScrollY;
+
+          // Nếu ở gần đầu trang (< 250px), luôn ẩn nút
+          if (currentScrollY < 250) {
+            setIsVisible(false);
+          } else if (scrollDiff > 6) {
+            // Người dùng cuộn LÊN -> Hiện nút
+            setIsVisible(true);
+          } else if (scrollDiff < -6) {
+            // Người dùng cuộn XUỐNG -> Ẩn nút
+            setIsVisible(false);
+          }
+
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
+    setIsVisible(false);
   };
-
-  if (!isVisible) return null;
 
   return (
     <button 
+      type="button"
       onClick={scrollToTop} 
-      className="neo-border neo-shadow-hover"
-      style={{
-        position: 'fixed',
-        bottom: '2rem',
-        right: '2rem',
-        width: '55px',
-        height: '55px',
-        borderRadius: '50%',
-        backgroundColor: 'var(--yellow)',
-        color: 'var(--black)',
-        fontSize: '1.5rem',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-        zIndex: 1000
-      }}
+      className={`back-to-top-btn ${isVisible ? 'back-to-top-visible' : 'back-to-top-hidden'}`}
+      aria-label="Cuộn lên đầu trang"
       title="Lên đầu trang"
     >
       ↑

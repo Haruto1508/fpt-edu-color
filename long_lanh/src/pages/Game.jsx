@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gameQuestions } from '../data/gameQuestions';
+import wordsData from '../data/words.json';
 import { playSound } from '../utils/gameAudio';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
@@ -22,12 +23,25 @@ export default function Game() {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
-  const [_userAnswers, setUserAnswers] = useState([]);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [showReview, setShowReview] = useState(false);
 
   const currentQ = questions[currentIndex] || questions[0];
 
+  // Chuyển sang câu tiếp theo
+  const handleNextQuestion = useCallback(() => {
+    playSound('click', isMuted);
+    if (currentIndex + 1 < questions.length) {
+      setCurrentIndex(prev => prev + 1);
+      setSelectedOption(null);
+      setGameState('question');
+    } else {
+      setGameState('summary');
+    }
+  }, [currentIndex, isMuted, questions.length]);
+
   // Lắng nghe phím Enter hoặc Space khi ở màn hình kết quả để chuyển tiếp nhanh
-  React.useEffect(() => {
+  useEffect(() => {
     if (gameState !== 'result') return;
     const handleKeyDown = (e) => {
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
@@ -37,7 +51,7 @@ export default function Game() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameState, currentIndex, questions.length]);
+  }, [gameState, handleNextQuestion]);
 
   // Bắt đầu game
   const handleStartGame = () => {
@@ -48,6 +62,7 @@ export default function Game() {
     setScore(0);
     setStreak(0);
     setUserAnswers([]);
+    setShowReview(false);
     setGameState('question');
   };
 
@@ -76,18 +91,6 @@ export default function Game() {
 
     setUserAnswers(prev => [...prev, { questionId: currentQ.id, selected: selectedOption, isCorrect: correct }]);
     setGameState('result');
-  };
-
-  // Chuyển sang câu tiếp theo
-  const handleNextQuestion = () => {
-    playSound('click', isMuted);
-    if (currentIndex + 1 < questions.length) {
-      setCurrentIndex(prev => prev + 1);
-      setSelectedOption(null);
-      setGameState('question');
-    } else {
-      setGameState('summary');
-    }
   };
 
   // Lấy danh hiệu miền Tây dựa trên điểm số
@@ -246,105 +249,231 @@ export default function Game() {
             </motion.div>
           )}
 
-          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI - CHUẨN DESIGN FIGMA */}
-          {gameState === 'result' && (
-            <motion.div 
-              key="result"
-              className="game-screen game-screen-result"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              <div 
-                className={`result-stage-layout ${isCorrect ? 'layout-win' : 'layout-wrong'}`}
-                onClick={handleNextQuestion}
-                title="Nhấn bất kỳ đâu để chuyển câu tiếp theo"
+          {/* MÀN HÌNH 3 & 4: KẾT QUẢ ĐÚNG / SAI - CÓ PHẦN GIẢI THÍCH CHI TIẾT */}
+          {gameState === 'result' && (() => {
+            const chosenOpt = selectedOption !== null ? currentQ.options[selectedOption] : null;
+            const correctOpt = currentQ.options.find(opt => opt.isCorrect);
+            const hasWordDetail = Boolean(currentQ.slug && wordsData.some(w => w.slug === currentQ.slug));
+
+            return (
+              <motion.div 
+                key="result"
+                className="game-screen game-screen-result"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
               >
-                {isCorrect ? (
-                  <>
-                    {/* CỘT TRÁI: CHỮ "NGAY CHÓC LUÔN" MÀU XANH LÁ (FIGMA) */}
-                    <div className="result-text-col result-text-col-win">
-                      <motion.div 
-                        className="result-typography-win"
-                        initial={{ opacity: 0, x: -35, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        transition={{ type: 'spring', damping: 14, stiffness: 220 }}
-                      >
-                        <span className="result-win-line">NGAY</span>
-                        <span className="result-win-line">CHÓC</span>
-                        <span className="result-win-line">LUÔN</span>
-                      </motion.div>
-                    </div>
+                <div 
+                  className={`result-stage-layout ${isCorrect ? 'layout-win' : 'layout-wrong'}`}
+                  onClick={handleNextQuestion}
+                >
+                  {isCorrect ? (
+                    <>
+                      {/* CỘT TRÁI: CHỮ "NGAY CHÓC LUÔN" & HỘP GIẢI THÍCH */}
+                      <div className="result-text-col result-text-col-win">
+                        <motion.div 
+                          className="result-typography-win"
+                          initial={{ opacity: 0, x: -35, scale: 0.9 }}
+                          animate={{ opacity: 1, x: 0, scale: 1 }}
+                          transition={{ type: 'spring', damping: 14, stiffness: 220 }}
+                        >
+                          <span className="result-win-line">NGAY</span>
+                          <span className="result-win-line">CHÓC</span>
+                          <span className="result-win-line">LUÔN</span>
+                        </motion.div>
 
-                    {/* CỘT PHẢI: NHÂN VẬT CẦM TIỀN (WIN.PNG) CHẠM SÁT VIỀN ĐÁY */}
-                    <div className="result-char-col result-char-col-win">
-                      <motion.img 
-                        src={imgWin} 
-                        alt="Ngay chóc luôn!" 
-                        className="result-character-hero result-char-win"
-                        initial={{ opacity: 0, y: 70, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ type: 'spring', damping: 15, stiffness: 200 }}
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    {/* CỘT TRÁI: NHÂN VẬT BÉ GÁI ĐỘI NÓN LÁ (WRONG.PNG) CHẠM SÁT VIỀN ĐÁY */}
-                    <div className="result-char-col result-char-col-wrong">
-                      <motion.img 
-                        src={imgWrong} 
-                        alt="Sai bét!" 
-                        className="result-character-hero result-char-wrong"
-                        initial={{ opacity: 0, y: 70, scale: 0.95 }}
-                        animate={{ 
-                          opacity: 1, 
-                          y: 0, 
-                          scale: 1,
-                          rotate: [0, -3, 3, -2, 2, 0]
-                        }}
-                        transition={{ 
-                          y: { type: 'spring', damping: 15, stiffness: 200 },
-                          rotate: { delay: 0.2, duration: 0.55 }
-                        }}
-                      />
-                    </div>
+                        {/* HỘP GIẢI THÍCH KHI ĐÚNG */}
+                        <motion.div 
+                          className="result-explanation-card card-win neo-border neo-shadow"
+                          onClick={(e) => e.stopPropagation()}
+                          initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ delay: 0.12, duration: 0.35 }}
+                        >
+                          <div className="expl-card-header">
+                            <span className="expl-badge expl-badge-win neo-border">
+                              ✓ CHÍNH XÁC (+10 ĐIỂM)
+                            </span>
+                            {streak > 1 && (
+                              <span className="expl-streak-tag neo-border">
+                                🔥 Chuỗi x{streak}
+                              </span>
+                            )}
+                          </div>
 
-                    {/* CỘT PHẢI: CHỮ "SAI BÉT" MÀU CAM ĐỎ (FIGMA) */}
-                    <div className="result-text-col result-text-col-wrong">
-                      <motion.div 
-                        className="result-typography-wrong"
-                        initial={{ opacity: 0, x: 35, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        transition={{ type: 'spring', damping: 14, stiffness: 220 }}
-                      >
-                        <h2 className="result-wrong-title">SAI BÉT</h2>
-                      </motion.div>
-                    </div>
-                  </>
-                )}
+                          <div className="expl-word-row">
+                            <span className="expl-word-title">{currentQ.correctWord || correctOpt?.text}</span>
+                            {currentQ.meaning && (
+                              <span className="expl-word-meaning"> = {currentQ.meaning}</span>
+                            )}
+                          </div>
 
-                {/* NÚT TIẾP TỤC ĐẶT Ở PHÍA TRÊN GÓC PHẢI */}
-                <div className="result-floating-action">
-                  <motion.button
-                    className="btn-result-next neo-border neo-shadow neo-shadow-hover neo-shadow-active"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNextQuestion();
-                    }}
-                    initial={{ opacity: 0, y: -12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.3 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM KẾT QUẢ ➔"}
-                  </motion.button>
+                          {currentQ.explanation && (
+                            <div className="expl-desc-box">
+                              <p className="expl-desc">
+                                <span className="expl-lightbulb">💡</span> {currentQ.explanation}
+                              </p>
+                            </div>
+                          )}
+
+                          <div className="expl-actions">
+                            {hasWordDetail && (
+                              <Link
+                                to={`/tu-vung/${currentQ.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-expl-dict neo-border neo-shadow-hover neo-shadow-active"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                📖 Tra từ điển
+                              </Link>
+                            )}
+                            <button
+                              type="button"
+                              className="btn-expl-next neo-border neo-shadow-hover neo-shadow-active"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleNextQuestion();
+                              }}
+                            >
+                              {currentIndex + 1 < questions.length ? "Câu tiếp theo ➔" : "Xem kết quả ➔"}
+                            </button>
+                          </div>
+                        </motion.div>
+                      </div>
+
+                      {/* CỘT PHẢI: NHÂN VẬT CẦM TIỀN (WIN.PNG) CHẠM SÁT VIỀN ĐÁY */}
+                      <div className="result-char-col result-char-col-win">
+                        <motion.img 
+                          src={imgWin} 
+                          alt="Ngay chóc luôn!" 
+                          className="result-character-hero result-char-win"
+                          initial={{ opacity: 0, y: 70, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ type: 'spring', damping: 15, stiffness: 200 }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* CỘT TRÁI: NHÂN VẬT BÉ GÁI ĐỘI NÓN LÁ (WRONG.PNG) CHẠM SÁT VIỀN ĐÁY */}
+                      <div className="result-char-col result-char-col-wrong">
+                        <motion.img 
+                          src={imgWrong} 
+                          alt="Sai bét!" 
+                          className="result-character-hero result-char-wrong"
+                          initial={{ opacity: 0, y: 70, scale: 0.95 }}
+                          animate={{ 
+                            opacity: 1, 
+                            y: 0, 
+                            scale: 1, 
+                            rotate: [0, -3, 3, -2, 2, 0]
+                          }}
+                          transition={{ 
+                            y: { type: 'spring', damping: 15, stiffness: 200 },
+                            rotate: { delay: 0.2, duration: 0.55 }
+                          }}
+                        />
+                      </div>
+
+                      {/* CỘT PHẢI: CHỮ "SAI BÉT" & HỘP GIẢI THÍCH */}
+                      <div className="result-text-col result-text-col-wrong">
+                        <motion.div 
+                          className="result-typography-wrong"
+                          initial={{ opacity: 0, x: 35, scale: 0.9 }}
+                          animate={{ opacity: 1, x: 0, scale: 1 }}
+                          transition={{ type: 'spring', damping: 14, stiffness: 220 }}
+                        >
+                          <h2 className="result-wrong-title">SAI BÉT</h2>
+                        </motion.div>
+
+                        {/* HỘP GIẢI THÍCH KHI SAI */}
+                        <motion.div 
+                          className="result-explanation-card card-wrong neo-border neo-shadow"
+                          onClick={(e) => e.stopPropagation()}
+                          initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ delay: 0.12, duration: 0.35 }}
+                        >
+                          <div className="expl-card-header">
+                            <span className="expl-badge expl-badge-wrong neo-border">
+                              ✕ CHƯA ĐÚNG NÈ
+                            </span>
+                            {chosenOpt && (
+                              <span className="expl-chosen-tag">
+                                Bạn đã chọn: <strong className="strike-text">{chosenOpt.key}. {chosenOpt.text}</strong>
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="expl-answer-callout neo-border">
+                            <span className="expl-callout-label">ĐÁP ÁN ĐÚNG LÀ:</span>
+                            <div className="expl-word-row">
+                              <span className="expl-word-title text-green">{correctOpt?.key}. {currentQ.correctWord || correctOpt?.text}</span>
+                              {currentQ.meaning && (
+                                <span className="expl-word-meaning"> = {currentQ.meaning}</span>
+                              )}
+                            </div>
+                          </div>
+
+                          {currentQ.explanation && (
+                            <div className="expl-desc-box">
+                              <p className="expl-desc">
+                                <span className="expl-lightbulb">💡</span> {currentQ.explanation}
+                              </p>
+                            </div>
+                          )}
+
+                          <div className="expl-actions">
+                            {hasWordDetail && (
+                              <Link
+                                to={`/tu-vung/${currentQ.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-expl-dict neo-border neo-shadow-hover neo-shadow-active"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                📖 Tra từ điển
+                              </Link>
+                            )}
+                            <button
+                              type="button"
+                              className="btn-expl-next btn-expl-next-wrong neo-border neo-shadow-hover neo-shadow-active"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleNextQuestion();
+                              }}
+                            >
+                              {currentIndex + 1 < questions.length ? "Câu tiếp theo ➔" : "Xem kết quả ➔"}
+                            </button>
+                          </div>
+                        </motion.div>
+                      </div>
+                    </>
+                  )}
+
+                  {/* NÚT TIẾP TỤC ĐẶT Ở PHÍA TRÊN GÓC PHẢI */}
+                  <div className="result-floating-action">
+                    <motion.button
+                      className="btn-result-next neo-border neo-shadow neo-shadow-hover neo-shadow-active"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNextQuestion();
+                      }}
+                      initial={{ opacity: 0, y: -12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.3 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {currentIndex + 1 < questions.length ? "CÂU TIẾP THEO ➔" : "XEM KẾT QUẢ ➔"}
+                    </motion.button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          )}
+              </motion.div>
+            );
+          })()}
 
           {/* MÀN HÌNH TỔNG KẾT SAU KHI HOÀN THÀNH VÒNG CHƠI */}
           {gameState === 'summary' && (
@@ -368,6 +497,71 @@ export default function Game() {
                   <h3 className="badge-name">{getBadgeTitle(score).title}</h3>
                   <p className="badge-desc">{getBadgeTitle(score).desc}</p>
                 </div>
+
+                {/* NÚT BẬT / TẮT XEM LẠI CÂU HỎI VÀ GIẢI THÍCH */}
+                <button
+                  type="button"
+                  className="btn-review-toggle neo-border neo-shadow-hover neo-shadow-active"
+                  onClick={() => setShowReview(prev => !prev)}
+                >
+                  {showReview ? "▲ ẨN BẢNG GIẢI THÍCH" : "▼ XEM LẠI ĐÁP ÁN & GIẢI THÍCH"}
+                </button>
+
+                {showReview && (
+                  <div className="summary-review-list">
+                    {questions.map((q, idx) => {
+                      const userAns = userAnswers.find(a => a.questionId === q.id);
+                      const isAnsCorrect = userAns ? userAns.isCorrect : false;
+                      const userChosen = userAns && userAns.selected !== null ? q.options[userAns.selected] : null;
+                      const correctOpt = q.options.find(o => o.isCorrect);
+                      const hasDict = Boolean(q.slug && wordsData.some(w => w.slug === q.slug));
+
+                      return (
+                        <div key={q.id || idx} className={`review-item neo-border ${isAnsCorrect ? 'review-correct' : 'review-wrong'}`}>
+                          <div className="review-item-header">
+                            <span className={`review-badge ${isAnsCorrect ? 'badge-green' : 'badge-red'}`}>
+                              {isAnsCorrect ? "✓ ĐÚNG (+10)" : "✕ CHƯA ĐÚNG"}
+                            </span>
+                            <span className="review-q-num">Câu {idx + 1}</span>
+                          </div>
+
+                          <p className="review-question">{q.question}</p>
+
+                          <div className="review-ans-info">
+                            {!isAnsCorrect && userChosen && (
+                              <div className="review-user-chosen">
+                                Bạn chọn: <span className="strike-text">{userChosen.key}. {userChosen.text}</span>
+                              </div>
+                            )}
+                            <div className="review-correct-ans">
+                              Đáp án: <strong className="text-green">{correctOpt?.key}. {q.correctWord || correctOpt?.text}</strong>
+                              {q.meaning && <span className="review-meaning"> = {q.meaning}</span>}
+                            </div>
+                          </div>
+
+                          {q.explanation && (
+                            <div className="review-expl">
+                              <span className="expl-lightbulb">💡</span> {q.explanation}
+                            </div>
+                          )}
+
+                          {hasDict && (
+                            <div style={{ marginTop: '0.4rem' }}>
+                              <Link
+                                to={`/tu-vung/${q.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-review-dict"
+                              >
+                                📖 Xem chi tiết trong từ điển ➔
+                              </Link>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
 
                 <div className="summary-buttons">
                   <button 

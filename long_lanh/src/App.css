@@ -2966,21 +2966,28 @@
 /* Cột Chữ */
 .result-text-col {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
   height: 100%;
   box-sizing: border-box;
   z-index: 2;
+  gap: 1rem;
+  width: 100%;
+  max-width: 620px;
 }
 
 .result-text-col-win {
-  justify-content: flex-start;
-  padding-left: clamp(2.5rem, 9vw, 9.5rem);
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: clamp(2rem, 6vw, 6.5rem);
+  padding-right: 1.5rem;
 }
 
 .result-text-col-wrong {
   justify-content: center;
-  padding: 1rem 2rem;
+  align-items: flex-start;
+  padding-right: clamp(2rem, 6vw, 6.5rem);
+  padding-left: 1.5rem;
 }
 
 /* Typography Đúng: NGAY CHÓC LUÔN */
@@ -2988,15 +2995,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  line-height: 0.96;
+  line-height: 0.92;
 }
 
 .result-win-line {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
   font-weight: 900;
   color: #5eb23c;
-  line-height: 0.95;
+  line-height: 0.92;
   letter-spacing: clamp(1px, 0.25vw, 3px);
   text-transform: uppercase;
   display: block;
@@ -3005,13 +3012,13 @@
 /* Typography Sai: SAI BÉT */
 .result-typography-wrong {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .result-wrong-title {
   font-family: var(--font-display);
-  font-size: clamp(3.6rem, 8vw, 6.6rem);
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
   font-weight: 900;
   color: #ff6d5d;
   letter-spacing: clamp(2px, 0.35vw, 6px);
@@ -3064,6 +3071,202 @@
   object-position: bottom center;
 }
 
+/* HỘP GIẢI THÍCH (EXPLANATION CARD) */
+.result-explanation-card {
+  background: var(--white);
+  border: 3.5px solid var(--black);
+  border-radius: 24px;
+  box-shadow: 6px 6px 0px var(--black);
+  padding: 1.35rem 1.6rem;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.result-explanation-card.card-win {
+  border-color: var(--black);
+}
+
+.result-explanation-card.card-wrong {
+  border-color: var(--black);
+}
+
+.expl-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.expl-badge {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.expl-badge-win {
+  background: var(--green);
+  color: var(--white);
+  border: 2.5px solid var(--black);
+  box-shadow: 2px 2px 0px var(--black);
+}
+
+.expl-badge-wrong {
+  background: var(--red);
+  color: var(--white);
+  border: 2.5px solid var(--black);
+  box-shadow: 2px 2px 0px var(--black);
+}
+
+.expl-streak-tag {
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 2px solid var(--black);
+}
+
+.expl-chosen-tag {
+  font-size: 0.88rem;
+  color: #444;
+  font-weight: 600;
+}
+
+.strike-text {
+  text-decoration: line-through;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.expl-answer-callout {
+  background: #f0fdf4;
+  border: 2.5px solid #22c55e;
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+}
+
+.expl-callout-label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #16a34a;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.expl-word-row {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.expl-word-title {
+  font-family: var(--font-display);
+  color: var(--blue);
+  letter-spacing: 0.5px;
+}
+
+.expl-word-title.text-green {
+  color: #15803d;
+}
+
+.expl-word-meaning {
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 1.05rem;
+}
+
+.expl-desc-box {
+  background: #fafaf9;
+  border-left: 4.5px solid var(--yellow);
+  padding: 0.65rem 0.95rem;
+  border-radius: 4px 12px 12px 4px;
+}
+
+.expl-desc {
+  font-size: 0.95rem;
+  color: #262626;
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 500;
+}
+
+.expl-lightbulb {
+  font-size: 1.1rem;
+  margin-right: 0.25rem;
+}
+
+.expl-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.btn-expl-dict {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--white);
+  border: 2.5px solid var(--black);
+  border-radius: 99px;
+  padding: 0.55rem 1.15rem;
+  text-decoration: none;
+  box-shadow: 3px 3px 0px var(--black);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-expl-dict:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--black);
+}
+
+.btn-expl-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--white);
+  background: var(--green);
+  border: 2.5px solid var(--black);
+  border-radius: 99px;
+  padding: 0.55rem 1.4rem;
+  box-shadow: 3px 3px 0px var(--black);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-expl-next:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--black);
+}
+
+.btn-expl-next-wrong {
+  background: var(--blue);
+}
+
 /* Nút Tiếp tục đặt ở phía trên góc phải */
 .result-floating-action {
   position: absolute;
@@ -3101,22 +3304,62 @@
   box-shadow: 2px 2px 0px var(--black);
 }
 
-@media (max-width: 768px) {
-  .result-text-col-win {
-    padding-left: 1.5rem;
+@media (max-width: 868px) {
+  .game-page-wrapper.game-page-wrapper-result {
+    overflow-y: auto !important;
+    min-height: auto;
+    padding: 1.5rem 1rem 3.5rem !important;
   }
 
-  .result-win-line {
-    font-size: clamp(2rem, 7vw, 3.4rem);
+  .result-stage-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    height: auto;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
   }
 
-  .result-wrong-title {
-    font-size: clamp(2.2rem, 7.5vw, 3.8rem);
+  .layout-win .result-char-col,
+  .layout-wrong .result-char-col {
+    order: 1;
+    height: auto;
+    padding: 0;
+    max-height: 220px;
+  }
+
+  .layout-win .result-text-col,
+  .layout-wrong .result-text-col {
+    order: 2;
+    padding: 0 0.5rem;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .result-character-hero {
-    height: 92%;
-    max-height: 380px;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .result-typography-win {
+    align-items: center;
+  }
+
+  .result-typography-wrong {
+    justify-content: center;
+  }
+
+  .result-win-line {
+    font-size: clamp(2rem, 7.5vw, 2.8rem);
+  }
+
+  .result-wrong-title {
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .result-explanation-card {
+    padding: 1.15rem 1.25rem;
+    text-align: left;
   }
 
   .result-floating-action {
@@ -3210,6 +3453,140 @@
   font-weight: 600;
   line-height: 1.5;
   text-align: left;
+}
+
+/* Nút & Bảng xem lại câu hỏi trong Summary */
+.btn-review-toggle {
+  background: var(--yellow);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 0.7rem 1.6rem;
+  border: 3px solid var(--black);
+  border-radius: 99px;
+  box-shadow: 4px 4px 0px var(--black);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  max-width: 420px;
+}
+
+.btn-review-toggle:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--black);
+}
+
+.summary-review-list {
+  width: 100%;
+  max-height: 440px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-right: 0.4rem;
+  text-align: left;
+}
+
+.review-item {
+  background: var(--white);
+  border: 2.5px solid var(--black);
+  border-radius: 16px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 3px 3px 0px var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.review-item.review-correct {
+  border-left: 7px solid var(--green);
+}
+
+.review-item.review-wrong {
+  border-left: 7px solid var(--red);
+}
+
+.review-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-badge {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--black);
+  text-transform: uppercase;
+}
+
+.review-badge.badge-green {
+  background: var(--green);
+  color: var(--white);
+}
+
+.review-badge.badge-red {
+  background: var(--red);
+  color: var(--white);
+}
+
+.review-q-num {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.review-question {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.review-ans-info {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.review-user-chosen {
+  color: #555;
+}
+
+.review-meaning {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.review-expl {
+  font-size: 0.88rem;
+  color: #2b2b2b;
+  background: #fbfbfa;
+  border-left: 3px solid var(--yellow);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px 8px 8px 4px;
+  line-height: 1.5;
+  margin: 0.2rem 0 0;
+}
+
+.btn-review-dict {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: underline;
+  transition: opacity 0.15s ease;
+}
+
+.btn-review-dict:hover {
+  opacity: 0.75;
 }
 
 .summary-buttons {

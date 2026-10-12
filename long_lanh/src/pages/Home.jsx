@@ -144,7 +144,11 @@ export default function Home() {
         </ScrollReveal>
 
         <ScrollReveal className="hero-graphic" variant="fade-left" delay={0.15} duration={0.5}>
-          <div className="hero-word-feature">
+          <Link 
+            to={`/tu-vung/${featuredWord.slug}`}
+            className="hero-word-feature"
+            aria-label={`Xem chi tiết từ ${featuredWord.title}`}
+          >
             <img 
               src={backupWordImages[featuredWord.slug] || wordImages[featuredWord.slug] || chaBaImg} 
               alt={featuredWord.title} 
@@ -159,7 +163,7 @@ export default function Home() {
                 {featuredWord.subtitle ? featuredWord.subtitle.replace(/\.$/, '') : ''}
               </p>
             </div>
-          </div>
+          </Link>
         </ScrollReveal>
       </section>
 

@@ -13,8 +13,14 @@ import audioBanhTon from '../assets/record/banh_ton.mp3';
 import audioMungHum from '../assets/record/mung_hum.mp3';
 import audioBaChay from '../assets/record/bao_chay.mp3';
 import audioChangHang from '../assets/record/chang_hang.mp3';
-import audioTumHum from '../assets/record/tun_hun.mp3';
+import audioTumHum from '../assets/record/tum_hum.mp3';
 import audioMitUot from '../assets/record/mit_uot.mp3';
+import audioNoNoc from '../assets/record/no_noc.mp3';
+import audioThangBang from '../assets/record/thang_bang.mp3';
+import audioChotLet from '../assets/record/chot_let.mp3';
+import audioLocChoc from '../assets/record/loc_choi.mp3';
+import audioChuU from '../assets/record/chui_u.mp3';
+import audioBanhChanh from '../assets/record/banh_chanh.mp3';
 
 const wordAudios = {
   "cha-ba": audioChaBa,
@@ -24,7 +30,13 @@ const wordAudios = {
   "ba-chay": audioBaChay,
   "chang-hang": audioChangHang,
   "tum-hum": audioTumHum,
-  "mit-uot": audioMitUot
+  "mit-uot": audioMitUot,
+  "no-noc": audioNoNoc,
+  "thang-bang": audioThangBang,
+  "chot-let": audioChotLet,
+  "loc-choc": audioLocChoc,
+  "chu-u": audioChuU,
+  "banh-chanh": audioBanhChanh
 };
 
 export default function WordDetail() {
@@ -99,7 +111,7 @@ export default function WordDetail() {
   }
 
   // Pre-defined colors for example boxes
-  const boxColors = ["box-blue", "box-yellow", "box-red", "box-green"];
+  const boxColors = ["box-blue", "box-green", "box-green", "box-blue"];
 
   const handlePlayAudio = () => {
     const audioSrc = wordData ? wordAudios[wordData.slug] : null;
@@ -241,6 +253,7 @@ export default function WordDetail() {
                 src={wordAudios[wordData.slug]}
                 onEnded={() => setIsPlaying(false)}
                 onPause={() => setIsPlaying(false)}
+                onError={() => setIsPlaying(false)}
                 preload="auto"
               />
             )}
@@ -301,32 +314,12 @@ export default function WordDetail() {
         </div>
       </ScrollReveal>
 
-      {/* Suggestions Section */}
-      {/* <section className="word-suggestions neo-border-top" style={{ backgroundColor: 'var(--white)' }}>
-        <ScrollReveal>
-          <div className="explore-cards-title" style={{ padding: '3rem 4rem 1rem' }}>Có Thể Bạn Muốn Xem</div>
-          <div className="cards-grid" style={{ padding: '0 4rem 4rem' }}>
-            {randomSuggestions.map((w, idx) => (
-              <WordCard
-                key={idx}
-                slug={w.slug}
-                color={w.color}
-                tag={w.tag}
-                hashtag={w.hashtag}
-                title={w.title}
-                desc={w.desc}
-              />
-            ))}
-          </div>
-        </ScrollReveal>
-      </section> */}
-
       {/* Story Section */}
       <ScrollReveal className="word-story bg-dots neo-border-top neo-border-bottom">
         <div className="story-left">
           <p className="section-subtitle text-blue">Đằng sau một tiếng lóng</p>
           <h2 className="story-title">
-            <span className="text-red">Một cách nói</span><br />
+            <span className="text-green">Một cách nói</span><br />
             <span className="text-blue">Một vùng đất</span><br />
             <span className="text-black">Một kiểu người</span>
           </h2>

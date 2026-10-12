@@ -2,9 +2,9 @@ import React from 'react';
 import ScrollReveal from '../components/ScrollReveal';
 import useSEO from '../utils/useSEO';
 import { pageMetaMap } from '../data/seoMetadata';
-import imgXuan from '../assets/logoArtboard 5ĐƯA DÔ WEB.png';
-import imgKhoa from '../assets/logoArtboard 6ĐƯA DÔ WEB.png';
-import imgHuy from '../assets/logoArtboard 7ĐƯA DÔ WEB.png';
+import imgXuan from '../assets/xuan.png';
+import imgKhoa from '../assets/khoa.png';
+import imgHuy from '../assets/huy.png';
 
 export default function BehindTheScenes() {
   useSEO(pageMetaMap['/chuyen-phia-sau']);
@@ -28,7 +28,7 @@ export default function BehindTheScenes() {
         <ScrollReveal className="mission-left">
           <p className="section-subtitle">Sứ mệnh nho nhỏ</p>
           <h2 className="mission-title">
-            <span className="text-red">GIỮ CHỮ,</span><br/>
+            <span className="text-green">GIỮ CHỮ,</span><br/>
             <span className="text-blue">GIỮ HỒN QUÊ.</span>
           </h2>
         </ScrollReveal>
@@ -42,7 +42,7 @@ export default function BehindTheScenes() {
       {/* Process Section */}
       <section className="bts-process neo-border-top">
         <ScrollReveal className="process-title">
-          <span className="text-red">QUÁ TRÌNH</span><br/>
+          <span className="text-green">QUÁ TRÌNH</span><br/>
           <span className="text-blue" style={{ display: 'inline-block', marginTop: '1rem' }}>PHÁT TRIỂN CỦA TIẾNG LÓNG</span>
         </ScrollReveal>
         

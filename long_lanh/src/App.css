@@ -914,7 +914,6 @@
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-  border-bottom: 3.5px solid var(--blue);
   background: var(--white);
   position: relative;
   overflow: hidden;
@@ -4187,7 +4186,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 3.5px solid var(--black);
 }
 
 .contribute-container {

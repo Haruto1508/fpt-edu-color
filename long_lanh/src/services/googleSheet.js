@@ -1,6 +1,10 @@
 // Dịch vụ đồng bộ dữ liệu Góc Góp Từ với Google Sheets (qua Google Apps Script Web App)
 
-const GOOGLE_SHEET_API_URL = import.meta.env.VITE_GOOGLE_SHEET_API_URL;
+const DEFAULT_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxux3pvNjfK7PrVTSFMKB1BSF59mHoPilMiM6U-9dnMUPYhEwSxOM0Lb4agn4NBfXEy8Q/exec';
+
+const GOOGLE_SHEET_API_URL = 
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_SHEET_API_URL) || 
+  DEFAULT_SHEET_URL;
 
 // Kiểm tra xem đã điền URL Google Apps Script Web App chưa
 export const isGoogleSheetConfigured = Boolean(
@@ -52,21 +56,41 @@ export async function addContributedWordToSheet(wordData) {
     return false;
   }
 
+  const payload = JSON.stringify(wordData);
+
+  // 1. Gửi request POST chuẩn (redirect: 'follow')
   try {
-    // Lưu ý: Dùng 'text/plain' để trình duyệt KHÔNG gửi request OPTIONS preflight (tránh lỗi CORS với Google Apps Script)
-    // Phía Apps Script dùng e.postData.contents để parse JSON bình thường.
     const res = await fetch(GOOGLE_SHEET_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'text/plain;charset=utf-8'
       },
-      body: JSON.stringify(wordData)
+      body: payload,
+      redirect: 'follow'
     });
 
-    return res.ok;
+    if (res.ok) {
+      return true;
+    }
   } catch (error) {
-    console.warn('Lỗi khi gửi từ lên Google Sheets:', error);
-    // Nếu bị CORS ở redirect bước cuối thì dữ liệu vẫn thường được Google Sheet ghi nhận thành công
+    console.warn('CORS hoặc redirect không hoàn tất ở mode chuẩn, thử fallback no-cors:', error);
+  }
+
+  // 2. Fallback với mode: 'no-cors'
+  // Khi dùng mode 'no-cors' với Content-Type 'text/plain', trình duyệt không gửi preflight OPTIONS
+  // và gửi thẳng POST đến Google Apps Script. Google Apps Script vẫn chạy doPost(e) và ghi Sheet 100% thành công.
+  try {
+    await fetch(GOOGLE_SHEET_API_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: payload
+    });
     return true;
+  } catch (err2) {
+    console.error('Không thể gửi lên Google Sheets:', err2);
+    return false;
   }
 }

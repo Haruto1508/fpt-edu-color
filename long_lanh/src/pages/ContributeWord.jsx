@@ -125,13 +125,16 @@ export default function ContributeWord() {
     };
 
     // 1. Gửi lên Google Sheets nếu đã cấu hình
+    let savedToSheet = false;
     if (isGoogleSheetConfigured) {
       try {
-        await addContributedWordToSheet(newEntry);
+        savedToSheet = await addContributedWordToSheet(newEntry);
       } catch (err) {
         console.error('Không thể lưu lên Google Sheets:', err);
       }
-    } else {
+    }
+
+    if (!savedToSheet) {
       // 2. Fallback ghi vào local file nếu đang chạy Vite dev
       try {
         await fetch('/api/contribute-word', {
@@ -156,6 +159,28 @@ export default function ContributeWord() {
     setFormData({ word: '', meaning: '', example: '' });
     // Chuyển sang màn hình xem thẻ chi tiết vừa tạo
     setActiveWordId(newEntry.id);
+
+    // 4. Đồng bộ lại danh sách từ Google Sheets sau 2.5s để cập nhật ID/trạng thái chính thức
+    if (isGoogleSheetConfigured) {
+      setTimeout(async () => {
+        try {
+          const sheetWords = await getContributedWordsFromSheet();
+          if (sheetWords && Array.isArray(sheetWords) && sheetWords.length > 0) {
+            const sheetWordsSet = new Set(sheetWords.map(w => w.word?.trim().toLowerCase()));
+            const merged = [
+              ...sheetWords,
+              ...initialWords.filter(w => !sheetWordsSet.has(w.word?.trim().toLowerCase()))
+            ];
+            setWords(merged);
+            try {
+              localStorage.setItem('ll_contributed_words', JSON.stringify(merged));
+            } catch {}
+          }
+        } catch (syncErr) {
+          console.warn('Lỗi đồng bộ nền Google Sheets:', syncErr);
+        }
+      }, 2500);
+    }
   };
 
   return (

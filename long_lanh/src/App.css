@@ -2670,10 +2670,1245 @@
   }
 }
 
+/* ==========================================================================
+   SMALL PHONES: iPhone SE/mini, Samsung Galaxy S (max-width: 480px)
+   Enhanced coverage for all page sections
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* ---- Header ---- */
+  .header-container {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .header-logo-img {
+    height: 44px;
+  }
+
+  .mobile-menu-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  /* ---- Mobile Drawer ---- */
+  .mobile-menu-drawer {
+    width: min(300px, 88vw);
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .mobile-drawer-logo {
+    height: 40px;
+  }
+
+  .mobile-menu-close {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .mobile-nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    border-radius: 14px;
+  }
+
+  /* ---- Hero Section (Home) ---- */
+  .hero {
+    padding: 2rem 1rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7.5vw, 2.8rem);
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    max-width: 100%;
+  }
+
+  .hero-search-bar {
+    padding: 0.38rem 1rem;
+  }
+
+  .hero-search-input {
+    font-size: 0.9rem;
+  }
+
+  .hero-graphic {
+    max-width: 340px;
+  }
+
+  /* ---- Quote Section ---- */
+  .quote-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .quote-text {
+    font-size: clamp(1.15rem, 4.2vw, 1.8rem);
+    line-height: 1.4;
+  }
+
+  .quote-illustration-left {
+    height: 140px;
+    max-width: 70%;
+  }
+
+  /* ---- Trending Section ---- */
+  .trending {
+    padding: 2.5rem 1rem;
+  }
+
+  .trending-title {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+  }
+
+  /* ---- Explore Page ---- */
+  .explore-hero {
+    padding: 2rem 1rem;
+  }
+
+  .explore-title {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .explore-search {
+    padding: 0.45rem 0.9rem;
+  }
+
+  .explore-cards {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .filters-section {
+    padding: 1.2rem 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .filter-tag {
+    padding: 0.4rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  /* ---- Word Detail Page ---- */
+  .word-hero {
+    padding: 3.8rem 0.75rem 1.8rem;
+    min-height: auto;
+  }
+
+  .word-hero-nav {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .word-hero-nav .back-btn {
+    font-size: 0.78rem;
+    padding: 0.38rem 0.7rem;
+    gap: 0.25rem;
+  }
+
+  .word-hero-nav .word-tag {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .graphic-placeholder {
+    min-height: 170px;
+  }
+
+  .word-hero-img {
+    max-height: 180px;
+  }
+
+  .graphic-text-3d {
+    font-size: clamp(2.5rem, 10vw, 3.8rem);
+  }
+
+  .word-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .word-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* ---- Meaning Section ---- */
+  .word-meaning {
+    padding: 2rem 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .meaning-main {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  .meaning-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .audio-card {
+    padding: 1.2rem;
+    border-radius: 18px;
+  }
+
+  .audio-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .audio-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .audio-player {
+    padding: 0.38rem;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .play-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .play-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .share-btn {
+    font-size: 0.82rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* ---- Examples Section ---- */
+  .word-examples {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .examples-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .example-box {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  /* ---- Story Section ---- */
+  .word-story {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .story-title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .story-right {
+    font-size: 0.95rem;
+    gap: 1rem;
+  }
+
+  /* ---- Footer ---- */
+  .footer-box {
+    padding: 2rem 0.75rem;
+    border-bottom-right-radius: 35px;
+  }
+
+  .footer-logo-img {
+    height: 55px;
+  }
+
+  .footer-links-title {
+    font-size: 1rem;
+  }
+
+  .footer-link-item {
+    font-size: 0.9rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.85rem;
+  }
+
+  /* ---- Back to Top ---- */
+  .back-to-top-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  /* ---- BTS Page ---- */
+  .bts-hero {
+    padding: 3rem 1rem;
+    min-height: auto;
+  }
+
+  .bts-title {
+    font-size: clamp(2rem, 7.5vw, 3rem);
+  }
+
+  .bts-desc {
+    font-size: 1rem;
+  }
+
+  .bts-mission,
+  .bts-process,
+  .bts-team {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .mission-title,
+  .process-title,
+  .team-title {
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+  }
+
+  .team-grid {
+    max-width: 100%;
+  }
+
+  /* ---- Game Page ---- */
+  .game-page-wrapper {
+    padding: 0.75rem 0.5rem 3rem;
+  }
+
+  .game-top-bar {
+    margin-bottom: 1rem;
+  }
+
+  .game-back-link {
+    font-size: 0.85rem;
+  }
+
+  .sound-toggle-btn {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .game-title-huge {
+    font-size: clamp(2.2rem, 7.5vw, 3.2rem);
+  }
+
+  .game-tagline {
+    font-size: 1rem;
+  }
+
+  .game-play-btn {
+    padding: 0.75rem 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .boat-img {
+    max-height: 220px;
+  }
+
+  .quiz-yellow-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .summary-card {
+    padding: 2rem 1.25rem;
+    border-radius: 26px;
+    box-shadow: 6px 6px 0px var(--black);
+  }
+
+  .summary-title {
+    font-size: 1.7rem;
+  }
+
+  .summary-score-circle {
+    width: 105px;
+    height: 105px;
+  }
+
+  .score-num {
+    font-size: 2.1rem;
+  }
+
+  .btn-restart,
+  .btn-explore-dict {
+    font-size: 0.92rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  .summary-buttons {
+    gap: 0.75rem;
+  }
+
+  .btn-review-toggle {
+    font-size: 0.88rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .review-item {
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+  }
+
+  .review-question {
+    font-size: 0.92rem;
+  }
+
+  .review-ans-info {
+    font-size: 0.85rem;
+  }
+
+  /* ---- Result Screen ---- */
+  .result-win-line {
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+  }
+
+  .result-wrong-title {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+  }
+
+  .result-explanation-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-result-next {
+    font-size: 0.78rem;
+    padding: 0.4rem 1rem;
+  }
+
+  /* ---- Contribute Page ---- */
+  .contribute-hero {
+    padding: 2rem 0.75rem 3rem;
+  }
+
+  .contribute-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .contribute-card {
+    padding: 1.5rem 0.75rem;
+    border-radius: 22px;
+    box-shadow: 5px 5px 0px var(--black);
+  }
+
+  .form-label {
+    font-size: 1.1rem;
+  }
+
+  .input-pill-wrapper {
+    padding: 0.5rem 0.85rem;
+    gap: 0.6rem;
+  }
+
+  .form-input {
+    font-size: 16px;
+  }
+
+  .btn-submit-word {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  /* ---- Maintenance Page ---- */
+  .maintenance-top-bar {
+    padding: 0.75rem 1rem;
+  }
+
+  .maintenance-logo {
+    height: 36px;
+  }
+
+  .maintenance-status-pill {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .maintenance-card {
+    padding: 1.8rem 1rem;
+    border-radius: 26px;
+  }
+
+  .maintenance-heading {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+  }
+
+  .maintenance-desc {
+    font-size: 0.92rem;
+  }
+
+  /* ---- Cards ---- */
+  .card-title,
+  .word-card-title,
+  .explore-card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+  }
+
+  .card-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+/* ==========================================================================
+   EXTRA SMALL PHONES: iPhone SE (375px), Samsung Galaxy S (360px)
+   ========================================================================== */
+@media (max-width: 375px) {
+  /* ---- Header ---- */
+  .header-container {
+    padding: 0.35rem 0.5rem;
+  }
+
+  .header-logo-img {
+    height: 38px;
+  }
+
+  .mobile-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* ---- Mobile Drawer ---- */
+  .mobile-menu-drawer {
+    width: 92vw;
+    padding: 1rem;
+    gap: 0.85rem;
+  }
+
+  .mobile-drawer-logo {
+    height: 36px;
+  }
+
+  .mobile-nav-link {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.84rem;
+    gap: 0.6rem;
+  }
+
+  .mobile-drawer-search input {
+    font-size: 15px;
+  }
+
+  .mobile-drawer-search-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- Hero Section (Home) ---- */
+  .hero {
+    padding: 1.5rem 0.75rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .badge {
+    font-size: 0.78rem;
+    padding: 0.35rem 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.7rem, 7vw, 2.3rem);
+    letter-spacing: 0;
+  }
+
+  .hero-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .hero-buttons .btn {
+    padding: 0.75rem 1.2rem;
+    font-size: 0.88rem;
+  }
+
+  .hero-search-bar {
+    padding: 0.32rem 0.85rem;
+  }
+
+  .hero-graphic {
+    max-width: 280px;
+  }
+
+  .hero-word-sticker {
+    width: clamp(160px, 55vw, 220px);
+  }
+
+  .hero-word-title {
+    font-size: clamp(1.7rem, 7vw, 2.1rem);
+  }
+
+  .hero-word-sub {
+    font-size: 0.88rem;
+  }
+
+  .hero-hat {
+    width: 110px;
+  }
+
+  .sticky-note {
+    width: 170px;
+    height: 170px;
+    padding: 1rem;
+  }
+
+  .sticky-note-text {
+    font-size: 1.5rem;
+  }
+
+  .sticky-badge {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* ---- Quote Section ---- */
+  .quote-section {
+    padding: 2rem 0.75rem;
+  }
+
+  .quote-text {
+    font-size: clamp(1rem, 3.8vw, 1.5rem);
+    line-height: 1.4;
+  }
+
+  .quote-section .btn {
+    font-size: 0.88rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  /* ---- Trending ---- */
+  .trending {
+    padding: 2rem 0.75rem;
+  }
+
+  .trending-title {
+    font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+  }
+
+  .trending-corner-character {
+    width: 90px;
+    top: -35px;
+  }
+
+  /* ---- Cards & Grid ---- */
+  .cards-grid,
+  .trending .cards-grid,
+  .explore-cards .cards-grid,
+  .dict-grid {
+    gap: 0.85rem;
+  }
+
+  .card-title,
+  .word-card-title,
+  .explore-card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+  }
+
+  .card-more-slot {
+    min-height: 140px;
+  }
+
+  .btn-explore-more-text {
+    font-size: 1.4rem;
+  }
+
+  /* ---- Explore Page ---- */
+  .explore-hero {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .explore-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .explore-search {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .explore-search .main-search-input {
+    font-size: 0.9rem;
+  }
+
+  .explore-cards {
+    padding: 2rem 0.75rem 3.5rem;
+  }
+
+  .explore-cards-title {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filters-section {
+    padding: 1rem 0.5rem;
+  }
+
+  .filter-tag {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  /* ---- Word Detail ---- */
+  .word-hero {
+    padding: 3.2rem 0.5rem 1.5rem;
+  }
+
+  .word-hero-nav {
+    top: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .word-hero-nav .back-btn {
+    font-size: 0.72rem;
+    padding: 0.32rem 0.55rem;
+    gap: 0.2rem;
+  }
+
+  .word-hero-nav .word-tag {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .graphic-placeholder {
+    min-height: 140px;
+  }
+
+  .word-hero-img {
+    max-height: 155px;
+  }
+
+  .graphic-text-3d {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .word-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.8rem);
+  }
+
+  .word-subtitle {
+    font-size: 0.82rem;
+  }
+
+  /* ---- Meaning ---- */
+  .word-meaning {
+    padding: 1.8rem 0.5rem;
+    gap: 1.2rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .meaning-main {
+    font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .meaning-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .audio-card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .audio-subtitle {
+    font-size: 0.78rem;
+  }
+
+  .audio-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .audio-player {
+    padding: 0.3rem;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .play-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .play-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .waveform {
+    gap: 3px;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .share-btn {
+    font-size: 0.75rem;
+    padding: 0.42rem 0.8rem;
+  }
+
+  .share-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ---- Examples ---- */
+  .word-examples {
+    padding: 2rem 0.5rem;
+  }
+
+  .examples-title {
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .example-box {
+    font-size: 0.9rem;
+    padding: 0.85rem;
+    border-radius: 14px;
+  }
+
+  /* ---- Story ---- */
+  .word-story {
+    padding: 2rem 0.5rem;
+    gap: 1.25rem;
+  }
+
+  .story-title {
+    font-size: 1.65rem;
+    line-height: 1.2;
+  }
+
+  .story-right {
+    font-size: 0.88rem;
+    gap: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* ---- Footer ---- */
+  .footer-box {
+    padding: 1.5rem 0.5rem;
+    border-bottom-right-radius: 30px;
+  }
+
+  .footer-logo-img {
+    height: 48px;
+  }
+
+  .footer-brand {
+    gap: 0.75rem;
+  }
+
+  .footer-desc {
+    font-size: 0.85rem;
+  }
+
+  .footer-links-title {
+    font-size: 0.95rem;
+  }
+
+  .footer-link-item {
+    font-size: 0.85rem;
+    gap: 0.4rem;
+  }
+
+  .footer-contact-email {
+    font-size: 0.88rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+  }
+
+  .footer-decor {
+    max-width: 250px;
+    opacity: 0.35;
+  }
+
+  /* ---- Back to Top ---- */
+  .back-to-top-btn {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    border-width: 2.5px;
+    box-shadow: 3px 3px 0px var(--black);
+  }
+
+  /* ---- BTS Page ---- */
+  .bts-hero {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .bts-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .bts-title {
+    font-size: clamp(1.7rem, 7vw, 2.5rem);
+  }
+
+  .bts-desc {
+    font-size: 0.92rem;
+  }
+
+  .bts-mission,
+  .bts-process,
+  .bts-team {
+    padding: 2rem 0.5rem;
+  }
+
+  .mission-title,
+  .process-title,
+  .team-title {
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+  }
+
+  .mission-right {
+    font-size: 0.92rem;
+  }
+
+  .timeline-item {
+    gap: 0.75rem;
+  }
+
+  .timeline-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .timeline-line {
+    left: 13px;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  /* ---- Game ---- */
+  .game-page-wrapper {
+    padding: 0.5rem 0.35rem 2.5rem;
+  }
+
+  .game-top-bar {
+    margin-bottom: 0.75rem;
+  }
+
+  .game-back-link {
+    font-size: 0.8rem;
+    gap: 0.3rem;
+  }
+
+  .sound-toggle-btn {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .game-title-huge {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+  }
+
+  .game-tagline {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .game-play-btn {
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+  }
+
+  .boat-img {
+    max-height: 180px;
+  }
+
+  .quiz-yellow-card {
+    padding: 1.25rem 0.75rem;
+    border-radius: 22px;
+  }
+
+  .quiz-top-title {
+    font-size: 0.85rem;
+  }
+
+  .quiz-question-text {
+    font-size: 1rem;
+  }
+
+  .quiz-option-btn {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.9rem;
+    border-radius: 14px;
+  }
+
+  .summary-card {
+    padding: 1.5rem 1rem;
+    border-radius: 22px;
+    box-shadow: 5px 5px 0px var(--black);
+  }
+
+  .summary-title {
+    font-size: 1.45rem;
+  }
+
+  .summary-score-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .score-num {
+    font-size: 1.8rem;
+  }
+
+  .score-total {
+    font-size: 0.82rem;
+  }
+
+  .summary-badge-box {
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .badge-name {
+    font-size: 1.15rem;
+  }
+
+  .badge-desc {
+    font-size: 0.9rem;
+  }
+
+  .btn-restart,
+  .btn-explore-dict {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.1rem;
+    box-shadow: 4px 4px 0px var(--black);
+  }
+
+  .summary-buttons {
+    gap: 0.6rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-review-toggle {
+    font-size: 0.82rem;
+    padding: 0.55rem 1rem;
+  }
+
+  .review-item {
+    padding: 0.8rem 0.85rem;
+    border-radius: 12px;
+  }
+
+  .review-question {
+    font-size: 0.88rem;
+  }
+
+  .review-ans-info {
+    font-size: 0.82rem;
+  }
+
+  .review-expl {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  /* ---- Result Screen ---- */
+  .layout-win .result-char-col,
+  .layout-wrong .result-char-col {
+    margin-top: 70px;
+    max-height: 180px;
+  }
+
+  .result-character-hero {
+    max-height: 160px;
+  }
+
+  .result-win-line {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .result-wrong-title {
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
+  }
+
+  .result-explanation-card {
+    padding: 0.85rem;
+    font-size: 0.85rem;
+    border-radius: 14px;
+  }
+
+  .btn-result-next {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+    box-shadow: 2px 2px 0px var(--black);
+  }
+
+  .result-floating-action {
+    top: 10px;
+    right: 10px;
+  }
+
+  /* ---- Contribute Page ---- */
+  .contribute-hero {
+    padding: 1.5rem 0.5rem 2.5rem;
+  }
+
+  .contribute-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .contribute-card {
+    padding: 1.2rem 0.5rem;
+    border-radius: 20px;
+    box-shadow: 4px 4px 0px var(--black);
+  }
+
+  .form-label {
+    font-size: 1rem;
+  }
+
+  .input-pill-wrapper {
+    padding: 0.42rem 0.7rem;
+    gap: 0.5rem;
+    border-radius: 99px;
+    box-shadow: 2px 2px 0px var(--black);
+  }
+
+  .form-input {
+    font-size: 15px;
+  }
+
+  .btn-submit-word {
+    padding: 0.6rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .detail-word-heading {
+    font-size: 2rem;
+  }
+
+  .detail-pill-box {
+    font-size: 0.88rem;
+    padding: 0.7rem 1rem;
+    border-radius: 16px;
+  }
+
+  .history-pill {
+    font-size: 0.82rem;
+    padding: 0.42rem 0.9rem;
+  }
+
+  /* ---- Maintenance Page ---- */
+  .maintenance-top-bar {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .maintenance-logo {
+    height: 32px;
+  }
+
+  .maintenance-status-pill {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+    gap: 0.4rem;
+  }
+
+  .pulsing-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .maintenance-content {
+    padding: 2rem 0.5rem;
+  }
+
+  .maintenance-card {
+    padding: 1.5rem 0.75rem;
+    border-radius: 22px;
+  }
+
+  .maintenance-heading {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+
+  .maintenance-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .maintenance-features-grid {
+    gap: 0.75rem;
+  }
+
+  .maintenance-preview-banner {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.85rem;
+  }
+
+  /* ---- Dictionary Page ---- */
+  .dict-category-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .dict-category-header h2 {
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
+  }
+
+  /* ---- Global neo-brutalism adjustments ---- */
+  .neo-shadow {
+    box-shadow: 3px 3px 0px var(--border-color);
+  }
+
+  .neo-border {
+    border-width: 2px;
+  }
+
+  /* ---- Not found page ---- */
+  .explore-hero .explore-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+}
+
 .bg-dots {
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
 }
+
 
 /* ==========================================================================
    GAME: NỐI TỪ / TRẮC NGHIỆM TIẾNG LÓNG MIỀN TÂY

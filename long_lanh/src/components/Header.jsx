@@ -99,7 +99,7 @@ export default function Header() {
         {/* Desktop Navigation Links */}
         <nav className="nav-links desktop-nav" aria-label="Menu chính">
           <Link to="/" className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>TRANG CHỦ</Link>
-          <Link to="/kham-pha" className={`nav-item ${currentPath === '/kham-pha' ? 'active' : ''}`}>KHÁM PHÁ</Link>
+          <Link to="/kham-pha" className={`nav-item ${currentPath === '/kham-pha' || currentPath.startsWith('/tu-vung/') ? 'active' : ''}`}>KHÁM PHÁ</Link>
           <Link to="/game" className={`nav-item ${currentPath === '/game' || currentPath === '/noi-tu' ? 'active' : ''}`}>ĐOÁN TỪ</Link>
           <Link to="/gop-tu" className={`nav-item ${currentPath === '/gop-tu' || currentPath === '/goc-gop-tu' ? 'active' : ''}`}>GÓC GÓP TỪ</Link>
           <Link to="/chuyen-phia-sau" className={`nav-item ${currentPath === '/chuyen-phia-sau' ? 'active' : ''}`}>CHUYỆN PHÍA SAU</Link>
@@ -243,7 +243,7 @@ export default function Header() {
 
               <Link 
                 to="/kham-pha" 
-                className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/kham-pha' ? 'active' : ''}`}
+                className={`mobile-nav-link neo-border neo-shadow ${currentPath === '/kham-pha' || currentPath.startsWith('/tu-vung/') ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span>KHÁM PHÁ</span>

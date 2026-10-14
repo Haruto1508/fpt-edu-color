@@ -315,7 +315,7 @@ export default function WordDetail() {
       </ScrollReveal>
 
       {/* Story Section */}
-      <ScrollReveal className="word-story bg-dots neo-border-top neo-border-bottom">
+      <ScrollReveal className="word-story bg-dots neo-border-top">
         <div className="story-left">
           <p className="section-subtitle text-blue">Đằng sau một tiếng lóng</p>
           <h2 className="story-title">

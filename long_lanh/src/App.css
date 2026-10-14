@@ -4,10 +4,14 @@
   min-height: 100vh;
   flex: 1;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .page-transition-wrapper {
   width: 100%;
+  max-width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -15,6 +19,15 @@
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+.page-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Accessible Screen Reader Only utility */
@@ -618,6 +631,9 @@
   border-bottom: 3.5px solid var(--blue);
   position: relative;
   overflow: visible;
+  overflow-x: clip;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .trending-corner-character {
@@ -661,6 +677,8 @@
   grid-auto-rows: 1fr;
   gap: 1.5rem;
   align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .trending .cards-grid {
@@ -687,6 +705,10 @@
 /* Đảm bảo tất cả item trong grid (kể cả bọc bởi StaggerItem) đều có chiều cao 100% bằng nhau */
 .cards-grid > * {
   height: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
@@ -694,6 +716,10 @@
 .cards-grid > * > .word-card,
 .cards-grid > * > * > .word-card {
   height: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
   flex: 1;
 }
 
@@ -734,10 +760,13 @@
   color: inherit;
   box-sizing: border-box;
   border: 3.5px solid var(--black);
-  box-shadow: 5px 5px 0px var(--black);
+  box-shadow: 4px 4px 0px var(--black);
   height: 100%;
   min-height: 180px;
   min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   justify-content: flex-start;
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
@@ -783,6 +812,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .card-tag {
@@ -793,6 +825,7 @@
   font-size: 0.85rem;
   font-weight: 800;
   border: 2px solid var(--black);
+  flex-shrink: 0;
 }
 
 .card-bg-green .card-tag {
@@ -811,6 +844,11 @@
   opacity: 0.8;
   color: var(--white);
   font-style: italic;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
 .card-title {
@@ -820,6 +858,9 @@
   text-transform: uppercase;
   margin: 0;
   line-height: 1.15;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .card-desc {
@@ -2554,12 +2595,48 @@
 
 /* MOBILE PORTRAIT CARDS & GRIDS (max-width: 580px) */
 @media (max-width: 580px) {
+  .trending {
+    padding: 2.25rem 1rem;
+    overflow-x: clip;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .trending-corner-character {
+    width: clamp(95px, 18vw, 125px);
+    top: -45px;
+    right: 0.5rem;
+    pointer-events: none;
+  }
+
   .cards-grid,
   .trending .cards-grid,
   .explore-cards .cards-grid,
   .dict-grid {
-    grid-template-columns: 1fr;
-    gap: 1.15rem;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .word-card {
+    border-radius: 18px;
+    border-width: 2.5px;
+    box-shadow: 3.5px 3.5px 0px var(--black);
+    padding: 1.15rem 1.25rem;
+    min-height: 165px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .word-card:hover {
+    transform: none; /* Tránh hover bị dính hiệu ứng lệch trên cảm ứng điện thoại */
+  }
+
+  .word-card:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--black);
   }
 }
 
@@ -2621,10 +2698,11 @@
   }
 
   .trending-corner-character {
-    width: 120px;
-    top: -50px;
-    right: 0;
+    width: clamp(80px, 18vw, 105px);
+    top: -42px;
+    right: 0.5rem;
     left: auto;
+    pointer-events: none;
   }
 
   .trending-header {
@@ -2757,11 +2835,37 @@
 
   /* ---- Trending Section ---- */
   .trending {
-    padding: 2.5rem 1rem;
+    padding: 2rem 1rem;
+    overflow-x: clip;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .trending-title {
     font-size: clamp(1.8rem, 6vw, 2.6rem);
+  }
+
+  .trending .cards-grid,
+  .cards-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .word-card {
+    border-radius: 16px;
+    border-width: 2.5px;
+    box-shadow: 3px 3px 0px var(--black);
+    padding: 1rem 1.15rem;
+    min-height: 155px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card-title {
+    font-size: 1.55rem;
   }
 
   /* ---- Explore Page ---- */
@@ -3296,7 +3400,10 @@
 
   /* ---- Trending ---- */
   .trending {
-    padding: 2rem 0.75rem;
+    padding: 1.75rem 0.75rem;
+    overflow-x: clip;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .trending-title {
@@ -3304,8 +3411,10 @@
   }
 
   .trending-corner-character {
-    width: 90px;
-    top: -35px;
+    width: 70px;
+    top: -30px;
+    right: 0.4rem;
+    pointer-events: none;
   }
 
   /* ---- Cards & Grid ---- */
@@ -3313,25 +3422,44 @@
   .trending .cards-grid,
   .explore-cards .cards-grid,
   .dict-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .word-card {
+    border-radius: 14px;
+    border-width: 2px;
+    box-shadow: 2.5px 2.5px 0px var(--black);
+    padding: 0.9rem 1rem;
+    min-height: 145px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .card-title,
   .word-card-title,
   .explore-card-title {
-    font-size: 1.1rem;
+    font-size: 1.35rem;
   }
 
   .card-desc {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
   }
 
   .card-more-slot {
-    min-height: 140px;
+    min-height: 130px;
+  }
+
+  .card-more-card {
+    min-height: 130px;
+    padding: 1rem;
   }
 
   .btn-explore-more-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   /* ---- Explore Page ---- */

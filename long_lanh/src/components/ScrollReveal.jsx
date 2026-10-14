@@ -43,6 +43,12 @@ const ANIMATION_CSS = `
     transition-delay: var(--sr-delay, 0s);
   }
 
+  /* Trên điện thoại / màn hình hẹp: không dùng translateX để tránh lệch trang và giật ngang */
+  @media (max-width: 768px) {
+    .sr-fade-left  { transform: translateY(18px); }
+    .sr-fade-right { transform: translateY(18px); }
+  }
+
   /* Reduced motion: skip all animations */
   @media (prefers-reduced-motion: reduce) {
     .sr-hidden { opacity: 1 !important; transform: none !important; }
